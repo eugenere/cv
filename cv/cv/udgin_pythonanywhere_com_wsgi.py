@@ -9,7 +9,7 @@ import os
 import sys
 
 # add your project directory to the sys.path
-project_home = '/home/Udgin/cv'
+project_home = '/home/Udgin/cv/cv'
 if project_home not in sys.path: sys.path.insert(0, project_home)
 
 # set environment variable to tell django where your settings.py is
