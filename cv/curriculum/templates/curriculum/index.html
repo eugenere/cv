@@ -16,8 +16,13 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         
     <style>
-        main {
+        html {
+            scroll-behavior: smooth;
+        }
+        body{
             position: relative;
+        }
+        main {
             padding-bottom: 8em;
         }
         #item-1 {
@@ -72,7 +77,10 @@
             <div id="personales" class="col-md-6">
                 <h2>Datos personales</h2>
                 <p>Yevhen (Eugenio) Repin</p>
-                <p>20/sep/1979</p>
+                <div class="row">
+                    <div class="col">20/sep/1979</div>
+                    <div id="edad"class="col">??</div>
+                </div>
                 <div class="row">
                     <div class="col">Correo electronico:</div>
                     <div class="col">eugenere@gmail.com</div>
@@ -243,16 +251,26 @@
             
             let navs = $("#navbarCollapse a")
             $('body').scrollspy({ target: '#navbar-header' })
-            /*
+            
+            let now = new Date()
+            let was = new Date('1979-09-20T12:34:56')
+            //let was = new Date('2020-12-21T12:34:56')
+            let y = now.getFullYear()-was.getFullYear();y=was.getMonth()<now.getMonth()?y:y-1
+            let m = now.getMonth()-was.getMonth();m=m<0?12+m:m
+            let d = now.getDate()-was.getDate();
+            $("#edad").text(y+" años "+m+" meses "+d+" dias")            
+            
+            /*            
             navs.click((e)=>{
                 //$('main').scrollspy({ target: '#navbar-header' })
                 navs.removeClass('active')
                 $(e.target).addClass('active')
             */
             navs.click((e)=>{
-                e.target.scrollIntoView({
+                $('body').animate({ scrollTop: e.target.top },'slow')
+                /*e.target.scrollIntoView({
                     behavior: "smooth",
-                })
+                })*/
             })
             console.log('dynamic loading finish')
         }
