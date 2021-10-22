@@ -16,130 +16,200 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         
     <style>
-    
+        main {
+            position: relative;
+            padding-bottom: 8em;
+        }
+        #item-1 {
+            padding-top: 8em;
+        }
+        main>div{
+            padding-top: 4em;
+        }
     </style>
 </head>
 <body>
-<div class="col-lg-8 mx-auto p-3 py-md-5">
-
-    <main class="pt-5 my-5">
-        <div class="col-md-6">
-            <h2>Datos personales</h2>
-            <p>Yevhen Repin</p>
-            <p>20/sep/1979</p>
-        </div>
-        <div class="col-md-6">
-            <h2>Formaccion</h2>
-            <p>Yevhen Repin</p>
-            <p>20/sep/1979</p>
-        </div>
-
-        <!--hr class="col-3 col-md-2 mb-5"-->
-
-        <div class="row g-5">
-            <div class="col-md-6">
-                <h2>Datos personales</h2>
-                <p>Yevhen Repin</p>
-                <p>20/sep/1979</p>
-            </div>
-
-            <div class="col-md-6">
-                <h2>Guides</h2>
-                <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
-                <ul class="icon-list">
-                    <li><a href="/docs/5.1/getting-started/introduction/">Bootstrap quick start guide</a></li>
-                    <li><a href="/docs/5.1/getting-started/webpack/">Bootstrap Webpack guide</a></li>
-                    <li><a href="/docs/5.1/getting-started/parcel/">Bootstrap Parcel guide</a></li>
-                    <li><a href="/docs/5.1/getting-started/contribute/">Contributing to Bootstrap</a></li>
-                </ul>
-            </div>
-        </div>
-    </main>
-  
-    <header class="pt-5 my-5 text-muted border-top">
-        <!--
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                Datos personales
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Formaccion
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">
-                                Experiencia
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="nav-item">
-                    <a class="nav-link disabled">
-                        Descargar PDF
-                    </a>
-                </button>
-                
-            </div>
-        </nav>  
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        -->
+    <header class="text-muted">
         
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+        <nav id="navbar-header" class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <button class="btn btn-outline-success">Datos personales</button>
-                <button class="ml-3 btn btn-outline-success">Formaccion</button>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" 
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse" id="navbarCollapse" style="">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#item-1">Datos personales</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#item-2">Formación académica</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
+                            <a class="nav-link" href="#item-3">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#item-4">Experiencia laboral</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#item-5">Idiomas</a>
                         </li>
                     </ul>
+                    <!--
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success">Search</button>
                     </form>
+                    -->
                 </div>
             </div>
         </nav>        
-
-
-        
     </header>
-    <footer class="pt-5 my-5 text-muted border-top">
+
+    <main data-spy="scroll" data-target="#navbar-header" class="col-lg-8 mx-auto px-3" data-offset="0">
+        <div id="item-1">
+            <div id="personales" class="col-md-6">
+                <h2>Datos personales</h2>
+                <p>Yevhen (Eugenio) Repin</p>
+                <p>20/sep/1979</p>
+                <div class="row">
+                    <div class="col">Correo electronico:</div>
+                    <div class="col">eugenere@gmail.com</div>
+                </div>
+                <div class="row">
+                    <div class="col">Telefono:</div>
+                    <div class="col">642312931</div>
+                </div>
+                <p>divorciado</p>
+                <p>Murcia, Ramon del Valle Inclan ed.4 - Murcia (España) 30011</p>
+                <p>Funciones / Roles</p>
+                <p>
+                    Desarrollador Web - Jefe de Proyecto - Programador - Técnico de Bases de Datos - Técnico de Sistemas - Técnico Software
+                </p>
+            </div>
+        </div>
+        
+        <div id="item-2">
+            <div id="formacion" class="col-md-6">
+                <h2>Formación académica</h2>
+                <ul class="icon-list">
+                    <li>
+                        <p>Ingeniería informática. Sistemas y redes informáticos</p>
+                        
+                        <a href="https://en.wikipedia.org/wiki/West_Ukrainian_National_University">
+                            Universidad Nacional de Ucrania Occidental
+                        </a>
+                        <p>2001-2005 años</p>
+                    </li>
+                    <li>
+                        <p>Matemáticas por computadora</p>
+                        
+                        <a href="https://en.wikipedia.org/wiki/West_Ukrainian_National_University">
+                            Ivan Ogienko Universidad Nacional de Kamyanets-Podilsky
+                        </a>
+                        <p>1996-2000 años</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="item-3">
+            <div id="cursos" class="col-md-6">
+                <h2>Cursos</h2>
+                <ul class="icon-list">
+                    <li>
+                        <p>bellas artes</p>
+                        <span>
+                            Escuela de artes
+                        </span>                    
+                        <p>1991-1996 años</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="item-4">
+            <div id="experiencia" class="col-md-6">
+                <h2>Experiencia laboral</h2>
+                <ul class="icon-list">
+                    <li>
+                        01/02/2001 - 11/06/2001
+                        Empreza "Zemliya"
+                        usuario de software especial
+                        Microsoft Windows, Word, software especial
+                    </li>
+                    <li>
+                        09/03/2003 - 29/09/2003
+                        ayuntamento Kamenets-Podolsky
+                        administrador de redes
+                        Microsoft Windows, Escel, software especial
+                    </li>
+                    <li>
+                        30/09/2003 - 15/08/2004 
+                        "Komputer dlia tebe"
+                        reunir y reparar de ordenadores y software
+                    </li>
+                    <li>
+                        16/08/2004 - 28/08/2006
+                        "Deka-soft"
+                        programmador
+                        Linux, web paginas, PHP, SQL(mySql), Java,
+                        HTML, CSS, ColdFusion, C#, Javascript
+                    </li>
+                    <li>
+                        "Kupidon"
+                        Linux, MySql, C++, OpenGL,
+                        30/08/2006-2010
+                    </li>
+                    <li>
+                        "Ubisoft"
+                        "origin"
+                        c++, javascript
+                        2010-2011
+                    </li>
+                    <li>
+                        cuentapropista
+                        Qt, qtWebkit, Python, Django
+                        2011-
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="item-5">
+            <div id="idiomas" class="col-md-6">
+                <h2>Idiomas</h2>
+                <ul class="icon-list">
+                    <li>
+                        Ruso y ucraniano - nativo
+                    </li>
+                    <li>
+                        Inglés - elemental
+                    </li>
+                    <li>
+                        Español - nivel medio
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-muted">
         <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <div class="text-end w-100">
-                    X/2022 Yevhen Repin 
+                <div class="text-begin">
+                    X/2022
+                </div>
+                <div class="text-end">
+                    Yevhen Repin 
                 </div>
             </div>
         </nav>  
     </footer>
-</div>
 
-
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
@@ -150,8 +220,23 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script>
-        document.body.onload=function(){
+        document.body.onload=()=>{
             console.log('dynamic loading inicio')
+            
+            let navs = $("#navbarCollapse a")
+            $('body').scrollspy({ target: '#navbar-header' })
+            /*
+            navs.click((e)=>{
+                //$('main').scrollspy({ target: '#navbar-header' })
+                navs.removeClass('active')
+                $(e.target).addClass('active')
+            */
+            navs.click((e)=>{
+                e.target.scrollIntoView({
+                    behavior: "smooth",
+                })
+            })
+            console.log('dynamic loading finish')
         }
         console.log('static loading finish')
     </script>
