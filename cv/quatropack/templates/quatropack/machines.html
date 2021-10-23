@@ -1,0 +1,47 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+{% block styles %}{{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machines.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %}{{ block.super }} {% trans "Todos Maquinas" %} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for machine in machines %}
+                <div class="qp-machine-short col-xs-12 col-md-6 col-lg-4">
+                    <img src="{% static 'quatropack2/images/machines/super_seal/' %}{{ machine.image }}" alt="{{ machine.name }}">
+                    
+                    <a class="qp-link _ml-auto" href="{% url 'quatropack2:machine' machine.slug %}"
+                            data-toggle="tooltip" data-placement="bottom" title="clic para leer mas">
+                        <h4 class="qp-title">{{ machine.name }}</h4>
+                    </a>
+                    <span class="qp-speed-bar-info _pl-3 qp-secondary qp-speed text-nowrap d-block d-sm-none">{% trans "Hasta" %} {{ machine.speed }} {% trans "un./min." %}</span>
+                    <span class="qp-speed-bar-info _pl-3 qp-secondary qp-speed text-nowrap d-none d-sm-block">{% trans "Hasta" %} {{ machine.speed }} {% trans "unidades por minuto" %}</span>
+
+                    <div id="qp-machine-speed-{{ forloop.counter }}" class="qp-speed-bar qp-progress-bar mb-3 progress">
+                        <div class="progress-bar qp-mech-speed-{{ machine.speed }}" style="width: 0{#{ machine.adapted_speed }#}%;"
+                                role="progressbar" aria-valuenow="{{ machine.adapted_speed }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <span class="qp-secondary qp-subtitle">{{ machine.short }}</span>
+                    
+                    <span class="qp-text">
+                        {{ machine.desc }}
+                        <a class="qp-link _ml-auto" href="{% url 'quatropack2:machine' machine.slug %}">{% trans "Mostrar más" %}</a>
+                    </span>
+                </div>
+            {% endfor machines %}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="{% static 'quatropack2/scripts/machines.js' %}"></script>
+{% endblock scripts %}
+

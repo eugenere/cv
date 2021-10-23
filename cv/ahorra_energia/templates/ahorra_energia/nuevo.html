@@ -1,0 +1,401 @@
+{% extends "comun/base.html" %}
+{% load static mas_tags %}
+
+{% block title %}
+    Ahorre◌Energia
+{% endblock %}
+
+{% comment %}
+        /*
+        background-color: rgba(0, 0, 0, .3);
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.43) 39%, rgba(42,42,42,1) 90%, rgba(0,0,0,1) 100%);
+        border-radius: 1em;
+        */
+{% endcomment %}
+
+{% block styles %}
+    {{ block.super }}
+    <style>
+        .c_caption
+        {
+            text-shadow: 0 0 .1em black;
+            background-color: rgba(0,0,0, 0.5);
+        }
+
+        input[type="file"]
+        {
+            display: none;
+        }
+        .custom-file-upload
+        {
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron c_transparent pt-5 mt-5">
+        <div class="content c_content px-5 py-3">
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar energía / Ofertas
+                    </h4>
+                    <p>
+                        Diseñamos proyecto de nueva Instalación si se considerara esto como mejor opción, para ello le facilitamos detalle de los componentes de la misma y presupuesto del instalador, vd siempre puede elegir instalador.
+                    </p>
+                    <p>
+                        Ver las posibilidades para ahorrar hasta 50% del coste de tu consumo.
+                    </p>
+                    <p>
+                        Somos un grupo de profecionales alta cualificación técnica y gran experiencia en el sector.
+                    </p>
+                    <p>
+                        Trabajamos en toda la Comunidad Autónomia la Región de Murcia.
+                    </p>
+                    <p>
+                        Mejoramos su gasto actual y tambien el nueva.
+                    </p>
+                    <p>
+                        Hacemos entrega a instalación.
+                    </p>
+                    <p>
+                        <img src="{% static 'vista/images/ae_region.png' %}" alt="El mapa"/>
+                    </p>
+                    <p class="text-muted">
+                        Soluciones completas para ahorrar su consumo de electricidad.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / ¿idiomas
+                    </h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / <a href="{% url 'admin:login' %}">Entrada</a>
+                    </h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / Cargar factura <span class="text-muted">(para analizar a preparar presupuesto)</span>
+                    </h4>
+                    <form>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="cuenta">Correo electronico</label>
+                                    <input type="email" class="form-control" id="cuenta" aria-describedby="cuenta">
+                                    <small id="ayudaCuenta" class="form-text text-muted">correo electronico</small>
+                                </div>
+                                <div class="col">
+                                    <label for="contrasena">Contraseña</label>
+                                    <input type="password" class="form-control" id="contrasena">
+                                    <small id="ayudaContrasena" class="form-text text-muted">si quiere tener acceso</small>
+                                </div>
+                                <div class="col">
+                                    <label class="btn btn-outline-secondary mt-4" for="factura">Cargar su factura de electricidad</label>
+                                    <input type="file" class="custom-file-upload form-control" id="factura">
+                                    <small id="ayudaFactura" class="form-text text-muted">
+                                        Para analizar a preparar presupuesto
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / Inicio
+                    </h4>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / Galería
+                    </h4>
+
+                    <div id="galeriaCarouselSlides" class="carousel slide carousel-fade" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% for image in images %}
+                                {% if forloop.first %}
+                                    <li data-target="#galeriaCarouselSlides" data-slide-to="0" class="active"></li>
+                                {% else %}
+                                    <li data-target="#galeriaCarouselSlides" data-slide-to="{{ forloop.counter0 }}"></li>
+                                {% endif %}
+                            {% endfor ´indicators´ %}
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for image in images %}
+                                {% if forloop.first %}
+                                    {% define "carousel-item active" as CLASSES %}
+                                    <!--div class="carousel-item active" data-interval="2000"-->>
+                                {% else %}
+                                    {% define "carousel-item" as CLASSES %}
+                                    <!--div class="carousel-item" data-interval="2000"-->
+                                {% endif %}
+                                <div class="{{ CLASSES }}" data-interval="25000">
+                                    <img src="{% static 'nueva_vista/images/' %}{{ image }}" class="d-block w-100" alt="...">
+                                    <div class="c_caption carousel-caption d-none d-md-block">
+                                        <h5>{{ forloop.counter0 }} / {{ image }}</h5>
+                                        <p><a href="{% static 'nueva_vista/images/' %}{{ image }}">{% static 'nueva_vista/images/' %}{{ image }}</a></p>
+                                    </div>
+                                </div>
+                            {% endfor ´carousel-item´ %}
+                        </div>
+                        <a class="carousel-control-prev" href="#galeriaCarouselSlides" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#galeriaCarouselSlides" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / Noticias
+                    </h4>
+                    <p>
+                        Sus propias
+                        <br>
+                        Categorias:
+                        {% if categorias %}
+                            {% for categoria in categorias %}
+                                {% if not forloop.first %}
+                                    <span>, </span>
+                                {% endif %}
+                                {{ categoria.nombre }}
+                            {% endfor %}
+                        {% else %}
+                            <p>no hay categorias</p>
+                        {% endif %}
+                        <br>
+                        {% if noticias %}
+                            {% for noticia in noticias %}
+                                <br>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h4>{{ noticia.titulo }}</h4>
+                                        <p>{{ noticia.contenido }}</p>
+                                    </div>
+                                    <div class="col text-right">
+                                        <a class='btn btn-link' href="{% url 'investigaciones:eliminar_noticia' noticia.id %}">eliminar</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        [{{ noticia.publicado }}]
+                                        ({{ noticia.categoria.nombre }})
+                                    </div>
+                                    <div class="col text-right">
+                                        {{ noticia.autor.username }}
+                                    </div>
+                                </div>
+                                <hr>
+                            {% endfor %}
+                        {% else %}
+                            <p>No hay ninguna.</p>
+                        {% endif %}
+                    </p>
+                    <p>
+                        De Facebook
+                        <br>
+                        <iframe
+                                src= "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fahorrarenergiamurcia%2F&tabs=timeline&width=600&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="600" height="400" style="border:none;overflow:hidden"
+                                scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+                        </iframe>
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Ahorrar Energía / Contactos
+                    </h4>
+                    <p>
+                        facebook página/cuenta
+                    </p>
+                    <p>
+                        gmail
+                    </p>
+                    <p>
+                        teléfono
+                    </p>
+                    <p>
+                        whatsapp
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Kit Autoconsumo
+                    </h4>
+                    <div>
+                        Eficiencia Energética a través de energía verde.
+                        Autoconsumo:
+                        Para que la eficiencia energética, el cuidado al medio ambiente y la rentabilidad de las familias, empresas, agricultores etc, sea una realidad, se debe de implantar y apostar decididamente por energías verdes, alternativas que en todo el país son muy factibles y más en el arco mediterráneo, donde tenemos sol y aire para abastecernos y ser autónomos en autoconsumo sin ningún problema.
+                        Nosotros apuesta por la energía solar fotovoltaica y eólica. Para ello te ofrece un estudio detallado de inversión y ahorro, con amortizaciones a pocos años, lo que hace muy rentable la inversión.
+                        Trabajamos directamente con el fabricante, con garantías de las placas hasta 25 años.
+                        Productos:
+                        - Kit solar para casetas de áperos o riegos pequeños
+                        - Instalaciones fotovoltáicas para naves y viviendas
+                        - Instalaciones de riego
+                        Todo se realiza llave en mano y es posible financiar.
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Asesoría energética
+                    </h4>
+                    <p>
+                        ¿Tiene bien contratada la luz? El 85% de usuarios no la tiene bien contratada. Eso genera un gasto innecesario por su parte.
+                        La mejor manera de ahorrar es consumir eficientemente y con inteligencia.
+                        Solo con la información, análisis y comparación puedo decidir acertadamente en cuanto al ahorro y beneficio en mi contratación.
+                        Te ofrecemos una asesoría de eficiencia energética en Murcia.
+                            - Nosotros interpreta las facturas de la luz recibidas
+                            - Realiza una auditoría
+                            - Recomendaciones de ahorro con las siguientes funciones: costes de instalación (tarifa contratada y medición de datos), que el contrato sea el adecuado, también avisamos de posibles anomalías en la instalación, como la contratación de potencia adecuada.
+                        En España, en el mes de enero, la factura de la luz va a batir récord histórico, será un 30% más caro que el año pasado y un 6 % más que la de diciembre.
+                        Hay tres grandes factores que influyen en la subida de la luz: la escasez de energías renovables, la subida de los precios del petróleo y un diseño institucional que hace que en una situación como la que vivimos el precio de la luz no se pueda contener.
+                        El problema del encarecimiento de la factura tiene un nombre y es “energías renovables”.
+                        El viento y la lluvia no han hecho acto de presencia por lo que las “energías renovables” están bajo mínimos.
+                        <a href="#">Contacta con nosotros</a> y te haremos un estudio energético exhaustivo de forma gratuita.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Auditoría energética
+                    </h4>
+                    <p>
+                        La auditoría sirve para elaborar un plan estructurado de ahorro energético.
+                        ¿En qué consiste la auditoría energética? En una recogida de información, análisis, clasificación y propuesta de alternativas, para finalmente tomar las decisiones oportunas.
+                        ¿Cuándo se realiza la auditoría energética? Si por ejemplo, hay un aislamiento insuficiente que puede estar provocando la pérdida de frío o calor, o si te parece que las instalaciones no son las adecuadas.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Mantenimiento y revisiones
+                    </h4>
+                    <p>
+                        La preocupación por los consumos energéticos continua creciendo.
+                        Trabajamos y ofrecemos resultados a nuestros clientes. Apostamos por esta forma de ahorro facilitando a nuestros clientes lo que llamamos grandes cuentas, uniendo clientes de sectores específicos.
+                        Ponemos a su disposición nuestro departamento técnico para las posibles revisiones (serán obligatorias en locales públicos) anuales. Así como el mantenimiento de sus instalaciones.
+                        La tendencia de los mercados energéticos, hace que los consumidores se unan, con el fin de sumar grandes cantidades de kilovatios y poder reducir el precio de los mismos, consiguiendo así grandes ahorros en tu factura eléctrica y en eficiencia energética.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Energía solar / Autoconsumo
+                    </h4>
+                    <p>
+                        Energía verde.
+                        Instalaciones de fotovoltaica para autoconsumo y producción de energía, con conexión a red o sin conexión a red.
+                        Gran ahorro energético, eficiencia energética y preservación del medio ambiente, ahorro de emisiones de CO2.
+                    </p>
+                    <p class="text-muted">
+                        Precio: sobre presupuesto en función de la necesidad de consumos
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Inversión en LED's
+                    </h4>
+                    <p>
+                        Si ahorrar en consumo depende de inversión y estás dispuesto a invertir, nosotros te traeremos propuestas de inversión en luminarias LED's. Conseguirás el mayor ahorro en eficiencia energética.
+                        No des un paso en falso sin consultar nuestras ofertas. Un técnico te visitará y te guiará en este proyecto.
+                        En la actualidad podemos acondicionar e incorporar led´s a un 90% de todos los dispositivos de iluminación actual: iluminación para casas, oficinas… entre otros tantos.
+                        Ahorra con iluminación led. Nosotros nos encargamos de los estudios de ahorro energético.
+                        Los tubos LED ofrecen una mejor calidad de luz (más brillante), no tiene parpadeos ni radiaciones ultravioleta y su encendido es inmediato. Son de fácil sustitución, no requieren mantenimiento y aseguran una alta durabilidad. Aumentan y sustituyen a los actuales tubos fluorescentes ahorrando más del 50% de energía.
+                        Instalamos leds para alumbrados, se destina a ayuntamientos, naves, polideportivos…
+                        Esta línea de trabajo no supone un gasto adicional para nuestros clientes, ya que viene financiada y se paga con el ahorro que se genera.
+                        Proponemos instalar led inteligente, smartled, que sean capaces de dimar y analizar la luz natural del suelo para ajustarse en lúmenes y potencias, que sean capaces de actuar con regulaciones programadas y sencillas.
+                        Esto es necesario para cumplir con el nuevo codigo tecnico de edificacion obligatorio en la comunidad europea, y será esencial para la verdadera eficiencia energética e imprescindible para la obtención de la ISO 50001.
+                    </p>
+                    <p class="text-muted">
+                        Precio: presupuesto personalizado
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Comercializadora
+                    </h4>
+                    <p>
+                        ¿Esta seguro de tener la luz contratada con la comercializadora más barata?
+                        Nosotros te traeremos propuestas de otras empresas suministradoras para que compares precios, si cambiar es rentable para ti también lo será para nosotros. Ahorrando el máximo consumo de eficiencia energética.
+                        Desde hace más de 13 años, el consumidor tiene libertad de cambiar de empresa comercializadora de electricidad. Con ello, se puso fin a un régimen casi cerrado, en el cual, dependiendo de la zona de residencia, teníamos ya “adjudicada” la empresa que nos iba a cubrir el servicio eléctrico.
+                        Pero ¿cómo hacerlo?. A pesar de los años, a diferencia de otros mercados como el de las telecomunicaciones, el cambio es más complejo, empezando por la existencia de dos tipos de estructura de precios, la tarifa regulada (ahora denominada PVPC), precio cerrado que no varía entre las distintas y otra, libre, con un precio que como su propio nombre indica se determina “libremente” entre la empresa y el consumidor que lo contrata.
+                        Se puede optar por cualquiera de ellas y cambiar no sólo de empresa sino de forma de tarifa en cualquier momento, del mercado regulado al libre e incluso y viceversa, del libre volver al regulado.
+                        Realizar un cambio es sencillo, tan solo es necesario comunicar su intención al nuevo comercializador y firmar el nuevo contrato de suministro. La empresa contratada se encarga de todos los trámites del traslado. Para buscar un mayor éxito en la liberalización del mercado eléctrico, actualmente cuando ya se ha realizado el cambio, ni el comercializador de último recurso original ni ninguna otra empresa comercializadora de su mismo grupo empresarial podrán realizar contraofertas al consumidor en el plazo de un año, cumpliéndose siempre una serie de principios:
+                            - El consumidor tendrá derecho a elegir libremente la empresa comercializadora.
+                            - En caso de acogerse al PVPC ésta será una comercializadora de referencia.
+                            - El comercializador podrá pertenecer o no, a elección del consumidor, al mismo grupo empresarial que la empresa distribuidora.
+                            - El consumidor podrá elegir cualquier modalidad de contratación.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Alquiler de contadores monitorizados
+                    </h4>
+                    <p>
+                        Monitorización de suministros.
+                        Te alquilaremos el equipo de medida inteligentes con telemedida, y al 5º año pasa a ser de tu propiedad
+                        Durante los 60 meses, te regalamos la monitorización del suministro.
+                    </p>
+                    <p class="text-muted">
+                        Precio: 40 € mes para tarifas 31a y 70 € mes para tarifas 61a
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Asesoramiento anual
+                    </h4>
+                    <p>
+                        Los nuevos sistemas de cálculo de la factura eléctrica, en vez de facilitar su comprensión, lo complica aun más si cabe, como consecuencia cada vez son más necesarias las empresas que como nosotros, ayudan a sus clientes a que las compañías eléctricas no abusen de ellos. Obtendrás un gran ahorro en eficiencia energética.
+                        Firma con nosotros un contrato de asesoramiento y olvídate de la factura de la luz.
+                        Nosotros revisaremos si tu factura está en orden o si por el contrario hubiera que hacer alguna revisión o reclamación legal.
+                        Todo por una cuota de asesoramiento anual basado en el ahorro generado al año.
+                        Nuestros equipos comerciales, están a la disposición de todos aquellos que quieran usar nuestros servicios. Con nosotros el saber no cuesta nada.
+                        Trabajamos para conseguir que sus clientes ahorren en su factura de luz y gas.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Boletines y proyectos
+                    </h4>
+                    <p>
+                        ¿Necesitas un boletín eléctrico o tu instalación requiere de proyecto eléctrico?
+                        Nuestro equipo técnico e ingenieros te pueden asesorar y dar precio, siendo cliente de asesoramiento con nuestra compañía puedes beneficiarte de mejores precios en este servicio.
+                        No dudes en ponerte en contacto con nosotros, estaremos encantados de poder asesorarte. Con nosotros conseguirás un mayor ahorro en eficiencia energética.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>
+                        Certificado de eficiencia
+                    </h4>
+                    <p>
+                        Actualmente es un requisito obligatorio para cualquier tipo de traspaso de inmueble, alquiler o venta.
+                        El objetivo de dicho procedimiento es promover edificios de alta eficiencia energética que ayuden al ahorro de energía, ésto supone una información adicional sobre las características energéticas de la comunidad o vivienda para así valorar y poder comparar prestaciones.
+                        Muchos edificios de viviendas necesitan obras de mantenimiento que tienen que ver con la rehabilitación energética, las viviendas construidas antes del año 80 no tienen, con toda seguridad, aislamiento térmico en sus fachadas por lo que necesitarían una mejora del mismo.
+                        Los precios que se encuentran en la calle por este tipo de certificado son muy variables y no están regulados.
+                        Nuestro departamento técnico e ingenieros te orientarán y darán precio siendo más económico que en la calle, si ya eres cliente de asesoramiento energético con nosotros.
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $(function()
+        {
+            dbg("start")
+        })
+    </script>
+{% endblock %}

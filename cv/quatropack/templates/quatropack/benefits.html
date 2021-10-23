@@ -1,0 +1,63 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+{% block styles %}{{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/benefits.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/feedbacks2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/btech.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %}{{ block.super }} {% trans "Ventajas" %} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="qp-title">Ventajas de Sellar por inducción</div>
+    <div class="qp-subtitle">¡Buenas razones para sellar su producto!</div>
+    <div class="qp-row row text-center">
+        {% for benefit in benefits %}
+        <div class="qp-benefit-story col-md-6 col-sm-12" id="benefit-{{ forloop.counter }}">
+            <img src="{% static 'quatropack2/images/benefits/' %}{{ benefit.image }}" alt="{{ benefit.title }}"/>
+            <h4 class="qp-benefit-title text-left">{{ benefit.title }}</h4>
+            <p class="text-left">{{ benefit.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+    <br>
+    <br>
+    <br>
+    {% include 'quatropack2/feedbacks2.html' %}
+    <br>
+    <br>
+    <br>
+<br>
+<br>
+<br>
+{#% include 'quatropack2/technology_banner.html' %#}
+        <div class="qp-technology-banner">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-6">
+                        <video id="video-nn" class="qp-btech" controls width="100%"
+                                poster="{% static 'quatropack2/images/video_poster.jpg' %}">
+                            <source type="video/webm" src="http://data.rf.gd/static/video/SuperSeal.mp4.webm">
+                        </video>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-5 qp-text">
+                        En este video, podrá ver cómo funciona el proceso del sellado por inducción, y conocer los elementos principales que intervienen en una termoselladora por inducción. Podrá ver líneas reales en producción y muchos ejemplos de productos sellados.
+                        <a class="qp-technology" href="{% url 'quatropack2:technology' %}">leer mas</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="{% static 'quatropack2/scripts/nn.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,30 @@
+{% load static i18n %}
+{# short logotypes #}
+<div class="qp-sector-body-quadro">
+    <div class="container text-center">
+        <h4 class="qp-title">
+            {% trans 'En colaboración con los líderes de la industria' %}
+        </h4>
+        <div class="qp-text">
+            {% trans 'Millones de envases sellados por inducción cada día. La eficacia de nuestros equipos se demuestra en producción real, sean multinacionales o startups.' %}
+            <span> {% trans 'Nuestros clientes opinan' %} <a href="{% url 'quatropack2:cases' %}"> {% trans 'aquí' %} </a>.</span>
+        </div>
+        <div class="qp-carousel-logotypes owl-carousel owl-theme">
+            {% for item in logotypes.top %}
+                <div class="item">
+                    <img class="qp-image" alt="{{ item.name }}"
+                            src="{% static 'quatropack2/images/logotypes/' %}{{ item.image }}">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="qp-carousel-logotypes owl-carousel owl-theme">
+            {% for item in logotypes.bottom %}
+                <div class="item">
+                    <img class="qp-image" alt="{{ item.name }}"
+                            src="{% static 'quatropack2/images/logotypes/' %}{{ item.image }}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+

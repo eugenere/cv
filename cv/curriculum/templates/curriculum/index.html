@@ -198,6 +198,11 @@
                         Angular, OpenCV, Blender3d
                         <br>
                         2011-<br>
+                        <a href="/ahorra_energia">Ahorre ◌ energiA</a>
+                        <br>
+                        <a href="/quatropack">Quatropack</a>
+                        <br>
+                        <a href="/bauglobal">Bauglobal</a>
                     </li>
                 </ul>
             </div>
@@ -260,17 +265,16 @@
             let d = now.getDate()-was.getDate();
             $("#edad").text(y+" años "+m+" meses "+d+" dias")            
             
-            /*            
-            navs.click((e)=>{
-                //$('main').scrollspy({ target: '#navbar-header' })
-                navs.removeClass('active')
-                $(e.target).addClass('active')
-            */
             navs.click((e)=>{
                 $('body').animate({ scrollTop: e.target.top },'slow')
-                /*e.target.scrollIntoView({
+                $('html, body').animate({
+                    scrollTop: e.target.top
+                }, 2000);
+                /*
+                e.target.scrollIntoView({
                     behavior: "smooth",
-                })*/
+                })
+                */
             })
             console.log('dynamic loading finish')
         }

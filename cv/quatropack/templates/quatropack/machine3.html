@@ -1,0 +1,118 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machine3.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="qp-machine">
+        <div class="container">
+            <div class="qp-title">
+                Super Seal™ Touch induction cap sealer
+            </div>
+            <div class="qp-subtitle">
+                The industry's first interactive touch screen induction sealer
+            </div>
+            <br>
+            <br>
+            <div class="qp-table row">
+                <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/Superseal touch.png" alt="">
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-6 col-lg-8">
+                    <div class="qp-text">
+                        This single coil induction cap sealer was created to offer users increased productivity, an easier set-up and more control. The easy to use touch screen is available in multiple languages and comes with supervisory password protection and recipe management as standard features.
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/SuperSealTouch.png" alt="">
+                        </div>
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/Enercon Super Seal Frame - Front.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/Enercon Super Seal Frame - Side.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/Enercon Super Seal Frame.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-6">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/2.draft.png" alt="">
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Touch screen control</h3>
+                        <ul>
+                            <li>Easy set-up and operation</li>
+                            <li>Pre-programmed and fully integrated touch screen control for inspection and rejection</li>
+                            <li>Remote start/stop and remote power control (auto start function available)</li>
+                            <li>Password protection with operator lockout</li>
+                            <li>High and low level set power alarm</li>
+                            <li>Recipe management</li>
+                            <li>Internal monitoring of all critical operating data</li>
+                            <li>Diagnostic system information</li>
+                            <li>Multiple language display</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-6">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/touch/1.dim.png" alt="">
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Specifications</h3>
+                        <ul>
+                            <li>Dimensions 580 x 880 x 1524-1824mm (WxDxH)</li>
+                            <li>Power supply: single phase, 230V, 50Hz, 5amps</li>
+                        </ul>
+                        <h3 class='qp-subtitle'>Internal USB data port</h3>
+                        <ul>
+                            <li>Network connectivity available</li>
+                        </ul>
+                        <h3 class='qp-subtitle'>Plus</h3>
+                        <ul>
+                            <li>Stainless steel IP65 enclosure</li>
+                            <li>Robust stainless steel fully adjustable stand for different container heights</li>
+                            <li>Seals a variety of caps ranging from 20mm – 140mm</li>
+                            <li>Fully compliant with all CE regulations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+	{% include 'quatropack2/products.html' %}
+    {% include 'quatropack2/logotypes2.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+

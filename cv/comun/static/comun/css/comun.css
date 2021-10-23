@@ -1,0 +1,25 @@
+﻿html, body
+{
+	/*height: 100%;*/
+}
+
+.c_transparent
+{
+    background-color: transparent!important;
+}
+
+.c_white
+{
+    background-color: white!important;
+}
+
+.c_txt_lime
+{
+    color: lime!important;
+}
+
+.c_shadow
+{
+    text-shadow: 0 0 .1em black;
+}
+

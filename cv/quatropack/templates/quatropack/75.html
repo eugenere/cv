@@ -1,0 +1,191 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+<!--
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+-->
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machine3.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/img-zoom.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/touch.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/feedbacks2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/video-back.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/btech.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="qp-machine">
+        <div class="container">
+            <div class="qp-title">
+                Super Seal™ 75
+            </div>
+            <div class="qp-subtitle">
+                La automática fiable adaptada a su línea de producción.
+            </div>
+            <br>
+            <br>
+            <div class="qp-table row justify-content-around">
+                <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/100/main.jpg' %}" alt="main">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-6 col-lg-7">
+                    <div class="qp-text">
+                        <p>
+                            <span class="qp-4-spaces"></span>La gama Super Seal, superventas indiscutibles sellan cada día millones de envases en todo el mundo y gozan de reconocimiento por su fiabilidad y robustez. Pensada para producciones medias automáticas. Una inversión rentable y un resultado asegurado en cada envase. Hasta 50 unidades por minuto (3000 unidades por ﻿hora).
+                        </p>
+                    </div>
+                    <br>
+                    {% include 'quatropack2/_nn_frames.html' %}
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class='qp-video-back-container'>
+            <video autoplay muted loop>
+                <source type="video/webm" src="http://data.rf.gd/static/video/back.webm">
+            </video>
+            <br>
+            <div class="container">
+                <div class='row justify-content-around'>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        <div class="qp-text">
+                            <h3 class='qp-subtitle'>Funciones principales</h3>
+                            <ul>
+                                <li>Diseños de bobina eficientes para maximizar el rendimiento y reducir los costes energéticos.</li>
+                                <li>Panel de control fácil de usar.</li>
+                                <li>Modelo  compacto  que  puede  instalarse  fácilmente  en  cualquier línea de producción existente.</li>
+                                <li>Soporte ajustable de fácil colocación permite un ajuste rápido u sencillo para diferentes tamaños y alturas de envases.</li>
+                                <li>Sella toda una variedad de tapones con diámetros entre 20 y 130mm.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-5">
+                        <br>
+                        <div class="qp-img-wrapper">
+                            <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/100/draft_50_75_100.png' %}" alt="draft">
+                            <div class="qp-button">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class='text-right'>
+                                descargar 
+                                <a href="https://www.enerconind.co.uk/wp-content/uploads/2017/04/Super-Seal-Range-Layout-Drawing.pdf">pdf</a>
+                                <!--a href="https://deroman.000webhostapp.com/static/nn.dwg">dwg</a-->
+                                <a href="https://quatropack.000webhostapp.com/static/nn.dwg">dwg</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class='row justify-content-around'>
+                <div class="col-sm-12 col-md-6">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/100/dimensions.png' %}" alt="dimensions">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-5">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Además</h3>
+                        <ul>
+                            <li>Las partes electrónicas de alimentación eléctrica están protegidas dentro de un carenado estanco IP65 y permiten lavado en aplicaciones en industria farmacéutica, alimentación y lácteas.</li>
+                            <li>Funcionamiento refrigerado por aire incluso a pleno rendimiento.</li>
+                            <li>No necesitan prácticamente ningún mantenimiento lo que logra un coste de utilización muy bajo y años de funcionamiento impecable.</li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/75/main.jpg' %}" alt="75">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Características</h3>
+                        <ul>
+                            <li>Dimensiones: 580 x 880 x (h) 1524-1824mm.</li>
+                            <li>Suministro eléctrico: monofásico, 230V, 50Hz</li>
+                            <li>Cumple todas las normativas CE y lleva el distintivo CE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+{#% include 'quatropack2/technology_banner.html' %#}
+        <div class="qp-technology-banner">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-6">
+                        <video id="video-nn" class="qp-btech" controls width="100%">
+                            <source type="video/webm" src="http://data.rf.gd/static/video/SuperSeal.mp4.webm">
+                        </video>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-5 qp-text">
+                        En este video, podrá ver cómo funciona el proceso del sellado por inducción, y conocer los elementos principales que intervienen en una termoselladora por inducción. Podrá ver líneas reales en producción y muchos ejemplos de productos sellados.
+                        <a class="qp-technology" href="{% url 'quatropack2:technology' %}">leer mas</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+<br>
+<br>
+    {% include 'quatropack2/feedbacks2.html' %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+	{% include 'quatropack2/products.html' %}
+    {#% include 'quatropack2/logotypes2.html' %#}
+    {% include 'quatropack2/img-zoom.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <!--
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    -->
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/img-zoom.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/nn.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,183 @@
+{% extends "comun/base.html" %}
+{% load static mas_tags %}
+
+{% block title %}
+    Ahorre◌Energia
+{% endblock %}
+
+{% comment %}
+        /*
+        background-color: rgba(0, 0, 0, .3);
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.43) 39%, rgba(42,42,42,1) 90%, rgba(0,0,0,1) 100%);
+        border-radius: 1em;
+        */
+{% endcomment %}
+
+{% block styles %}
+    {{ block.super }}
+    <style>
+        .c_caption
+        {
+            text-shadow: 0 0 .1em black;
+            background-color: rgba(0,0,0, 0.5);
+        }
+
+        input[type="file"]
+        {
+            display: none;
+        }
+        
+        .custom-file-upload-label
+        {
+            margin-top: 1.9em!important;
+        }
+        
+        .custom-file-upload
+        {
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+        
+        body
+        {
+            background: url({% static 'nueva_vista/images/fondo.jpg' %});
+        }
+        
+        *
+        {
+            border-radius: 0!important;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron c_transparent pt-5 mt-5">
+        <div class="content c_content px-5 py-3">
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <div class="d-flex flex-column flex-md-row justify-content-around align-items-stretch c_white t-flex-wrap">
+                <div>
+                    <div id="galeriaCarouselSlides" class="carousel slide carousel-fade" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% for image in images %}
+                                {% if forloop.first %}
+                                    <li data-target="#galeriaCarouselSlides" data-slide-to="0" class="active"></li>
+                                {% else %}
+                                    <li data-target="#galeriaCarouselSlides" data-slide-to="{{ forloop.counter0 }}"></li>
+                                {% endif %}
+                            {% endfor ´indicators´ %}
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for image in images %}
+                                {% if forloop.first %}
+                                    {% define "carousel-item active" as CLASSES %}
+                                    <!--div class="carousel-item active" data-interval="2000"-->>
+                                {% else %}
+                                    {% define "carousel-item" as CLASSES %}
+                                    <!--div class="carousel-item" data-interval="2000"-->
+                                {% endif %}
+                                <div class="{{ CLASSES }}" data-interval="25000">
+                                    <img src="{% static 'nueva_vista/images/' %}{{ image }}" class="d-block w-100" alt="...">
+                                    <div class="carousel-caption d-none t-d-md-block d-block c_caption">
+                                        <h5>{{ forloop.counter0 }} / {{ image }}</h5>
+                                        <p><a href="{% static 'nueva_vista/images/' %}{{ image }}">{% static 'nueva_vista/images/' %}{{ image }}</a></p>
+                                    </div>
+                                </div>
+                            {% endfor ´carousel-item´ %}
+                        </div>
+                        <a class="c_shadow carousel-control-prev" href="#galeriaCarouselSlides" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="c_shadow carousel-control-next" href="#galeriaCarouselSlides" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                </div>
+            
+                <ul class="list-group m-4">
+                    <li class="list-group-item">
+                        <h2 id="logo">
+                            Ahorre◌Energia
+                        </h2>
+                    </li>
+                    <li class="list-group-item">
+                        <h4>
+                            Cargar su factura de electricidad <span class="text-muted">(para analizar a preparar presupuesto)</span>
+                        </h4>
+                        <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="cuenta">Correo electronico</label>
+                                    </div>
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="email" class="form-control" id="cuenta" aria-describedby="cuenta">
+                                        <small id="ayudaCuenta" class="form-text text-muted">correo@electroni.co</small>
+                                    </div>
+                                    <div class="col">
+                                        <label class="btn btn-outline-secondary" for="factura">
+                                            Elegir archivo
+                                        </label>
+                                        <input type="file" class="custom-file-upload form-control" id="factura">
+                                        <small id="ayudaFactura" class="form-text text-muted">
+                                            Para analizar, preparar a enviárte presupuesto.
+                                        </small>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group text-right">
+                                            <button type="submit" class="btn btn-primary px-4">Enviar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script>
+        $(function()
+        {
+            dbg("start")
+            
+            start_after(1500, function ()
+            {
+                gsap.to("#logo", 
+                {
+                    duration: 1, 
+                    x: 100,
+                    //opacity: 1,
+                    scale: 1.2,
+                    /*
+                    startAt: 
+                    {
+                        //x: 0, 
+                        opacity: 0,
+                        scale: 0,
+                    },
+                    */
+                    function ()
+                    {
+                        dbg("onComplete")
+                    }
+                })
+                dbg("test.1")
+            })
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+{% block html_title %}{{ block.super }} {% trans 'Contactos' %} {% endblock %}
+
+{% block styles %}{{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/contacts.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/feedbacks.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+    <img class="float-right ml-3" src="{% static 'quatropack2/images/cases/bp_1.png' %}">
+    <span class='ml-5'></span>
+    <span class='qp-text'>
+        Best Protein, con más de 25 años de experiencia, ha conseguido renovar el concepto de nutrición deportiva. Calidad y efectividad son los dos principios básicos en los que se basa Best Protein para diseñar todos y cada uno de sus suplementos.
+    </span>
+    <br>
+    <br>
+    <img class="float-left mr-3" src="{% static 'quatropack2/images/cases/bp_2.png' %}">
+    <span class='ml-5'></span><span class='qp-text'>
+        Además, como subraya Jesús Ortega, Gerente, le dedican mucha atención al embalaje y al etiquetado, trabajando sólo con proveedores acreditados y de confianza con el objetivo de cuidar hasta el más mínimo detalle, y es ahí donde entran en juego Quatropack y Enercon: “Desde muy pronto pudimos comprobar las ventajas del sellado por inducción en nuestro sector. Preparamos y envasamos muchos complementos en polvo, que son aislados de la humedad y de cualquier otro componente que pudiera alterar su aspecto, aroma o sabor, gracias al sellado estanco que conseguimos con las ﻿termoselladoras por inducción Enercon”. 
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        “Pero es que además las mismas termoselladoras nos sirven para cerrar los envases de otros productos como las cápsulas o los comprimidos, con botes y tapas diferentes y de diferentes tamaños. Son selladoras muy versátiles. ¡Y siempre con los mismos resultados excelentes!”
+    </span>
+    <br>
+    <br>
+    <img class="float-right ml-3" src="{% static 'quatropack2/images/cases/bp_3.png' %}">
+    <span class='ml-5'></span><span class='qp-text'>
+        Con un servicio de primera y un envase que protege mejor gracias al sellado hermético, abarcangran parte del territorio nacional y están en plena expansión europea: “Tenemos la seguridad de que todos y cada uno de los botes van perfectamente sellados, de que no va a haber pérdidas ni fraude ni falsificaciones durante el transporte y la distribución”.
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        Y esa es sólo una de las ventajas, además, “el sellado hermético por inducción hace que se alargue el mantenimiento de los productos en las mejores condiciones y se aleje la fecha de caducidad, dilatando la vida útil del producto”.
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        En BEST PROTEIN hemos conseguido un crecimiento basado en la actualización constante, una ampliación de nuestro abanico de productos y un reciclaje de nuestra imagen de marca. Siempre hemos buscado distinguirnos dentro del mundo de la suplementación y alimentación deportiva con esfuerzo y perseverancia: “nuestro objetivo es cuidar hasta el más mínimo detalle”.
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        El  perfecto  sellado  por  inducción  nos  da  también  ese plus  de  calidad  y  diferenciación  que  buscábamos  con  un envase mejor acabado.
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        Como fabricantes y distribuidores realizamos constantes pruebas hasta lograr el mejor resultado. “En cuanto al envasado, lo hemos conseguido con las selladoras Enercon y los consejos y servicio que Quatropack a lo largo de los años nos ha dado”.
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        Llevamos más de 15 años trabajando con ellos, tenemos ya 8 líneas en funcionamiento y la experiencia no puede ser mejor: “la solidez y baja tasa de averías de sus máquinas, y el servicio de venta y posventa eficaz, ágil y atento hacen que recomiende el sellado por inducción y en particular las máquinas Enercon distribuidas por Quatropack siempre que me preguntan”. 
+    </span>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% include 'quatropack2/technology_banner2.html' %}
+<br>
+<br>
+{% endblock content %}

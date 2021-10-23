@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'comun',
     'curriculum',
+    'ahorra_energia',
+    'quatropack',
+    'bauglobal',
 ]
 
 MIDDLEWARE = [
@@ -107,6 +110,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LOCALE_PATHS = (BASE_DIR / 'locales',)
+
+LANGUAGES = (
+    ('es', _('Spanish')),
+    ('fr', _('French')),
+    ('en', _('English')),
+)
+
+LANGUAGE_CODE = 'es-es'
+
+USE_I18N = True
+USE_L10N = True
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -120,3 +136,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+FILE_UPLOAD_TEMP_DIR = BASE_DIR / "tmp"
+FILE_UPLOAD_DIR = BASE_DIR / "descargas"
+

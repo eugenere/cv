@@ -1,0 +1,58 @@
+{% load static %}
+
+{% comment base %}
+
+    plantilla basico
+    
+{% endcomment %}
+
+<!doctype html>
+<html lang="es">
+<head>
+    {% block meta %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
+
+    {% block icon %}
+        <link rel="icon" type="image/png" href="{% static 'comun/images/logo.png' %}">
+    {% endblock %}
+
+    <title>
+        {% block title %}
+            A·E
+        {% endblock %}
+    </title>
+
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'third/css/bootstrap.min.css' %}">
+        <!--https://fontawesome.com/v4.7.0/cheatsheet/-->
+        <link rel="stylesheet" href="{% static 'third/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'comun/css/comun.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+        <div>
+            <a href="{% url 'inicio' %}">inicio</a>
+            <a href="{% url 'admin:login' %}">admin</a>
+            <a href="{% url 'investigaciones:inicial' %}">investigaciones</a>
+            <a href="{% url 'investigaciones:new_form' %}">new_form</a>
+            <a href="http://udgin.pythonanywhere.com">udgin</a>
+            <a href="https://www.controlwatioeficiencia.es/">controlwatio</a>
+        </div>
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="{% static 'third/js/jquery.js' %}"></script>
+        <script src="{% static 'third/js/popper.min.js' %}"></script>
+        <script src="{% static 'third/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'third/js/gsap.js' %}"></script>
+        <script src="{% static 'comun/js/utils.js' %}"></script>
+        <script>
+            const STATIC_URL = "{% static '' %}"
+        </script>
+    {% endblock %}
+</body>
+</html>
+

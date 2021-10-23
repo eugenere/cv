@@ -1,0 +1,105 @@
+{% load static %}
+{% comment base %}
+    vista v2
+    nueva vista
+{% endcomment %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{% static 'comun/images/logo.png' %}">
+    <title>Ahorre◌Energia</title>
+    <link rel="stylesheet" href="{% static 'third/css/bootstrap.min.css' %}">
+    <style>
+        .c_transparent
+        {
+            background-color: transparent!important;
+        }
+        a.btn
+        {
+            margin-bottom: .4em;
+            margin-right: .8em;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron c_transparent pt-5 mt-5">
+        <div class="content c_content px-5 py-3">
+            <h4 class="text-primary">Todos las páginas <span class="text-muted">la lista de enlaces</span></h4>
+
+            <h5 class="text-secondary">vistas</h5>
+            <p class="d-flex flex-wrap">
+                <a class="btn btn-outline-secondary" href="{% url 'inicio' %}">
+                    <b>vista primera</b> predeterminada
+                </a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:inicio' %}">vista nueva</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:uno' %}">vista nueva versión uno</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:dos' %}">vista nueva versión dos</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:tres' %}">vista nueva versión tres</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:quatro' %}">vista nueva versión quatro</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:cinco' %}">vista nueva versión cinco</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:seis' %}">seis</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:seis-1' %}">seis.1</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:seis-2' %}">seis.2</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:nuevo' %}">proxima</a>
+            </p>
+
+            <h5 class="text-secondary">invectigaciones</h5>
+            <p class="d-flex flex-wrap">
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:categorias' %}">categorias de noticias</a>
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:noticias' %}">noticias</a>
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:new_category' %}">añadir categoria nueva</a>
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:nueva_noticia' %}">añadir noticia nueva</a>
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:cargar_factura' %}">cargar factura</a>
+            </p>
+
+            <h5 class="text-secondary">otros</h5>
+            <p class="d-flex flex-wrap">
+                <a class="btn btn-outline-secondary" href="{% url 'admin:login' %}">admin</a>
+                <a class="btn btn-outline-secondary" href="{% url 'inicio' %}">inicio</a>
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:inicial' %}">investigaciones</a>
+                <a class="btn btn-outline-secondary" href="{% url 'nv:inicio' %}">nueva_vista</a>
+                <a class="btn btn-outline-secondary" href="https://www.controlwatioeficiencia.es/">controlwatio</a>
+                <a class="btn btn-outline-secondary" href="https://www.seinon.com/">seinon</a>
+                <a class="btn btn-outline-secondary" href="{% url 'investigaciones:new_form' %}">new_form</a>
+                <a class="btn btn-outline-secondary" href="http://udgin.pythonanywhere.com/nv/todos/">udgin</a>
+                <a class="btn btn-outline-secondary" href="http://localhost/nv/todos/">localhost</a>
+                <a class="btn btn-outline-secondary" href="https://www.google.com/search?q=factura+de+electricidad">concurrentes</a>
+                <a class="btn btn-outline-secondary" href="https://www.google.com/search?q=новинки%20веб%20дизайна">web diseño tendencias</a>
+                <a class="btn btn-outline-secondary" href="https://www.pythonanywhere.com/user/Udgin">Udgin-admin</a>
+            </p>
+
+        </div>
+    </div>
+    
+    <!-- - ->
+    <div class="trapezoid">
+        trapezoid
+    </div>
+    <!-- -->
+    <!-- -->
+    <script src="{% static 'third/js/jquery.js' %}"></script>
+    <script src="{% static 'third/js/popper.min.js' %}"></script>
+    <script src="{% static 'third/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'comun/js/utils.js' %}"></script>
+    <script>
+    $(function()
+    {
+        dbg("start")
+        let i = 0
+        
+        function renovar() 
+        {
+            let num = ++i
+            dbg("set num "+num)
+        }
+        
+        renovar()
+        start_every(5000, renovar)
+    })
+    </script>
+</body>
+</html>
+

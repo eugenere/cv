@@ -2,3 +2,4 @@
 *.[0-9]
 __pycache__/
 db.sqlite3
+/cv/static/

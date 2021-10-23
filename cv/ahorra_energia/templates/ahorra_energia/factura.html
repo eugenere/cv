@@ -1,0 +1,47 @@
+{% load static mas_tags %}
+
+<h2 id="logo">
+    Ahorre<span class="c_texto_segundo">◌</span>Energia
+</h2>
+<h4>
+    Cargar su factura de electricidad <span class="c_texto_segundo">(para analizar a preparar presupuesto)</span>
+</h4>
+<form>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="d-flex flex-md-row flex-column w-100">
+                <div class="flex-fill p-2">
+                    <label for="cuenta">
+                        Correo electronico
+                        <span class="c_obligatorio">*</span>
+                    </label>
+                    <input type="email" class="form-control" id="cuenta" aria-describedby="cuenta" 
+                            placeholder="correo@electroni.co" required>
+                    <small id="ayudaCuenta" class="form-text c_texto_segundo">Su correo para recibir calculaciones</small>
+                    
+                    <label for="cuenta">
+                        Numero de teléfono
+                    </label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" 
+                            placeholder="XXX-XX-XX-XX" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                    <small id="ayudaCuenta" class="form-text c_texto_segundo">teléfono</small>
+                </div>
+                <div class="p-2">
+                    <label class="c_btn btn btn-outline-secondary w-100 h-100 d-flex align-items-center justify-content-center"
+                            for="factura">
+                        <div>
+                            <img width="32px" height="32px" src="{% static 'nueva_vista/images/cargar.png' %}">
+                            <br>
+                            <b>Enviar archivo</b>
+                            <div id="ayudaFactura" class="c_texto_segundo">
+                                Para analizar, preparar a enviárte presupuesto.
+                            </div>
+                        </div>
+                    </label>
+                    <input type="file" class="custom-file-upload form-control" id="factura" required>
+                    <button id="enviar" type="submit" class="d-none">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

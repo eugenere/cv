@@ -1,0 +1,73 @@
+{% extends "comun/base.html" %}
+{% load static mas_tags %}
+
+{% block title %}
+    Ahorre◌Energia
+{% endblock %}
+
+{% comment %}
+        /*
+        background-color: rgba(0, 0, 0, .3);
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.43) 39%, rgba(42,42,42,1) 90%, rgba(0,0,0,1) 100%);
+        border-radius: 1em;
+        */
+{% endcomment %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'nueva_vista/css/custom-file-upload.css' %}">
+    <link rel="stylesheet" href="{% static 'nueva_vista/css/inicio6.css' %}">
+    <style>
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron c_transparent pt-5 n-mt-5">
+        <div class="content c_content px-5 py-3">
+            {# one line comment #}
+            {% include "nueva_vista/factura.html" %}
+            <div class="d-flex flex-row">
+                <div class="c_galeria w-50"></div>
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="c_caption">
+                        Ahorrar energía
+                    </div>
+                    <div class="c_contesto">
+                        <p>
+                            Diseñamos proyecto de nueva Instalación si se considerara esto como mejor opción, para ello le facilitamos detalle de los componentes de la misma y presupuesto del instalador, vd siempre puede elegir instalador.
+                        </p>
+                        <p>
+                            Ver las posibilidades para ahorrar hasta 50% del coste de tu consumo.
+                        </p>
+                        <p>
+                            Somos un grupo de profecionales alta cualificación técnica y gran experiencia en el sector.
+                        </p>
+                        <p>
+                            Trabajamos en toda la Comunidad Autónomia la Región de Murcia.
+                        </p>
+                        <p>
+                            Mejoramos su gasto actual y tambien el nueva.
+                        </p>
+                        <p>
+                            Hacemos entrega a instalación.
+                        </p>
+                        <p>
+                            Soluciones completas para ahorrar su consumo de electricidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="{% static 'nueva_vista/js/inicio6.js' %}"></script>
+    <script>
+        $(() => {
+            dbg("start")
+        })
+    </script>
+{% endblock %}

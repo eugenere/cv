@@ -1,0 +1,142 @@
+{% load static %}
+{% comment base %}
+    vista v2
+    nueva vista
+{% endcomment %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{% static 'comun/images/logo.png' %}">
+    <title>Ahorre◌Energia</title>
+    <link rel="stylesheet" href="{% static 'third/css/bootstrap.min.css' %}">
+    <style>
+        body
+        {
+            background: linear-gradient(45deg, rgba(78,138,0,1) 0%, rgba(179,255,107,1) 100%);
+            background-attachment: fixed;
+        }
+        .c_transparent
+        {
+            background-color: transparent!important;
+        }
+        .c_images>img
+        {
+            width: 100%;
+            /*height: 100%;*/
+        }
+        .c_images2
+        {
+            background-position: center center;
+            background-size: cover;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="jumbotron c_transparent pt-5 mt-5">
+        <div class="content c_content px-5 py-3">
+            <div class="d-flex justify-content-around">
+                <div class="j_images c_images">
+                    <img />
+                </div>
+                <div>
+                    <h3>Ahorre ◌ Energia</h3>
+                    <h5 class="text-secondary">vista nueva</h5>
+                    <p class="text-light">
+                        Soluciones completas para ahorrar su consumo de electricidad.
+                    </p>
+                    <p class="text-light">
+                        Diseñamos proyecto de nueva Instalación si se considerara esto como mejor opción, para ello le facilitamos detalle de los componentes de la misma y presupuesto del instalador, vd siempre puede elegir instalador.
+                    </p>
+                    <p class="text-light">
+                        Ver las posibilidades para ahorrar hasta 50% del coste de tu consumo.
+                    </p>
+                    <p class="text-light">
+                        Somos un grupo de profecionales alta cualificación técnica y gran experiencia en el sector.
+                    </p>
+                    <p class="text-light">
+                        Trabajamos en toda la Comunidad Autónomia la Región de Murcia.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col j_images2 c_images2">
+                </div>
+                <div class="col">
+                    <h3>Ahorre ◌ Energia</h3>
+                    <h5 class="text-secondary">vista nueva</h5>
+                    <p class="text-light">
+                        Soluciones completas para ahorrar su consumo de electricidad.
+                    </p>
+                    <p class="text-light">
+                        Diseñamos proyecto de nueva Instalación si se considerara esto como mejor opción, para ello le facilitamos detalle de los componentes de la misma y presupuesto del instalador, vd siempre puede elegir instalador.
+                    </p>
+                    <p class="text-light">
+                        Ver las posibilidades para ahorrar hasta 50% del coste de tu consumo.
+                    </p>
+                    <p class="text-light">
+                        Somos un grupo de profecionales alta cualificación técnica y gran experiencia en el sector.
+                    </p>
+                    <p class="text-light">
+                        Trabajamos en toda la Comunidad Autónomia la Región de Murcia.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- - ->
+    <div class="trapezoid">
+        trapezoid
+    </div>
+    <!-- -->
+    <!-- -->
+    <script src="{% static 'third/js/jquery.js' %}"></script>
+    <script src="{% static 'third/js/popper.min.js' %}"></script>
+    <script src="{% static 'third/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'comun/js/utils.js' %}"></script>
+    <script>
+    $(function()
+    {
+        dbg("start")
+
+        let IMAGES_PATH = "https://estaticos.qdq.com/swdata/photos/758/758994955/";
+        let IMAGES_EXT = ".jpg"
+        let $_images = $(".j_images>img")
+        let $_images2 = $(".j_images2")
+        let im_names = [
+            "fb489fdc7c0048a98e674cdccb280bab",
+            "f73de41421c3402aab45e4cb8c932d79",
+            "c0084310ff564832959bfdbf43cd7309",
+            "488103bf4bf6400db61db94438c31930",
+            "59777ef0712d4cdba9a006bfbf3eccf0",
+            "7b5e41259ebf4a86af9a9be493fe37d8",
+        ]
+        let i = 0
+        
+        function upd_image() 
+        {
+            let num = i%im_names.length
+            dbg("set image "+num)
+            $_images.attr('src', 
+                IMAGES_PATH+im_names[num]+IMAGES_EXT)
+                
+            //$_images2[0].style.backgroundImage =
+            //    IMAGES_PATH+im_names[num]+IMAGES_EXT
+
+            $_images2.attr('style', "background-image: url('"+
+                IMAGES_PATH+im_names[num]+IMAGES_EXT+"');")
+            i++
+        }
+        
+        upd_image()
+        start_every(5000, upd_image)
+    })
+    </script>
+</body>
+</html>
+

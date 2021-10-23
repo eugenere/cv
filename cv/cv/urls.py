@@ -17,7 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('curriculum.urls')),
-]
+    path('ahorra_energia', include('ahorra_energia.urls')),
+    path('quatropack', include('quatropack.urls')),
+    path('bauglobal', include('bauglobal.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

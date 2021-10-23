@@ -1,0 +1,94 @@
+@import variables
+
+.qp-main-menu
+    font-size: 120%
+    display: none
+    opacity: 0
+
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    width: 100%
+    height: 100%
+    z-index: 1100
+    
+    padding: 0;
+    margin-top: 3em
+    
+    background:
+        color: white
+    
+    .qp-link
+        color: black
+        font-size: 70%
+        
+        
+    @media (min-width: 768px)
+        .qp-link-wrapper
+            //margin-top: .7em
+    @media (max-width: 768px)
+        .qp-link-wrapper
+            //margin-top: .5em
+            
+    .qp-link-wrapper    
+        border: .01em solid transparent
+        &:hover
+            border: .01em solid $dark-color
+        .qp-link-content
+            padding: .5em .8em
+
+    .qp-link-content
+        padding: .5em
+            
+    @media (min-width: 768px)
+        .qp-header-wrapper
+            margin-bottom: 0
+            margin-top: .6em
+    @media (max-width: 768px)
+        .qp-header-wrapper
+            margin-bottom: -.5em
+            margin-top: 0
+
+    .qp-header-wrapper
+        &:hover
+            background-color: $light-color
+            .qp-header-link
+                color: white
+                text-decoration: none
+                padding-bottom: .1em
+        
+        .qp-header-link
+            color: $dark-color
+            
+            .qp-secondary
+                display: block
+                font-size: 60%
+                margin-top: .7em
+    
+    .qp-header-wrapper-last
+        margin-top: 0    
+                
+    @media (min-width: 768px)
+        .qp-menu-footer
+            padding-top: 2em
+
+    @media (max-width: 768px)
+        .qp-menu-footer
+            padding-top: 1em
+
+    .qp-menu-footer
+        font-size: 80%
+        a
+            color: black
+            &:hover
+                text-decoration: none
+                color: gray
+        .qp-lang-link
+            float: left
+            margin-left: 1em
+            .qp-lang
+                display: block
+                font-size: 80%
+                text-transform: lowercase

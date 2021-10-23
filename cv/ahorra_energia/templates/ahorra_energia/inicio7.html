@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" href="{% static 'comun/images/logo.png' %}">
+
+    <title>A◌E</title>
+
+    <link rel="stylesheet" href="{% static 'third/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'ahorra_energia/css/inicio7.css' %}">
+</head>
+<body>
+    <h2 class="c_encabezado">
+        <span class="c_txt_blue">Ahorre</span>
+        <span class="c_txt_yellow">◌</span>
+        <span class="c_txt_lime">energiA</span>
+    </h2>
+    
+    <div id="image" class="c_image"></div>
+    <div id="titulo" class="c_titulo c_txt_blue">titulo</div>
+    <div id="detalles" class="c_detalles c_txt_lime">
+        <p>detalles</p>
+    </div>
+    <a id="facebook" href="https://www.facebook.com/ahorrarenergiamurcia/">
+        <i class="fa fa-3x fa-facebook" aria-hidden="true"></i>
+    </a>
+    <div id="controls" class="c_controls">
+        <a id="volver_al_inicio" href="#" class="j_ctrl_b c_control c_disabled">
+            <i class="fa fa-home" aria-hidden="true"></i>
+        </a>
+        <a id="llamar_anterior" href="#" class="j_ctrl_b j_ctrl_s c_control">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </a>
+        <a id="pausar" href="#" class="j_ctrl_b j_ctrl_s c_control">
+            <i class="fa fa-pause" aria-hidden="true"></i>
+        </a>
+        <a id="llamar_proximo" href="#" class="j_ctrl_b j_ctrl_s c_control">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a id="cargar_factura" href="#" class="j_ctrl_a c_control c_control_mayor">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+        </a>
+    </div>
+    
+    <div id="vista_descargando">
+        <i class="fa fa-2x fa-spin fa-circle-o-notch" aria-hidden="true"></i>
+        <button class="c_escondido">aceptar todas las cookies</button>
+    </div>
+    
+    <div id="cargando_factura">
+        <div id="form_cerrador">
+            <i class="fa fa-2x fa-close" aria-hidden="true"></i>
+        </div>
+        <h4>
+            Cargar su factura de electricidad <span class="text-muted">(para analizar a preparar presupuesto)</span>
+        </h4>
+        <form class="c_form">
+            <div>
+                <div class="c_correo c_label">
+                    Correo electronico
+                    <span class="c_obligatorio">*</span>
+                </div>
+                <input type="email" class="c_correo" name="correo" aria-describedby="cuenta" required 
+                        placeholder="correo@electroni.co">
+                <div class="c_correo c_comentario">Su correo para recibir calculaciones</div>
+
+                <div class="c_telefono c_label">
+                    Numero de teléfono
+                </div>
+                <input type="tel" class="c_telefono" name="telefono" aria-describedby="cuenta" 
+                        placeholder="XXX-XX-XX-XX" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                <div class="c_telefono c_comentario">su telefono</div>
+                
+                <div class="c_permicion c_caja">
+                    <input type="checkbox" class="c_permicion" name="factura" required>
+                    <span class="c_permicion c_comentario">
+                        <span class="c_obligatorio">*</span> Permito utilizar información de mi factura.
+                    </span>
+                </div>
+            </div>
+            <div class="c_form_controls">
+                <div class="c_archivo_contesto">
+                    <div class="c_archivo c_label" for="factura">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        Enviar archivo
+                    </div>
+                    <input type="file" class="c_archivo" name="factura" id="factura" required>
+                    <div class="c_archivo c_comentario">
+                        Para analizar, preparar a enviárte presupuesto.
+                    </div>
+                </div>
+                
+                <button type="submit" id="entregar" class="c_entregar">Enviar</button>
+            </div>
+            
+        </form>
+    </div>
+    
+    <script src="{% static 'third/js/jquery.js' %}"></script>
+    <script src="{% static 'comun/js/utils.js' %}"></script>
+    <script src="{% static 'third/js/gsap.js' %}"></script>
+    <script>
+        const STATIC_URL = "{% static '' %}"
+    </script>    
+    <script src="{% static 'ahorra_energia/js/data.js' %}"></script>
+    <script src="{% static 'ahorra_energia/js/inicio7.js' %}"></script>
+</body>
+</html>
+

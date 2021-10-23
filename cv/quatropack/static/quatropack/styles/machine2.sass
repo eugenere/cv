@@ -1,0 +1,53 @@
+@import variables
+
+.fotorama--fullscreen
+    .fotorama__nav, .fotorama__stage
+        background-color: white
+.fotorama__thumb-border
+    border-color: $dark-color
+
+.qp-content
+    padding-top: .5em
+
+.qp-subtitle
+    color: rgb(66, 135, 199)
+    font:
+        size: 26px
+        weight: 400
+        
+.qp-subtext
+    background-color: #f8f8f8
+    margin-bottom: 3em
+    padding-bottom: 1em
+    padding-top: 1em
+    
+.qp-machine
+    margin:
+        bottom: 3em
+    .qp-titles
+        margin-bottom: 1em
+        .qp-title
+            font:
+                size: 50px
+                weight: 900
+        .qp-subtitle
+            @media (min-width: 768px)
+                text-align: right
+            @media (max-width: 768px)
+                text-align: center
+    .qp-machine-content
+        margin-bottom: 2em
+        .qp-text
+            color: #333333
+            font:
+                size: 24px
+                weight: 300
+
+        .qp-media
+            float: left
+            @media (min-width: 1200px)
+                width: 75%
+            @media (max-width: 1200px)
+                width: 50%
+            @media (max-width: 768px)
+                width: 100%

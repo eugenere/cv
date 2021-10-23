@@ -1,0 +1,118 @@
+{% load static i18n %}
+<menu class="qp-main-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="qp-header-wrapper">
+                    <!-- TODO: check all links statie on active -->
+                    <a class="qp-header-link"
+                            href="{% if '/machines/' in request.path %} # {% else %} {% url 'quatropack:machines' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'Termoselladoras por inducción' %}
+                        </div>
+                    </a>
+                </div>
+                {% for item in machine_names %}
+                <div class="qp-link-wrapper">
+                    <a class="qp-link {% if item.slug in request.path %} active {% endif %}" 
+                            href="{% if item.slug in request.path %} # {% else %} {% url 'quatropack:machine' item.slug %} {% endif %}">
+                        <div class="qp-link-content">
+                            {{ item.name }}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+                <div class="qp-header-wrapper qp-header-wrapper-last">
+                    <!-- TODO: check all links statie on active -->
+                    <a class="qp-header-link"
+                            href="{% if '/top-pressure-seal/' in request.path %} # {% else %} {% url 'quatropack:top-pressure-seal' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'TPS - Top Pressure Seal' %}
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="qp-header-wrapper">
+                    <a class="qp-header-link"
+                            href="{% if '/benefits/' in request.path %} # {% else %} {% url 'quatropack:benefits' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'Ventajas de Sellar por inducción' %}
+                            <span class='qp-secondary'>
+                                {% trans '¡Buenas razones para sellar su producto!' %}
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="qp-header-wrapper">
+                    <a class="qp-header-link"
+                            href="{% if '/technology/' in request.path %} # {% else %} {% url 'quatropack:technology' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'El sellado por inducción explicado' %}
+                            <span class='qp-secondary'>
+                                {% trans '¿Qué es sellar por inducción?' %}
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="qp-header-wrapper">
+                    <a class="qp-header-link"
+                            href="{% if '/cases/' in request.path %} # {% else %} {% url 'quatropack:cases' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'Casos Prácticos' %}
+                            <span class='qp-secondary'>
+                                {% trans '¿Qué dicen nuestros clientes de sellar por inducción?' %}
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <!--
+                <div class="qp-header-wrapper">
+                    <a class="qp-header-link"
+                            href="{% if '/media/' in request.path %} # {% else %} {% url 'quatropack:media' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'En los medios' %}
+                            <span class='qp-secondary'>
+                                {% trans '¿Qué dice la prensa de nosotros?' %}
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                -->
+                <div class="qp-header-wrapper">
+                    <a class="qp-header-link"
+                            href="{% if '/contacts/' in request.path %} # {% else %} {% url 'quatropack:contacts' %} {% endif %}">
+                        <div class="qp-link-content">
+                            {% trans 'Contacto' %}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qp-menu-footer">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col">
+                    <a href="mailto:info@quatropack.com">
+                        info@<span class="qp-quatropack"><b>quatro</b>pack</span>.com
+                    </a>
+                </div>
+                <div class="col text-right">
+                    <a href="tel:+34968345219">
+                        +34 968 345 219
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col"></div>
+                <div class="col-xs-6 text-center">
+                    {% include 'quatropack/langs.html' %}
+                </div>
+                <div class="col"></div>
+            </div>
+            <!--
+            -->
+        </div>
+    </div>
+</menu>

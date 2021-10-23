@@ -1,0 +1,57 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+{% block html_title %}{{ block.super }} {% trans 'Contactos' %} {% endblock %}
+
+{% block styles %}{{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/contacts.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/feedbacks.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+    <img class="float-left" src="{% static 'quatropack2/images/cases/probelte_1.png' %}">
+    <span class='ml-5'></span>
+    <span class='qp-text'>
+        PROBELTE, S.A. empresa dedicada a la formulación y comercialización de productos fitosanitarios desde 1970, exporta a 56 países, y lleva 30 años beneficiándose de las ventajas que el sellado por inducción aporta a sus productos, siendo líder en el desarrollo de productos biotecnológicos para la nutrición y sanidad vegetal gracias al permanente esfuerzo en el área de innovación y estando a la vanguardia de la tecnología.    
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        La relevancia y significación de la presencia internacional de Probelte y una consolidada y reconocida cultura de I+D de productos biológicos hacía necesario un sellado hermético para garantizar la calidad de unos productos que son enviados a 56 países, la extensión de la vida útil y la protección contra falsificaciones.
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        “En la actualidad sellamos todos nuestros productos” dice José Manuel Casanova, gerente de Probelte, “Tenemos termoselladoras por inducción Enercon en 7 líneas automáticas para envases de un cuarto de litro, medio litro, un litro, cinco, veinte y veinticinco litros, algunos de ellos con válvula”.
+    </span>
+    <br>
+    <br>
+    <img class="float-left" src="{% static 'quatropack2/images/cases/probelte_2.png' %}">
+    <span class='ml-5'></span><span class='qp-text'>
+        “Sabíamos que el sellado por inducción incrementaría la imagen de marca y lacalidad. Nosotros exportamos a 56 países y no sólo cumplimos sino que superamos los estándares de calidad incluso de los países más avanzados y exigentes como Alemanía, en parte ﻿gracias al sellado por ﻿inducción”.
+    </span>
+    <br>
+    <br>
+    <img class="float-right" src="{% static 'quatropack2/images/cases/probelte_3.png' %}">
+    <span class='ml-5'></span><span class='qp-text'>
+        Y por último han conseguido también una excelente protección contra las falsificaciones, puesto que el sello, que además es un sello con el logo impreso muy elegante, si está abierto, evidencia con claridad cualquier manipulación. “Sobre todo en algunos países de Asia y Surámerica nos habíamos encontrado con el problema de rellenado de nuestros envases con otros productos o con nuestro producto pero diluido, y que se evita con el sellado por inducción” . 
+    </span>
+    <br>
+    <br>
+    <span class='ml-5'></span><span class='qp-text'>
+        Tras años recibiendo las recomendaciones y asistencia de Quatropack, distribuidor de Enercon en España, el Sr. Casanova habla sobre el servicio recibido: “Elegimos ﻿Enercon y Quatropack por su resultado. La experiencia con las máquinas Enercon es excelente, inmejorable, así como la gestión ágil y eficaz llevada acabo por Quatropack”.“Después de todos estos años recomiendo quatropack y el sellado por inducción Enercon a otras empresas sin ninguna duda”.
+    </span>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% include 'quatropack2/technology_banner2.html' %}
+<br>
+<br>
+{% endblock content %}

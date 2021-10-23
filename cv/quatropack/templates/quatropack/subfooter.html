@@ -1,0 +1,17 @@
+﻿{% if not '/' == request.path and not '/machines/' == request.path  and not '/h1/' == request.path %}
+<div class="qp-subfooter">
+    <div class="pt-5 container text-center">
+        <span id='subtitle-text' class="qp-title">...</span>
+    </div>
+</div>
+<!--    
+    <span class="ml-5"></span>
+    
+    <div class="qp-subtitle text-right">
+        Llama ahora al <a href="tel:+34968345219">+34 968 345 219</a> o envía un 
+        <a href="mailto:info@quatropack.com">email</a>
+    </div>
+-->
+
+<!--div id="qp-info-field" class='text'>SUBFOOTER {{ request.path }}</div-->
+{% endif %}

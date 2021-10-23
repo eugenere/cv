@@ -1,0 +1,80 @@
+﻿
+body {
+    background: url('../images/fondo.jpg');
+    min-width: 340px;
+    min-height: 340px;
+    /*
+    overflow-x: hidden;
+    */
+}
+
+*
+{
+    border-radius: 0!important;
+}
+
+/*
+    background-color: rgba(255,255,255,.8);
+*/
+.c_content
+{
+    background-color: rgba(0,0,255,.8);
+    color: rgb(255, 255, 0)!important;
+    display: block;
+}
+
+.c_btn
+{
+    color:yellow;
+    border: 0;
+}
+
+.c_btn:hover
+{
+    color:blue!important;
+    background-color: lime;
+}
+
+.c_btn:hover *
+{
+    color:blue!important;
+}
+
+.c_texto_segundo
+{
+    color: lime;
+}
+
+.c_galeria
+{
+/*
+    background-position: center;
+    background-attachment: fixed;
+    padding: 3em;
+*/    
+    min-height: 600px;
+    background-size: cover;
+    margin-right: -15em;
+    margin-top: 2em;
+}
+
+.c_caption {
+    position: absolute;
+    text-shadow: 0 0 0.3em black;
+    font-size: 200%;
+    background-color: rgba(0,0,0, 0.5);
+    padding: 1em 3em;
+}
+
+.c_contesto {
+    position: absolute;
+    color: lime;
+    padding: 2em;
+    margin-top: 5rem;
+    background-color: rgba(0,0,0,.5);
+    margin-right: -2em;
+    margin-left: 2em;
+    /*
+    font-weight: bold;
+    */
+}

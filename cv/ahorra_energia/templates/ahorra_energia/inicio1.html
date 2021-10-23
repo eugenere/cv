@@ -1,0 +1,116 @@
+﻿{% load static %}
+{% comment base %}
+    vista v2
+    nueva vista
+{% endcomment %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{% static 'comun/images/logo.png' %}">
+    <title>Ahorre◌Energia</title>
+    <link rel="stylesheet" href="{% static 'third/css/bootstrap.min.css' %}">
+    <style>
+        .tabs {
+             display: flex;
+             flex-direction: row;
+        }
+
+        .tab {
+               height: 0;
+               width: 120px;
+               border-bottom: 50px solid #CCCCCC;
+               border-right: 20px solid transparent;
+               border-top-left-radius: 5px;
+               box-sizing: border-box;
+               display: block;
+        }
+
+        .tab:not(:first-child) {
+               margin-left: -10px;
+               z-index: 0;
+        }
+
+        .tab .label{
+             padding: 15px;
+             text-align: center;
+             color: #444444;
+        }
+
+        .active {
+             border-bottom: 50px solid #444444;
+             z-index: 10;
+        }
+        .active .label{
+             color: #ffffff;
+        }
+        
+        .c_btn
+        {
+            height: 0;
+            border-bottom: 50px solid #CCCCCC;
+            border-right: 20px solid transparent;
+        }
+        
+        .c_btn_txt
+        {
+            
+        }
+        
+        .c_btn:hover
+        {
+            border-bottom: 50px solid #bbb;
+        }
+        
+        .c_btn2 {
+          height: 40px;
+          background: lightgreen;
+          width: 128px;
+          float:left;
+        }
+
+        .c_btn2:after {
+            width: 0px;
+            height: 20px;
+            border-left: 20px solid red;
+            border-bottom: 20px solid white;
+            float:right;
+            content:"";
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Ahorre◌Energia</h3>
+        <h5>vista nueva</h5>
+        
+        <hr>
+        
+        <div class="tabs">
+            <div class="tab active"><div class="label">TAB 1</div></div>
+            <div class="tab"><div class="label">TAB 2</div></div>
+            <div class="tab"><div class="label">TAB 3</div></div>
+        </div>
+        
+        <hr>
+        
+        <div>
+            <div class="c_btn">
+                <div>
+                    TXT
+                </div>
+            </div>
+            <div class="c_btn2">
+                    TXT
+            </div>
+        </div>
+        
+    </div>
+    <script src="{% static 'third/js/jquery.js' %}"></script>
+    <script src="{% static 'third/js/popper.min.js' %}"></script>
+    <script src="{% static 'third/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+

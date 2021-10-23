@@ -1,0 +1,39 @@
+{% load static i18n %}
+{# short logotypes #}
+<div class="qp-sector-body-quadro">
+    <div class="container text-center">
+        <h4 class="qp-title">
+            {% trans 'En colaboración con los líderes de la industria' %}
+        </h4>
+        <div class="qp-text">
+            {% trans 'Millones de envases sellados por inducción cada día. La eficacia de nuestros equipos se demuestra en producción real, sean multinacionales o startups.' %}
+            <span> {% trans 'Nuestros clientes opinan' %} <a href="{% url 'quatropack:cases' %}">{% trans 'aquí' %}</a>.</span>
+        </div>
+        <div class="qp-carousel-logotypes2">
+            <table class="w-100">
+                <tr>
+                    <td></td> <td></td> <td></td> <td></td> <td></td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="qp-divider"></td>
+                </tr>
+                <tr>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    let logotypes_top = [
+        //{% for item in logotypes.top %}
+            "{% static 'quatropack/images/logotypes/' %}{{ item.image }}",
+        //{% endfor %}
+    ]
+    let logotypes_bottom = [
+        //{% for item in logotypes.bottom %}
+            "{% static 'quatropack/images/logotypes/' %}{{ item.image }}",
+        //{% endfor %}
+    ]
+</script>
+

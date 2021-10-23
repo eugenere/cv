@@ -1,0 +1,24 @@
+@import variables
+
+.qp-machine
+    margin-bottom: 3em
+    .qp-col 
+        margin:
+            bottom: .5em
+        .qp-canvas
+            width: 100%
+            height: 300px
+            min-height: 200px
+        .qp-zoom 
+            width: 5em
+            font:
+                weight: 600
+                size: 120%
+        .qp-transform
+            transition: transform 300ms ease 0ms
+            &:hover
+                transform: perspective(1000px) rotateY(-20deg)
+                transition: transform 300ms ease 0ms
+        
+        
+        

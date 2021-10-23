@@ -1,0 +1,294 @@
+﻿@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-Light.ttf");
+}
+
+body {
+    font-family: "Montserrat";
+    background: url('../images/fondo3.jpg');
+    min-width: 340px;
+    min-height: 340px;
+    /*
+    overflow-x: hidden;
+    z-index: 1;
+    */
+}
+
+.c_obligatorio {
+    color: yellow;
+}
+
+.c_encabezado {
+    /*
+    margin-top: 1.5em;
+    margin-left: 3em;
+    */
+    
+    position: absolute;
+    top: 0.5em;
+    left: 3em;
+    z-index: 40;
+    text-shadow: 0 0 0.1em black;
+    padding: .1em 1em;
+    border-bottom: 1px solid black;
+}
+
+.c_image:hover {
+    z-index: 35;
+}
+
+.c_image {
+    z-index: 10;
+    position: absolute;
+    top: 5em;
+    left: 2em;
+    right: 7em;
+    /*width: 80%;*/
+    height: 80%;
+    min-height: 300px;
+    background-image: url('../images/fondo3.jpg');
+    background-size: cover;
+}
+
+.c_titulo {
+    z-index: 30;
+    position: absolute;
+    top: 1em;
+    right: 3em;
+    min-width: 30%;
+    padding: 1em 2em;
+    background-color: #fffc;
+    box-shadow: 0 0 1em #3f51b5;
+    font-size: 200%;
+    font-weight: bolder;
+}
+
+.c_detalles:hover {
+    z-index: 35;
+    background-color: #000a;
+}
+
+.c_detalles {
+    z-index: 20;
+    position: absolute;
+    right: 2em;
+    top: 7em;
+    min-width: 60%;
+    max-width: 60%;
+    min-height: 50%;
+    padding-top: 2em;
+    padding-left: 1em;
+    background-color: #000a;
+    box-shadow: 0 0 0.25em white;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.c_controls {
+    position: absolute;
+    bottom: 5em;
+    right: 10%;
+    z-index: 40;
+}
+
+.c_control:hover {
+    border: solid yellow;
+}
+
+.c_control {
+    padding: 1.8em 2em;
+    border: solid white;
+    border-radius: 5em;
+    background-color: blue;
+    color: yellow;
+    text-decoration: none;
+    margin-left: 1em;
+}
+
+.c_control_mayor {
+    background-color: lime;
+    zoom: 120%;
+}
+
+.c_control > i.fa {
+    width: 10px;
+    margin-left: -.1em;
+}
+
+.c_txt_blue {
+    color: blue;
+}
+
+.c_txt_lime {
+    color: lime;
+}
+
+.c_txt_yellow {
+    color: yellow;
+}
+
+.c_disabled:hover {
+    border: solid #9E9E9E;
+}
+
+.c_disabled {
+    color: #9E9E9E;
+    border-color: #9E9E9E;
+    background-color: #0000007a;
+    cursor: not-allowed;
+}
+
+#vista_descargando {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000f0;
+    z-index: 80;
+    padding-top: 30%;
+    text-align: center;
+    color: lime;
+}
+
+    #vista_descargando > i {
+        display: block;
+    }
+
+    #vista_descargando > button {
+        margin-top: 2em;
+        width: auto;
+        border: .1em solid white;
+        background: #0005;
+        color: lime;
+        padding: 1em 2em;
+    }
+
+
+#form_cerrador {
+    position: absolute;
+    right: 3em;
+    top: 3em;
+    cursor: pointer;
+}
+
+#form_cerrador:hover {
+    color: blue;
+}
+
+#cargando_factura {
+    /*
+    display: block;
+    top: 0;
+    */
+    display: none;
+    top: 90%;
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000f0;
+    z-index: 80;
+    /*
+    padding-top: 20%;
+    */
+    text-align: center;
+    color: lime;
+    padding: 20% 2em;
+}
+
+.c_label {
+    color: green;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.c_comentario {
+    padding-bottom: 1em;
+}
+
+input, button {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+.c_escondido {
+    display: none;
+}
+
+.c_form_controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.c_js_form button.c_entregar, .c_js_form input.c_archivo{
+    display: none;
+}
+
+.c_archivo_contesto {
+    margin: .1em;
+    padding: 4em 2em;
+    /*
+    align-items: center;
+    */
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.c_js_form .c_archivo_contesto {
+    height: 100%;
+    cursor: pointer;
+}
+
+.c_js_form .c_archivo_contesto:hover {
+    background-color: #fff3;
+}
+
+.c_entregar {
+    flex-grow: 1;
+}
+    
+    .c_form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    @media (max-width: 580px) {
+        .c_form {
+            flex-direction: column;
+        }
+    }
+    
+        .c_form > div:nth-child(1) {
+            text-align: left;
+            padding-right: .5em;
+        }
+        
+        .c_form > div:nth-child(2) {
+            text-align: right;
+            padding-left: .5em;
+        }
+
+
+.c_permicion.c_caja {
+    display: flex;
+    flex-direction: row;
+}
+
+#facebook {
+    position: absolute;
+    bottom: 4em;
+    left: 10%;
+    z-index: 40;
+    color: white;
+    text-shadow: 0 0 0.5em #000002;
+}

@@ -1,0 +1,204 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n compress %}
+
+<!--
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+-->
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machine3.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/img-zoom.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/touch.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/junior.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/feedbacks2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/video-back.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/btech.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <!--
+    <video id="playback-video" autoplay muted loop>
+        {# <source type="video/webm" src="{% static 'quatropack2/videos/playback.webm'%}"> #}
+        <source type="video/webm" src="http://data.rf.gd/static/video/back.webm">
+    </video>
+    -->
+    <div class="qp-machine">
+        <div class="container">
+            <div class="qp-title">
+                Super Seal™ Junior
+            </div>
+            <div class="qp-subtitle">
+                Portátil y ligera, eficaz y fiable.
+            </div>
+            <br>
+            <br>
+            <div class="qp-table row justify-content-around">
+                <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/7.jpg' %}" alt="junior">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/1.png' %}" alt="junior">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-6 col-lg-7">
+                    <div class="qp-text">
+                        <p>
+                            <span class="qp-4-spaces"></span>Ideal para nuevas empresas, nuevos productos en lanzamiento, pequeñas producciones, centros I+D o laboratorios. Permite sellar con idéntica calidad a todas nuestras selladoras, en cualquier entorno de producción donde sean necesarias fiabilidad y repetitividad. Hasta 6 unidades por minuto (360 unidades por hora).
+                        </p>
+                    </div>
+                    <br>
+                    <div class="row justify-content-around">
+                        <div class="col-4">
+                            <div class="qp-img-wrapper">
+                                <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/junior2.jpg' %}" alt="junior">
+                                <div class="qp-button">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="qp-img-wrapper">
+                                <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/junior1.jpg' %}" alt="junior">
+                                <div class="qp-button">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <br>
+        <div class="qp-technology-banner">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-6">
+                        <video id="video-junior" class="qp-btech" controls width="100%">
+                            <source type="video/webm" src="http://data.rf.gd/static/video/Junior.mp4.webm">
+                        </video>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-5 qp-text">
+                        En este video, podrá ver cómo funciona el proceso del sellado por inducción, y conocer los elementos principales que intervienen en una termoselladora por inducción. Podrá ver líneas reales en producción y muchos ejemplos de productos sellados.
+                        <a class="qp-technology" href="{% url 'quatropack2:technology' %}">leer mas</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class='row justify-content-around'>
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Funciones principales</h3>
+                        <ul>
+                            <li>Temporizador digital automático de tiempo de sellado.</li>
+                            <li>Control de potencia de sellado, con memoria.</li>
+                            <li>Contador de unidades de lote, con memoria y reset.</li>
+                            <li>Contador de discos de lote, con memoria y reset.</li>
+                            <li>Detección de ausencia de discos, con contador con memoria y reset.</li>
+                            <li>Sella toda una variedad de tapones con diámetros entre 15 y 120mm.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-5">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/2.png' %}" alt="junior">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/5.png' %}" alt="junior">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class='row justify-content-around'>
+                <div class="col-sm-12 col-md-4 col-lg-5">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/junior/jun-dim.jpg' %}" alt="dimencions">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Además</h3>
+                        <ul>
+                            <li>Maletín con protecciones incluido para su transporte y almacenamiento.</li>
+                            <li>No necesita prácticamente ningún mantenimiento lo que logra un coste de utilización muy bajo y años de funcionamiento impecable.</li>
+                        </ul>
+                        <h3 class='qp-subtitle'>Características</h3>
+                        <ul>
+                            <li>Peso de 4,5Kg</li>
+                            <li>Dimensiones: 21cm x 31cm x 8cm</li>
+                            <li>Suministro eléctrico: monofásico, 230V, 50Hz. 1KW</li>
+                            <li>Cumple la normativa CE y lleva el distintivo CE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{#% include 'quatropack2/technology_banner2.html' %#}
+<br>
+    {% include 'quatropack2/feedbacks2.html' %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+	{% include 'quatropack2/products.html' %}
+    {#% include 'quatropack2/logotypes2.html' %#}
+    {% include 'quatropack2/img-zoom.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    -->
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/img-zoom.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/junior.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+
