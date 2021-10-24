@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ahorra_energia',
     'quatropack',
     'bauglobal',
+    'investigaciones',
 ]
 
 MIDDLEWARE = [
