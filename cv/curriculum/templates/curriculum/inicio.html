@@ -20,7 +20,14 @@
             scroll-behavior: smooth;
         }
         body{
+            /*
+            font: sans-serif;
+            font: arial;
+            font: caption;
+            */
             position: relative;
+            background: url(/static/curriculum/ppl5.jpg);
+            background-attachment: fixed;
         }
         main {
             padding-bottom: 8em;
@@ -31,6 +38,32 @@
         main>div{
             padding-top: 4em;
         }
+        #experiencia li{
+            margin-top: 1em;
+        }
+        #personales img {
+            width: 80%;
+        }
+        #up{
+            position: fixed;
+            right: 8px;
+            bottom: 50px;
+        }
+        main h2{
+            font-family: caption;
+            font-size: x-large;
+            font-weight: bold;
+        }
+        vertical_text{
+            writing-mode: vertical-lr;
+        }
+        #bottom_nombre{
+            font-family: monospace;
+            text-decoration: none;
+            color: gray;
+        }
+        /*
+system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"        */
     </style>
 </head>
 <body>
@@ -72,11 +105,12 @@
         </nav>        
     </header>
 
-    <main data-spy="scroll" data-target="#navbar-header" class="container" data-offset="0">
+    <main class="container" data-bs-spy="scroll" data-bs-target="#navbar-header" data-bs-offset="0">
         <div id="item-1">
             <div id="personales" class="row">
                 <div class="col-4">
                     <h2>Datos personales</h2>
+                    <img src="/static/curriculum/soyyo.jpg"/>                    
                 </div>
                 <div class="col-8">
                     <p>Yevhen (Eugenio) Repin</p>
@@ -86,11 +120,19 @@
                     </div>
                     <div class="row">
                         <div class="col">Correo electronico:</div>
-                        <div class="col">eugenere@gmail.com</div>
+                        <div class="col">
+                            <a href="mailto:eugenere@gmail.com?Subject=Cv">
+                                eugenere@gmail.com
+                            </a>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col">Telefono:</div>
-                        <div class="col">642312931</div>
+                        <div class="col">
+                            <a href="tel:+34642312931">
+                                (+34) 642-31-29-31
+                            </a>                        
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col">Nacionalidad:</div>
@@ -102,10 +144,15 @@
                     </div>
                     <p>divorciado</p>
                     <p>Murcia, Ramon del Valle Inclan ed.4 - Murcia (España) 30011</p>
+                    <p>Experiencia mas que 15 años</p>
                     <p>Funciones / Roles</p>
-                    <p>Años Exp.: 14 años 7 meses</p>
                     <p> 
-                        Desarrollador Web - Jefe de Proyecto - Programador - Técnico de Bases de Datos - Técnico de Sistemas - Técnico Software
+                        <span class="badge bg-secondary">Desarrollador Web</span>
+                        <span class="badge bg-secondary">Jefe de Proyecto</span>
+                        <span class="badge bg-secondary">Programador</span>
+                        <span class="badge bg-secondary">Técnico de Bases de Datos</span>
+                        <span class="badge bg-secondary">Técnico de Sistemas</span>
+                        <span class="badge bg-secondary">Técnico Software</span>
                     </p>
                 </div>
             </div>
@@ -119,22 +166,22 @@
                 <div class="col-8">
                     <ul class="icon-list">
                         <li>
-                            <p>Ingeniería informática. Sistemas y redes informáticos</p>
-                            <p>Assembler</p>
+                            <p>2001-2005 años</p>
+                            <h5>Ingeniería informática. Sistemas y redes informáticos</h5>
+                            <div>Assembler</div>
                             
                             <a href="https://en.wikipedia.org/wiki/West_Ukrainian_National_University">
                                 Universidad Nacional de Ucrania Occidental
                             </a>
-                            <p>2001-2005 años</p>
                         </li>
                         <li>
-                            <p>Matemáticas por computadora</p>
-                            <p>Pascal con Turbo Vision</p>
+                            <p>1996-2000 años</p>
+                            <h5>Matemáticas por computadora</h5>
+                            <div>Pascal con Turbo Vision</div>
                             
                             <a href="https://en.wikipedia.org/wiki/West_Ukrainian_National_University">
                                 Ivan Ogienko Universidad Nacional de Kamyanets-Podilsky
                             </a>
-                            <p>1996-2000 años</p>
                         </li>
                     </ul>
                 </div>
@@ -149,11 +196,11 @@
                 <div class="col-8">
                     <ul class="icon-list">
                         <li>
-                            <p>bellas artes</p>
+                            <p>1991-1996 años</p>
+                            <h5>bellas artes</h5>
                             <span>
                                 Escuela de artes
                             </span>                    
-                            <p>1991-1996 años</p>
                         </li>
                     </ul>
                 </div>
@@ -170,52 +217,79 @@
                         <li>
                             01/02/2001 - 11/06/2001<br>
                             Empreza "Zemliya"<br>
-                            usuario de software especial<br>
-                            Microsoft Windows, Word, software especial<br>
+                            <h5>Usuario de software especial</h5>
+                            <span class="badge bg-secondary">Microsoft Windows</span>
+                            <span class="badge bg-secondary">Word</span>
+                            <span class="badge bg-secondary">software especial</span>
                         </li>
                         <li>
                             09/03/2003 - 29/09/2003<br>
                             ayuntamento Kamenets-Podolsky<br>
-                            administrador de redes<br>
-                            Microsoft Windows, Escel, software especial<br>
+                            <h5>Administrador de redes</h5>
+                            <span class="badge bg-secondary">Microsoft Windows</span>
+                            <span class="badge bg-secondary">Escel</span>
+                            <span class="badge bg-secondary">software especial</span>
                         </li>
                         <li>
                             30/09/2003 - 15/08/2004 <br>
                             "Komputer dlia tebe"<br>
-                            reunir y reparar de ordenadores y software<br>
+                            <h5>Reunir y reparar de ordenadores y software</h5>
                         </li>
                         <li>
                             16/08/2004 - 28/08/2006<br>
                             "Deka-soft"<br>
-                            programmador windows<br>
-                            Linux, web paginas, PHP, SQL(mySql), Java,<br>
-                            HTML, CSS, ColdFusion, C#, Javascript<br>
+                            <h5>Programmador windows</h5>
+                            <span class="badge bg-secondary">Linux</span>
+                            <span class="badge bg-secondary">web paginas</span>
+                            <span class="badge bg-secondary">PHP</span>
+                            <span class="badge bg-secondary">SQL(mySql)</span>
+                            <span class="badge bg-secondary">Java</span>
+                            <span class="badge bg-secondary">HTML</span>
+                            <span class="badge bg-secondary">CSS</span>
+                            <span class="badge bg-secondary">ColdFusion</span>
+                            <span class="badge bg-secondary">C#</span>
+                            <span class="badge bg-secondary">Javascript</span>
                         </li>
                         <li>
-                            "Kupidon"<br>
-                            programmador linix y windows<br>
-                            3d OpenGL interfaces para usarios<br>
-                            Linux, MySql, C++, OpenGL,<br>
-                            protocoles SAS, 
                             30/08/2006-2010<br>
+                            "Kupidon"<br>
+                            <h5>Programmador linix y windows</h5>
+                            3d OpenGL interfaces para usarios<br>
+                            <span class="badge bg-secondary">Linux</span>
+                            <span class="badge bg-secondary">MySql</span>
+                            <span class="badge bg-secondary">C++</span>
+                            <span class="badge bg-secondary">OpenGL</span>
+                            <span class="badge bg-secondary">SAS protocol</span> 
                         </li>
                         <li>
-                            "Ubisoft"<br>
-                            desorallador "origin"<br>
-                            windows, c++, javascript, Chromium Embedded Framework(CEF)<br>
                             2010-2011<br>
+                            "Ubisoft"<br>
+                            <h5>Programmador c++ y javascript</h5>
+                            desorallador "origin"<br>
+                            <span class="badge bg-secondary">windows</span>
+                            <span class="badge bg-secondary">c++</span>
+                            <span class="badge bg-secondary">javascript</span>
+                            <span class="badge bg-secondary">Chromium Embedded Framework(CEF)</span>
                         </li>
                         <li>
-                            cuentapropista<br>
-                            desorallador, modeler, diseño<br>
-                            qtWebkit, Python, Django, Javascript, 
-                            Angular, Bootstrap, jQuery, 
-                            HTML, CSS, LESS, SASS, SCSS,
-                            OpenCV, Blender3d,
-                            <br>
-                            Wordpress 
-                            <br>
                             2011-Ahora<br>
+                            cuentapropista<br>
+                            <h5>desorallador, modeler, diseño</h5>
+                            <span class="badge bg-secondary">qtWebkit</span>
+                            <span class="badge bg-secondary">Python</span>
+                            <span class="badge bg-secondary">Django</span>
+                            <span class="badge bg-secondary">Javascript</span>
+                            <span class="badge bg-secondary">Angular</span>
+                            <span class="badge bg-secondary">Bootstrap</span>
+                            <span class="badge bg-secondary">jQuery</span>
+                            <span class="badge bg-secondary">HTML</span>
+                            <span class="badge bg-secondary">CSS</span>
+                            <span class="badge bg-secondary">LESS</span>
+                            <span class="badge bg-secondary">SASS</span>
+                            <span class="badge bg-secondary">SCSS</span>
+                            <span class="badge bg-secondary">OpenCV</span>
+                            <span class="badge bg-secondary">Blender3d</span>
+                            <span class="badge bg-secondary">Wordpress</span>
                         </li>
                     </ul>
                 </div>
@@ -290,15 +364,17 @@
         <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="text-begin">
-                    X/2022
+                    X/2022 <a href="https://github.com/eugenere/cv">GIT</a>
                 </div>
                 <div class="text-end">
-                    Yevhen Repin 
+                    <a id="bottom_nombre" href="#personales">Yevhen Repin</a>
                 </div>
             </div>
         </nav>  
     </footer>
-
+    <button id="up" class="btn btn-outline-secondary">
+        subirse
+    </button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -314,7 +390,23 @@
         document.body.onload=()=>{
             console.log('dynamic loading inicio')
             
-            let navs = $("#navbarCollapse a")
+            window.addEventListener("mousemove", (e) => {
+                document.body.style.backgroundPositionX = -e.offsetX + "px";
+                document.body.style.backgroundPositionY = -e.offsetY + "px";
+            })            
+                        
+            let up_btn = $('#up')
+            up_btn.hide().click(()=>{
+                $('html, body').animate({scrollTop: 0}, 2000)
+            })
+            window.addEventListener('scroll',(e)=>{
+                if (window.scrollY > 200) {
+                    up_btn.show()
+                } else {
+                    up_btn.hide()
+                }
+            })
+            
             $('body').scrollspy({ target: '#navbar-header' })
             
             let now = new Date()
@@ -325,16 +417,12 @@
             let d = now.getDate()-was.getDate();
             $("#edad").text(y+" años "+m+" meses "+d+" dias")            
             
+            let navs = $("#navbarCollapse a")
             navs.click((e)=>{
-                $('body').animate({ scrollTop: e.target.top },'slow')
+                e.preventDefault();
                 $('html, body').animate({
-                    scrollTop: e.target.top
-                }, 2000);
-                /*
-                e.target.scrollIntoView({
-                    behavior: "smooth",
-                })
-                */
+                    scrollTop: $(e.target.hash).offset().top
+                }, 1500);
             })
             console.log('dynamic loading finish')
         }
