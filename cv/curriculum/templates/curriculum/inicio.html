@@ -435,10 +435,11 @@
     <!-- ------------------------------------------------------------------------------ -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+    <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="/static/comun/js/TextPlugin.min.js"></script>
     <script src="/static/comun/js/SplitText3.min.js"></script>
+    -->
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
@@ -492,6 +493,7 @@
                     scrollTop: $(e.target.hash).offset().top,
                     duration: 2500
                 })
+                /*
                 let tl = gsap.timeline()
                 let st = new SplitText(e.target.hash+" h2", {type:"words,chars"}) 
                 let chars = st.chars
@@ -500,6 +502,7 @@
                     duration: 0.2, opacity:0, scale:0, y:-80, rotationX:180, 
                     transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01
                 }, "+=1")
+                */
             })
             console.log('dynamic loading finish')
         }
