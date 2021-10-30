@@ -1,0 +1,130 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/tech.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/feedbacks2.css' %}" />
+{% endblock styles %}
+
+{% block html_title %}{{ block.super }} {% trans 'El sellado por inducción explicado' %} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="qp-title">El sellado por inducción explicado</div>
+        <div class="qp-subtitle">Todo lo que necesita saber sobre el sellado por inducción.</div>
+        
+        <div class="qp-row row">
+            <div class="col-12 col-lg-4 qp-story qp-story-text">
+                <span class="h4 font-weight-bold qp-subtitle">¿Qué es termosellar por inducción?</span>
+                <p class='text-justify'>
+                    <span class="ml-5"></span>
+                    En este video, podrá ver cómo funciona el proceso del sellado por inducción, y conocer los elementos principales que intervienen en una termoselladora por inducción. Podrá ver líneas reales en producción y muchos ejemplos de productos sellados.
+                </p>
+            </div>
+            <div class="col-12 col-lg-8 qp-story qp-story-video">
+                <iframe frameborder="0" allowfullscreen src="https://www.youtube.com/embed/N0gn3jFJqCU" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        width="100%" height="400">
+                </iframe>
+            </div>
+        </div>
+        <div class="qp-row row">
+            <div class="col-12 col-lg-8 qp-story qp-story-video">
+                <iframe frameborder="0" allowfullscreen src="https://www.youtube.com/embed/dz8NE0InXQ0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        width="100%" height="400">
+                </iframe>
+            </div>
+            <div class="col-12 col-lg-4 qp-story qp-story-text">
+                <span class="h4 font-weight-bold qp-subtitle">¿Cómo obtener un sello perfecto?</span>
+                <p class='text-justify'>
+                    <span class="ml-5"></span>
+                    Ajustar correctamente el proceso de sellado por inducción permite que todos y cada uno de nuestros envases se sellen correctamente. 
+                    <span class="ml-5"></span>
+                    En condiciones de producción reales, muchos factores pueden variar de un envase a otro, pero todos los envases deben ser sellados del primero al último. Hay variaciones en la  altura, variaciones en el par de cierre del tapón, cambios en la velocidad de la línea...
+                    <span class="ml-5"></span>
+                    Contacte con nosotros y le ayudaremos a ajustar su línea para obtener el mejor rendimiento y una fiabilidad total.
+                </p>
+            </div>
+        </div>
+        
+        <div class="qp-row row">
+            <div class="col-12 col-lg-4 qp-story qp-story-text">
+                <span class="h4 font-weight-bold qp-subtitle">Junior</span>
+            </div>
+            <div class="col-12 col-lg-8 qp-story qp-story-video">
+                <video id="video-junior" controls width="100%" height="400"
+                        poster="{% static 'quatropack2/images/video_poster.jpg' %}">
+                    <source src="http://data.rf.gd/static/video/Junior.mp4.webm" type="video/webm">
+                </video>
+            </div>
+        </div>
+        <div class="qp-row row">
+            <div class="col-12 col-lg-8 qp-story qp-story-video">
+                <video id="video-nn" controls width="100%" height="400"
+                        poster="{% static 'quatropack2/images/video_poster.jpg' %}">
+                    <source src="http://data.rf.gd/static/video/SuperSeal.mp4.webm" type="video/webm">
+                </video>
+            </div>
+            <div class="col-12 col-lg-4 qp-story qp-story-text">
+                <span class="h4 font-weight-bold qp-subtitle">Super Seal 50,75,100</span>
+            </div>
+        </div>
+        <div class="qp-row row">
+            <div class="col-12 col-lg-4 qp-story qp-story-text">
+                <span class="h4 font-weight-bold qp-subtitle">Super Seal Touch</span>
+            </div>
+            <div class="col-12 col-lg-8 qp-story qp-story-video">
+                <video id="video-touch" controls width="100%" height="400"
+                        poster="{% static 'quatropack2/images/video_poster.jpg' %}">
+                    <source src="http://data.rf.gd/static/video/Touch.mp4.webm" type="video/webm">
+                </video>
+            </div>
+        </div>
+        <div class="qp-row row">
+            <div class="col-12 col-lg-8 qp-story qp-story-video">
+                <video id="video-intro" controls width="100%" height="400"
+                        poster="{% static 'quatropack2/images/video_poster.jpg' %}">
+                    <source src="http://data.rf.gd/static/video/Induction.mp4.webm" type="video/webm">
+                </video>            
+            </div>
+            <div class="col-12 col-lg-4 qp-story qp-story-text">
+                <span class="h4 font-weight-bold qp-subtitle">Introdución</span>
+            </div>
+        </div>
+        
+        <div class="qp-row row">
+            <div class="col qp-story">
+                <p class='text-justify'>
+                    <span class="ml-5"></span>
+                    Necesita que su producto viaje más lejos, aguante más tiempo y esté todavía fresco cuando se abra? ¿o necesita protección contra fugas de producto o falsificaciones? Termosellando por inducción puede conseguirlo.
+                </p>
+            </div>
+        </div>
+        <div class="qp-row row">
+            <div class="col qp-story">
+                <span class="h4 font-weight-bold qp-subtitle">¿Cómo Funciona el Sellado Mediante Inducción?</span>
+                <p class='text-justify'>
+                    <span class="ml-5"></span>
+                    El sellado de envases mediante inducción, o sellado térmico, como generalmente se lo conoce, es un proceso muy sencillo y directo.
+                    <span class="ml-5"></span>
+                    Se llena el envase y después se le aplica el tapón (que tiene revestida una lámina de aluminio).
+                    <span class="ml-5"></span>
+                    El envase con el tapón pasa a continuación por debajo de la selladora de tapones mediante inducción, donde un campo electromagnético controlado transfiere energía al aluminio del tapón, creando calor.
+                    <span class="ml-5"></span>
+                    Esto funde el material de sellado que se encuentra en la lámina de aluminio.
+                    <span class="ml-5"></span>
+                    Una vez este sellador se enfría, el revestimiento se adhiere a la parte del envase contigua a él. Esto se conoce como un sello hermético (estanco).
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    {% include 'quatropack2/feedbacks2.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="{% static 'quatropack2/scripts/technology.js' %}"></script>
+{% endblock scripts %}

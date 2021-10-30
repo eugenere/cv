@@ -1,0 +1,12 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block html_title %}{{ block.super }}/{{ url_end }}-fake{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column justify-content-center">
+        <h2 class='text-center'>{{ url_end }}</h2>
+        <h4 class='text-center'>{{ request.path }}</h4>
+    </div>
+{% endblock content %}

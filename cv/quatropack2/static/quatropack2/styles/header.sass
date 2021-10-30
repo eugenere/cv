@@ -1,0 +1,35 @@
+@import variables
+
+.qp-header
+    font-size: 120%
+    background-color: white
+    padding:
+        top: .9em
+        bottom: .8em
+    //box-shadow: rgba(0,0,0,.117647) 0 1px 3px
+    box-shadow: rgba(0,0,0,.2) 0 1px 2px
+    .qp-menu-button
+        margin-top: -.1em
+
+    .qp-brand
+        float: left
+
+        .qp-logo-small
+            width: 200px
+            height: 30px
+            background-image: url("../../quatropack2/images/quatropack_logo_small.png") 
+            background-size: 100%
+            &:after
+                content: url("../../quatropack2/images/quatropack_logo_small_hover.png") 
+                display: none
+            &:hover
+                background-image: url("../../quatropack2/images/quatropack_logo_small_hover.png") 
+        a
+            color: black
+            &:hover
+                color: black
+                text-decoration: none
+            img
+                height: 20px
+                margin-top: -0.2em
+

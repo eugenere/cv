@@ -34,7 +34,7 @@
 }
 
 .navbar-toggler:hover>.icon-bar {
-    background-color: #71a5d4;
+    background-color: #888;
 }
 
 .navbar-toggler:hover>.icon-bar:nth-child(2) {

@@ -1,141 +1,118 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect
-import json
 
 import os
 from django import conf
 
-from . import data1
-from . import data as new_data
-
-from comun.etc import dbg
+from . import data
+from . import forms
 
 
-def common_context(request):
+@login_required
+def edit_contacts(request):
+    from etc.utils import dbg
+    import json
+
+    dbg('start')
+
+    if request.method == 'POST':
+        #print(request.FILES)
+        #print(request.POST)
+        #print(image)
+
+        form = forms.ContactsEditForm(request.POST, request.FILES)
+        image = request.FILES['image']
+        dbg('edit: {}/{}/{}', image.name, request.POST['title'], request.POST['link'])
+
+        if form.is_valid():
+            with open(os.path.join(conf.settings.MEDIA_ROOT, image.name), 'wb+') as destination:
+                for chunk in image.chunks():
+                    destination.write(chunk)
+
+            with open(os.path.join(conf.settings.DATA_DIR, 'contacts.json'), 'w+') as file:
+                json.dump({
+                    'title': request.POST['title'],
+                    'link': request.POST['link'],
+                    'image': conf.settings.MEDIA_URL+image.name,
+                }, file, sort_keys=True, indent=4)
+
+            dbg('finish edit')
+            return HttpResponseRedirect('/contacts/')
+    else:
+        form = forms.ContactsEditForm()
+
+    dbg('finish show')
+    return render(request, 'quatropack/edit.html', {'form': form})
+
+
+def contacts(request):
+    import json
+
+    with open(os.path.join(conf.settings.DATA_DIR, 'contacts.json'), 'r') as file:
+        context = {
+            'data': json.load(file),
+        }
+        context.update(base_context(request))
+        return render(request, 'quatropack/contacts.html', context)
+    return Http404('data broken')
+
+
+def set_lang(request, lang):
+    from django.utils import translation
+
+    translation.activate(lang)
+    request.session[translation.LANGUAGE_SESSION_KEY] = lang
+    return redirect(request.META['HTTP_REFERER'])
+    
+
+def base_context(request):
+    print(request.path.split('/')[:-1])
     return {
-        'url_end': request.path.split('/')[-2],
-        'machine_names': new_data.MACHINE_NAMES,
+        'devices': data.DEVICES,
+        'url_end': request.path.split('/')[-1],
     }
 
 
-def home(request):
-    return render(request, 'quatropack/index.html', dict({
-        'logotypes': new_data.LOGOTYPES,
-        'products': new_data.PRODUCTS,
-        'peeling_shots': new_data.PEELING_SHOTS,
-    }, **common_context(request)))
-
-
-def home1(request):
-    return render(request, 'quatropack/index1.html', dict({
-        'logotypes': new_data.LOGOTYPES,
-        'products': new_data.PRODUCTS,
-        'peeling_shots': new_data.PEELING_SHOTS,
-    }, **common_context(request)))
-
-
-def machines(request):
-    return render(request, 'quatropack/machines.html', dict({
-        'machines': new_data.MACHINES,
-    }, **common_context(request)))
-
-
-def machine(request, slug):
-    if slug not in new_data.MACHINES_BY_SLUG:
-        return render(request, 'quatropack/404.html', common_context(request))
-    return render(request, 'quatropack/{}.html'.format(slug[len("super_seal_"):]), dict({
-            'machine': new_data.MACHINES_BY_SLUG[slug],
-            'logotypes': new_data.LOGOTYPES,
-            'products': new_data.PRODUCTS,
-        }, **common_context(request)))
-      
-    """
-    if "super_seal_max" == slug:
-        return render(request, 'quatropack/machine2.html', dict({
-            'machine': new_data.MACHINES_BY_SLUG[slug],
-            'logotypes': new_data.LOGOTYPES,
-            'products': new_data.PRODUCTS,
-        }, **common_context(request)))
-    if "super_seal_100" == slug:
-        return render(request, 'quatropack/machine3.html', dict({
-            'machine': new_data.MACHINES_BY_SLUG[slug],
-            'logotypes': new_data.LOGOTYPES,
-            'products': new_data.PRODUCTS,
-        }, **common_context(request)))
-    if "super_seal_50" == slug:
-        return render(request, 'quatropack/machine4.html', dict({
-            'machine': new_data.MACHINES_BY_SLUG[slug],
-            'logotypes': new_data.LOGOTYPES,
-            'products': new_data.PRODUCTS,
-        }, **common_context(request)))
-    if "super_seal_75" == slug:
-        return render(request, 'quatropack/machine5.html', dict({
-            'machine': new_data.MACHINES_BY_SLUG[slug],
-            'logotypes': new_data.LOGOTYPES,
-            'products': new_data.PRODUCTS,
-        }, **common_context(request)))
-    if slug in ["super_seal_100", "super_seal_75", "super_seal_50", "super_seal_touch", "super_seal_max"]:
-        return render(request, 'quatropack/{}.html'.format(slug[len("super_seal_"):]), dict({
-            'machine': new_data.MACHINES_BY_SLUG[slug],
-            'logotypes': new_data.LOGOTYPES,
-            'products': new_data.PRODUCTS,
-        }, **common_context(request)))
-    
-
-    return render(request, 'quatropack/machine.html', dict({
-        'machine': new_data.MACHINES_BY_SLUG[slug],
-        'logotypes': new_data.LOGOTYPES,
-        'products': new_data.PRODUCTS,
-    }, **common_context(request)))
-    """
-
+def index(request):
+    context = {
+        'benefits': data.BENEFITS,
+        'examples': data.EXAMPLES,
+        'logotypes': data.LOGOTYPES,
+    }
+    context.update(base_context(request))
+    return render(request, 'quatropack/index.html', context)
 
 def benefits(request):
-    return render(request, 'quatropack/benefits.html', dict({
-        'benefits': new_data.BENEFITS,
-    }, **common_context(request)))
-
-
-def cases(request):
-    """
-    return render(request, 'quatropack/cases.html', dict({
-        'cases': data.REVIEWS,
-    }, **common_context(request)))
-    """
-    return render(request, 'quatropack/cases.html', common_context(request))
-
-
-def media(request):
-    return render(request, 'quatropack/media.html', common_context(request))
-
-
-def feedback(request, name):
-    return render(request, 
-            'quatropack/{}.html'.format(name), 
-            common_context(request))
-
+    context = {
+        'benefits': data.BENEFITS,
+    }
+    context.update(base_context(request))
+    return render(request, 'quatropack/benefits.html', context)
     
-def contacts(request):
-    return render(request, 'quatropack/contacts.html', dict({
-        'data': {
-            'image': '',
-            'link': '',
-            'title': '',
-        }
-    }, **common_context(request)))
+def clients(request):
+    context = {
+        'reviews': data.REVIEWS,
+    }
+    context.update(base_context(request))
+    return render(request, 'quatropack/clients.html', context)
+    
+#def tech(request, name):
+def devices(request):
+    context = {
+        'benefits': data.BENEFITS,
+        'reviews': data.REVIEWS,
+        'examples': data.EXAMPLES,
+    }
+    context.update(base_context(request))
+    return render(request, 'quatropack/devices.html', context)
 
-
-def legal_terms(request):
-    return render(request, 'quatropack/terms.html', common_context(request))
-
-
-def privacy_policy(request):
-    return render(request, 'quatropack/fake.html', common_context(request))
-
-
-def technology(request):
-    return render(request, 'quatropack/technology.html', common_context(request))
-
-def fake(request):
-    return render(request, 'quatropack/fake.html', common_context(request))
+def device(request, name):
+    context = {
+        'examples': data.EXAMPLES,
+        'benefits': data.BENEFITS,
+        'logotypes': data.LOGOTYPES,
+    }
+    context.update(data.DEVICES_BY_SLUG[name])
+    context.update(base_context(request))
+    return render(request, 'quatropack/device.html', context)

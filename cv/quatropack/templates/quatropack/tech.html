@@ -1,0 +1,146 @@
+﻿{% extends "quatropack/base.html" %}
+{% load static %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" type='text/css'
+        href="{% static 'quatropack/styles/loading.css' %}">
+{% endblock %}
+
+{% block title %} {{ block.super }} {% endblock %}
+
+{% block nav_menu %}
+    {% include 'quatropack/langs.html' %}
+{% endblock nav_menu %}
+
+{% block content %}
+<div class="loading"></div>
+<div class="qp-main-container container">
+    <!--{{ request.path }}-->
+    <!-- {{ mas }} -->
+    <!--{{ items|length }}-->
+    <div class='qp-tabs'>
+        <ul class="nav nav-tabs justify-content-end" id="qp-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#examples" id="examples-tab" role="tab"
+                        data-toggle="tab" aria-controls="examples" aria-selected="true">
+                    examples
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#devices" id="devices-tab" role="tab"
+                        data-toggle="tab" aria-controls="devices" aria-selected="false">
+                    devices
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#reviews" id="reviews-tab" role="tab"
+                        data-toggle="tab" aria-controls="reviews" aria-selected="false">
+                    reviews
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#benefits" id="benefits-tab" role="tab"
+                        data-toggle="tab" aria-controls="benefits" aria-selected="false">
+                    benefits
+                </a>
+            </li>
+        </ul>   
+    </div>
+    
+    
+    <div class="tab-content" id="qp-tabs-content">
+    
+        <div class="tab-pane _fade show active" id="examples" role="tabpanel" 
+                aria-labelledby="examples-tab">
+            <div class="qp-row row justify-content-center pb-3">
+                <!--
+                <div class="qp-col col-12">
+                    <h5>industries</h5>
+                    <p style="padding-bottom: 0pt; " class="paragraph_style_1">farmacéutica&nbsp;&nbsp; alimentación&nbsp; bebidas&nbsp;&nbsp; cosmética&nbsp;&nbsp; química</p>
+                </div>
+                -->
+                {% for item in examples %}
+                <div class="qp-col qp-industry-short col-sm-12 col-md-12 col-xl-6 pt-3">
+                    <div class="p-1">
+                        <img src="{{ item.image }}" alt="{{ item.name }}">
+                        <div class='qp-right w-100 qp-industry'>{{ item.name }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="tab-pane _fade" id="devices" role="tabpanel" aria-labelledby="devices-tab">
+            <div class="qp-row row justify-content-center">
+                <!--
+                    <div class="qp-col col-12">
+                        {{ menu.description }}
+                    </div>
+                
+                -->
+                {% for item in devices %}
+                    <div class="qp-col col-sm-12 col-md-6 col-xl-3">
+                        <a href="{% url 'quatropack:device' item.slug %}" class="qp-link">
+                            <div class="qp-card card h-100 pt-3">
+                                <img class='card-img-top'
+                                        src="{{ item.image }}" alt="{{ item.name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.name }}</h5>
+                                    <p class="card-text text-justify _mb-5">{{ item.description }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane _fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+            <div class="qp-row row justify-content-center">
+                <!--
+                <div class="qp-col col-12">
+                    <h5>reviews</h5>
+                </div>
+                -->
+                {% for item in reviews %}
+                <div class="qp-col qp-customer-short col-sm-12 col-md-6 col-xl-4 p-3">
+                    <div class="row justify-content-center">
+                    {% for item_image in item.images %}
+                        <div class='col-xs-12 col-sm-6 col-md-12 col-xl-6'>
+                            <img class='w-100' src="{{ item_image }}" alt="{{ item.name }}">
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div class="_qp-right">
+                        <h6>{{ item.phrase }}</h6>
+                        <b class="qp-person">{{ item.person }}</b>
+                    </div>
+                </div>
+                    {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane _fade" id="benefits" role="tabpanel" 
+                aria-labelledby="benefits-tab">
+            <div class="qp-row row justify-content-center">
+                <!--
+                <div class="qp-col col-12">
+                    <h5>reviews</h5>
+                [l:{{ benefits|length }}]
+                </div>
+                -->
+                {% for item in benefits %}
+                <div class='qp-col qp-benefits-short col-xs-12 col-sm-6 col-md-12 col-xl-6'>
+                    <img class='w-100' src="{{ item.image }}" alt="{{ item.name }}">
+                    <span>
+                        {{ item.name }}
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--{{ request.path }}-->
+    <!-- {{ mas }} -->
+    <!--{{ items|length }}-->
+</div>
+{% endblock content %}

@@ -1,48 +1,22 @@
-from django.urls import path,re_path
+from django.urls import path
 from django.views.generic.base import TemplateView
 
 from . import views
 
 
 app_name = 'quatropack'
-
 urlpatterns = [
-    #TODO: remove for continue
-    #re_path(r'^.*$', TemplateView.as_view(template_name='quatropack2/tarde.html')),
-    
-    #re_path(r'^.*$', RedirectView.as_view(url='http://quatropack.com', permanent=True)),
-    #path('media/', TemplateView.as_view(template_name='quatropack/media.html'), name='media'),
-    #path('', views.fake, name='home'),
-    #path('fake/', views.fake, name='fake'),
-    
-    #TODO: for work
-    path('', views.home, name='home'),
-    path('h1/', views.home1, name='home1'),
-    
-    path('machines/', views.machines, name='machines'),
-
+    path('', views.index, name='home'),
+    path('setlang/<lang>', views.set_lang, name='setlang'),
+    path('products', views.devices, name='devices'),
+    path('product/<name>', views.device, name='device'),
     path('benefits/', views.benefits, name='benefits'),
-    path('technology/', views.technology, name='technology'),
-    path('cases/', views.cases, name='cases'),
-    path('media/', views.media, name='media'),
+    path('clients/', views.clients, name='clients'),
+    path('editor/', views.edit_contacts, name='editor'),
+    path('media/', TemplateView.as_view(template_name='quatropack/media.html'), name='media'),
+    #path('contacts/', TemplateView.as_view(template_name='quatropack/contacts.html'), name='contacts'),
     path('contacts/', views.contacts, name='contacts'),
-    
-    path('legal-terms/', views.legal_terms, name='legal-terms'),
-    path('privacy-policy/', views.privacy_policy, name='privacy-policy'),
-    
-    path('probelte/', views.feedback, { "name": "probelte" }, name='probelte'),
-    path('maripaz/', views.feedback, { "name": "maripaz" }, name='maripaz'),
-    path('bestprotein/', views.feedback, { "name": "bestprotein" }, name='bestprotein'),
-    path('esteve/', views.fake, name='esteve'),
-    path('labrubio/', views.fake, name='labrubio'),
-    
-    path('top-pressure-seal/', views.fake, name='top-pressure-seal'),
-    path('<str:slug>/', views.machine, name='machine'),
+    path('privacy/', TemplateView.as_view(template_name='quatropack/privacy-policy.html'), name='privacy'),
+    path('legally/', TemplateView.as_view(template_name='quatropack/legal-terms.html'), name='legally'),
+    path('i/', TemplateView.as_view(template_name='quatropack/i.html'), name='i_html'),
 ]
-
-    
-"""
-    path('probelte/', TemplateView.as_view(template_name='quatropack2/probelte.html'), name='probelte'),
-    path('maripaz/', TemplateView.as_view(template_name='quatropack2/maripaz.html'), name='maripaz'),
-    path('bestprotein/', TemplateView.as_view(template_name='quatropack2/bestprotein.html'), name='bestprotein'),
-"""

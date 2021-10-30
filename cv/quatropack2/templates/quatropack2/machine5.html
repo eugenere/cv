@@ -1,0 +1,83 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machine5.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="qp-machine">
+            <div class="row">
+                <div class="qp-col col-sm-12 col-md-6">
+                    <canvas id="first-canvas" class='qp-canvas'></canvas>
+                    <div class="float-left">
+                        <button class='qp-zoom qp-zoomout btn btn-light'>-</button>
+                    </div>
+                    <div class="float-right">
+                        <button class='qp-zoom qp-zoomin btn btn-light'>+</button>
+                    </div>
+                </div>
+                <div class="qp-col col-sm-12 col-md-6">
+                    <div class="qp-text qp-transform">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, magni, non, quibusdam quae earum exercitationem rerum ipsum ut laudantium mollitia perspiciatis odio labore similique ea minima neque a quis repudiandae.
+                    </div>
+                </div>
+                
+                <div class="qp-col col-sm-12 col-md-6 order-md-4 order-sm-3">
+                    <canvas id="second-canvas" class='qp-canvas'></canvas>
+                    <div class="float-left">
+                        <button class='qp-zoom_ qp-zoomout-2 btn btn-light'>
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                    </div>
+                    <div class="float-right">
+                        <button class='qp-zoom_ qp-zoomin-2 btn btn-light'>
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="qp-col col-sm-12 col-md-6 order-md-3 order-sm-4">
+                    <div class="qp-text qp-transform">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, magni, non, quibusdam quae earum exercitationem rerum ipsum ut laudantium mollitia perspiciatis odio labore similique ea minima neque a quis repudiandae.
+                    </div>
+                </div>
+                
+                <div class="qp-col col-sm-12 col-md-6 order-5">
+                    <canvas id="third-canvas" class='qp-canvas'></canvas>
+                    <div class="float-left">
+                        <button class='qp-zoom qp-zoomout-3 btn btn-light'>-</button>
+                    </div>
+                    <div class="float-right">
+                        <button class='qp-zoom qp-zoomin-3 btn btn-light'>+</button>
+                    </div>
+                </div>
+                <div class="qp-col col-sm-12 col-md-6 order-6">
+                    <div class="qp-text qp-transform">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, magni, non, quibusdam quae earum exercitationem rerum ipsum ut laudantium mollitia perspiciatis odio labore similique ea minima neque a quis repudiandae.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'quatropack2/products.html' %}
+    {% include 'quatropack2/logotypes2.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="{% static 'babylon/babylon.js' %}"></script>
+    <script src="{% static 'babylon/babylon.glTFFileLoader.min.js' %}"></script>
+    <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine5.js' %}"></script>
+{% endblock scripts %}
+

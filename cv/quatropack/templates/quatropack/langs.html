@@ -1,19 +1,35 @@
-﻿{% load static i18n %}
+{% load static i18n %}
 
-{% get_current_language as CURRENT_LANGUAGE %}
-{% get_available_languages as AVAILABLE_LANGUAGES %}
+<div class="ml-auto qp-lang text-right">
+    {% get_current_language as LANGUAGE_CODE %}
+    <button type="button" id="dropdownMenuButton" 
+            class="qp-lang-btn btn btn-outline-secondary dropdown-toggle" 
+            data-flip="true" boundary="viewport"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="{% static 'quatropack/images/langs/' %}{{ LANGUAGE_CODE }}.png"> 
+        <span>{{ LANGUAGE_CODE }}</span>
+    </button>
 
-{% for code, name in AVAILABLE_LANGUAGES %}
-    <a class="qp-lang-link {% if code == CURRENT_LANGUAGE %} disabled {% endif %}" 
-            href="{% if code == CURRENT_LANGUAGE %} # {% else %} # {% endif %}">
-        <img class="_d-none _d-sm-block" 
-                src="{% static 'quatropack/images/langs/' %}{{ code }}.png">
-        <span class="qp-lang d-none d-sm-block">
-            {{code|language_name_local}}
-        </span>
-        <span class="qp-lang d-block d-sm-none">
-            {{code}}
-        </span>
-    </a>
-{% endfor %}
+    <div class="qp-lang-dd dropdown-menu container1" aria-labelledby="dropdownMenuButton"
+            data-flip="true" boundary="viewport" offset="10rem">
+        {% if LANGUAGE_CODE != 'es' %}
+        <a class="dropdown-item" 
+                href="{% url 'quatropack:setlang' 'es' %}">
+            <img src="{% static 'quatropack/images/langs/es.png' %}"> <span>es</span>
+        </a>
+        {% endif %}
+        {% if LANGUAGE_CODE != 'fr' %}
+        <a class="dropdown-item" 
+                href="{% url 'quatropack:setlang' 'fr' %}">
+            <img src="{% static 'quatropack/images/langs/fr.png' %}"> <span>fr</span>
+        </a>
+        {% endif %}
+        {% if LANGUAGE_CODE != 'en' %}
+        <a class="dropdown-item" 
+                href="{% url 'quatropack:setlang' 'en' %}">
+            <img src="{% static 'quatropack/images/langs/en.png' %}"> <span>en</span>
+        </a>
+        {% endif %}
+    </div>
+</div>
 

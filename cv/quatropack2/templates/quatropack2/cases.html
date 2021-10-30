@@ -1,0 +1,186 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/cases.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/btech.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %}{{ block.super }} {% trans "Casos Prácticos" %} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="qp-title">Casos Prácticos</div>
+        <div class="qp-subtitle">¿Qué dicen nuestros clientes de sellar por inducción?</div>
+        
+        <!--
+        <div class='qp-todo'>
+            <ul>
+                <li>
+                    <a href="{%  url 'quatropack2:probelte'%}">Probelte</a>
+                    “Nuestros envases sellados son más difíciles de copiar y su caducidad es un año más larga”
+                </li>
+                <li>
+                    <a href="{%  url 'quatropack2:maripaz'%}">Mari Paz</a>
+                    “El aroma y el color de nuestros productos se mantiene perfectamente y además nos ahorramos reclamaciones”
+                </li>
+                <li>
+                    <a href="{%  url 'quatropack2:bestprotein'%}">Best Protein</a>
+                </li>
+                <li>Lab Rub</li>
+                <li>ESTEVE</li>
+                
+            </ul>
+        </div>
+        -->
+        
+        <div class="qp-row row justify-content-around">
+        
+            <div class="qp-using-story col-md-5 col-sm-12 d-flex flex-column">
+                <div class="qp-images text-center">
+                    <img src="{% static 'quatropack2\images\logotypes\21.probelte.png' %}" alt="probelte logo"/>
+                    <img src="{% static 'quatropack2\images\products\7.png' %}" alt="probelte product ejemplo"/>                    
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <br>
+                <br>
+                <div class="qp-text text-left my-auto">
+                    <b>Nuestros envases sellados son más difíciles de copiar y su caducidad es un año más larga.</b>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nihil quos excepturi laborum laboriosam facere ratione nam enim consectetur labore quisquam inventore! Suscipit earum quisquam aliquam dignissimos cupiditate quo quia.
+                    <div class="qp-person text-right">
+                        José Manuel Casanova<br>
+                        Gerente de Probelte
+                    </div>
+                </div>                
+                <br>
+                <br>
+                <br>
+                <div class="qp-link text-right mt-auto">
+                    <a href="{%  url 'quatropack2:probelte'%}">leer mas</a>
+                </div>
+            </div>
+        
+            <div class="qp-using-story col-md-5 col-sm-12 d-flex flex-column">
+                <div class="qp-images text-center">
+                        <img src="{% static 'quatropack2\images\logotypes\56.mari_paz.png' %}" alt="mari paz logo"/>
+                        <img src="{% static 'quatropack2\images\products\23.png' %}" alt="mari paz product ejemplo"/>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <br>
+                <br>
+                <div class="qp-text text-left my-auto">
+                    <b>El aroma y el color de nuestros productos se mantiene perfectamente y además nos ahorramos reclamaciones.</b>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nihil quos excepturi laborum laboriosam facere ratione nam enim consectetur labore quisquam inventore! Suscipit earum quisquam aliquam dignissimos cupiditate quo quia.
+                    <div class="qp-person text-right">
+                        Enrique Montserrat<br>
+                        Director comercial de Maripaz
+                    </div>
+                </div>                
+                <br>
+                <br>
+                <br>
+                <div class="qp-link text-right mt-auto">
+                    <a href="{%  url 'quatropack2:maripaz'%}">leer mas</a>
+                </div>
+            </div>
+            
+            <div class="qp-using-story col-md-5 col-sm-12 d-flex flex-column">
+                <div class="qp-images text-center">
+                        <img src="{% static 'quatropack2\images\logotypes\52.best_protein.png' %}" alt="best protein logo"/>
+                        <img src="{% static 'quatropack2\images\cases\bp_1.png' %}" alt="best protein product ejemplo"/>                
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <br>
+                <br>
+                <div class="qp-text text-left my-auto">
+                    <b>El sellado hermético por inducción hace que se alargue el mantenimiento de los productos en las mejores condiciones y se aleje la fecha de caducidad, dilatando la vida útil del producto.</b>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nihil quos excepturi laborum laboriosam facere ratione nam enim consectetur labore quisquam inventore! Suscipit earum quisquam aliquam dignissimos cupiditate quo quia.
+                    <div class="qp-person text-right">
+                        Jesús Ortega<br>
+                        Gerente de Best Protein
+                    </div>
+                </div>                
+                <br>
+                <br>
+                <br>
+                <div class="qp-link text-right mt-auto">
+                    <a href="{%  url 'quatropack2:bestprotein'%}">leer mas</a>
+                </div>
+            </div>
+            
+            <div class="qp-using-story col-md-5 col-sm-12 d-flex flex-column">
+                <div class="qp-images text-center">
+                    <img src="{% static 'quatropack2\images\logotypes\77.rubio.png' %}" alt="best protein logo"/>
+                    <img src="{% static 'quatropack2\images\products\lab_rubio.png' %}" alt="best protein product ejemplo"/>
+                </div>
+                <div class="clearfix"></div>
+                <div class="qp-text text-left my-auto">
+                    <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b> Earum, nihil quos excepturi laborum laboriosam facere ratione nam enim consectetur labore quisquam inventore! Suscipit earum quisquam aliquam dignissimos cupiditate quo quia.
+                    <div class="qp-person text-right">
+                        Lab Rubió
+                    </div>
+                </div>                
+                <div class="qp-link text-right">
+                    <a href="{%  url 'quatropack2:labrubio'%}">leer mas</a>
+                </div>
+            </div>
+
+            <div class="qp-using-story col-md-5 col-sm-12">
+                <div class="qp-images text-center">
+                    <img src="{% static 'quatropack2\images\logotypes\76.esteve.png' %}" alt="esteve logo"/>
+                    <img src="{% static 'quatropack2\images\products\esteve.png' %}" alt="esteve  product ejemplo"/>
+                </div>
+                <div class="clearfix"></div>
+                <br>
+                <br>
+                <br>
+                <div class="qp-text text-left my-auto">
+                    <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b> Earum, nihil quos excepturi laborum laboriosam facere ratione nam enim consectetur labore quisquam inventore! Suscipit earum quisquam aliquam dignissimos cupiditate quo quia.
+                    <div class="qp-person text-right">
+                        Esteve
+                    </div>
+                </div>                
+                <br>
+                <br>
+                <br>
+                <div class="qp-link text-right mt-auto">
+                    <a href="{%  url 'quatropack2:esteve'%}">leer mas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+{#% include 'quatropack2/technology_banner.html' %#}
+        <div class="qp-technology-banner">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-6">
+                        <video id="video-nn" class="qp-btech" controls width="100%">
+                            <source type="video/webm" src="http://data.rf.gd/static/video/SuperSeal.mp4.webm">
+                        </video>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-5 qp-text">
+                        En este video, podrá ver cómo funciona el proceso del sellado por inducción, y conocer los elementos principales que intervienen en una termoselladora por inducción. Podrá ver líneas reales en producción y muchos ejemplos de productos sellados.
+                        <a class="qp-technology" href="{% url 'quatropack2:technology' %}">leer mas</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="{% static 'quatropack2/scripts/nn.js' %}"></script>
+{% endblock scripts %}
+

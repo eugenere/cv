@@ -1,0 +1,158 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machine4.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="qp-machine">
+        <div class="container">
+            <div class="qp-title">
+                Super Seal™ 50 Induction Cap Sealer
+            </div>
+            <div class="qp-subtitle">
+                The Best Selling Induction Cap Sealer
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-wrap align-content-stretch mb-3">
+                <div class="w-25">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/shapeimage_3.png" alt="">
+                </div>
+                <div class="w-25">
+                    <div class="qp-text">
+                        These best-selling models seal millions of bottles worldwide every day and are renowned for their reliability and robustness.
+                    </div>
+                </div>
+                <div class="w-25">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/SS1000closeup.jpg" alt="">
+                </div>
+                <div class="w-25">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/1.png" alt="">
+                </div>
+                <div class="w-50">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/3.dim.png" alt="">
+                </div>
+                <div class="w-50">
+                    <h3 class='qp-subtitle'>
+                        Compact, all-in-one unit
+                    </h3>
+                    <div class="qp-text">
+                        Compact and air-cooled, the Super Seal™ is easily installed into existing production lines, while the simple to use control panel ensures ease of operation.  The stainless-steel stand is fully adjustable to allow for different container heights and is also suitable for food or clean environments.
+                        <h3 class='qp-subtitle'>Specifications</h3>
+                        <ul>
+                            <li>Dimensions 580 x 880 x 1524-1824mm (WxDxH)</li>
+                            <li>Power Supply: single phase, 230V, 50Hz, 5amps</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/2.draft.png" alt="">
+                </div>
+                <div class="w-50">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Features</h3>
+                        <ul>
+                            <li>Air-cooled</li>
+                            <li>Efficient coil designs to maximise performance and minimise energy costs</li>
+                            <li>Simple to use control panel</li>
+                            <li>Fully adjustable stand for different container heights</li>
+                            <li>Seals a variety of caps ranging from 20mm – 140mm</li>
+                            <li>Fully compliant with all CE regulations</li>
+                            <li>Power supply electronics are housed in an IP65 enclosure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-25">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/SS100left.jpg" alt="">
+                </div>
+                <div class="w-25">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/SuperSeal100 LORES.jpg" alt="">
+                </div>
+            </div>
+            <hr>
+            <div class="qp-table row">
+                <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/1.png" alt="">
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-6 col-lg-8">
+                    <div class="qp-text">
+                        These best-selling models seal millions of bottles worldwide every day and are renowned for their reliability and robustness.
+                    </div>
+                    <br>
+                    <h3 class='qp-subtitle'>
+                        Compact, all-in-one unit
+                    </h3>
+                    <div class="qp-text">
+                        Compact and air-cooled, the Super Seal™ is easily installed into existing production lines, while the simple to use control panel ensures ease of operation.  The stainless-steel stand is fully adjustable to allow for different container heights and is also suitable for food or clean environments.
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/3.dim.png" alt="">
+                        </div>
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/SS1000closeup.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/shapeimage_3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-6">
+                    <img width="100%" src="/static/quatropack2/images/machines/super_seal/nnn/2.draft.png" alt="">
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Features</h3>
+                        <ul>
+                            <li>Air-cooled</li>
+                            <li>Efficient coil designs to maximise performance and minimise energy costs</li>
+                            <li>Simple to use control panel</li>
+                            <li>Fully adjustable stand for different container heights</li>
+                            <li>Seals a variety of caps ranging from 20mm – 140mm</li>
+                            <li>Fully compliant with all CE regulations</li>
+                            <li>Power supply electronics are housed in an IP65 enclosure</li>
+                        </ul>
+                        <h3 class='qp-subtitle'>Specifications</h3>
+                        <ul>
+                            <li>Dimensions 580 x 880 x 1524-1824mm (WxDxH)</li>
+                            <li>Power Supply: single phase, 230V, 50Hz, 5amps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    {% include 'quatropack2/products.html' %}
+    {% include 'quatropack2/logotypes2.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+

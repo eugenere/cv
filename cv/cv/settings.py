@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'curriculum',
     'ahorra_energia',
     'quatropack',
+    'quatropack2',
     'bauglobal',
     'investigaciones',
 ]

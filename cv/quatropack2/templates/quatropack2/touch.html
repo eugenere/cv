@@ -1,0 +1,226 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+<!--
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+-->
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/machine3.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/img-zoom.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/touch.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/feedbacks2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/video-back.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/products.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/btech.css' %}" />
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="qp-machine">
+        <div class="container">
+            <div class="qp-title">
+                Super Seal™ Touch
+            </div>
+            <div class="qp-subtitle">
+                La última tecnología de sellado para altas producciones.
+            </div>
+            <br>
+            <br>
+            <div class="qp-table row justify-content-around">
+                <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/SuperSealTouch.png' %}" alt="Touch">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-6 col-lg-7">
+                    <div class="qp-text">
+                        <p>
+                            <span class="qp-4-spaces"></span>La Super Seal Touch es nuestra máquina compacta más potente de bobina única, diseñada para líneas de producción de hasta 300 unidades por minuto (18.000 unidades por hora).
+                        </p>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <div class="qp-img-wrapper">
+                                <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/with_stand.png' %}" alt="stand">
+                                <div class="qp-button">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="qp-img-wrapper">
+                                <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/front.jpg' %}" alt="front">
+                                <div class="qp-button">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="qp-img-wrapper">
+                                <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/side.jpg' %}" alt="side">
+                                <div class="qp-button">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="qp-img-wrapper">
+                                <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/frame.jpg' %}" alt="frame">
+                                <div class="qp-button">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class='qp-video-back-container'>
+            <video autoplay muted loop>
+                <source type="video/webm" src="http://data.rf.gd/static/video/back.webm">
+            </video>
+            <br>
+            <div class="container">
+                <div class='row justify-content-around'>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        <div class="qp-text">
+                            <h3 class='qp-subtitle'>Funciones principales</h3>
+                            <ul>
+                                <li>Protección con contraseña.</li>
+                                <li>Monitorización   interna   de   todos   los   parámetros   críticos   de funcionamiento</li>
+                                <li>Contador de envases, de tapones y de discos</li>
+                                <li>Control remoto y local y monitorización vía RS485 o Ethernet</li>
+                                <li>Sella  toda  una  variedad  de  envases  con  diámetros  entre  20  y 130mm</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-5">
+                        <br>
+                        <div class="qp-img-wrapper">
+                            <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/2.draft.png' %}" alt="draft">
+                            <div class="qp-button">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class='text-right'>
+                            descargar 
+                            <a href="https://www.enerconind.co.uk/wp-content/uploads/2017/04/Super-Seal-Touch-Layout-Drawing.pdf">pdf</a> 
+                            <a href="http://data.rf.gd/static/dwg/touch.dwg">dwg</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class='row'>
+                <div class="col-sm-12 col-md-4 col-lg-6">
+                    <div class="qp-img-wrapper">
+                        <img width="100%" src="{% static 'quatropack2/images/machines/super_seal/touch/1.dim.png' %}" alt="dimensions">
+                        <div class="qp-button">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Características</h3>
+                        <ul>
+                            <li>Dimensiones: 580 x 880 x (h) 1524-1824mm</li>
+                            <li>Suministro eléctrico: monofásico, 230V, 50Hz</li>
+                            <li>Cumple todas las normativas CE y lleva el distintivo CE</li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="qp-text">
+                        <h3 class='qp-subtitle'>Además</h3>
+                        <ul>
+                            <li>Carenado en acero inoxidable IP65</li>
+                            <li>Refrigeración por aire, su sellado es siempre eficiente, higiénico, repetitivo y fiable.</li>
+                            <li>Estructura  de  acero  inoxidable  completamente  ajustable  para ﻿envases de diferentes alturas</li>
+                            <li>Adecuada  también  para  salas  blancas,  laboratorio,  en  el  sector alimentación o en el sector farmacéutico.</li>
+                            <li>Fácil  de  ajustar  y  de  utilizar,  no  necesita  prácticamente  ningún mantenimiento lo que logra un coste de utilización muy bajo y años de funcionamiento impecable.</li>
+                        </ul>
+                        <br>
+                        <p>
+                            <span class="qp-4-spaces"></span>Esta selladora de última generación garantiza una fiabilidad total en el sellado y unas ventanas operativas tan amplias que permiten compensar las tolerancias en los envases, los tapones, o los discos.
+                        </p>
+                        <p>
+                            <span class="qp-4-spaces"></span>Pensada para producciones altas y con las últimas tecnologías. Memoria de formatos. Protección con contraseña. Un equipo puntero para sellar y controlar la producción.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+        <div class="qp-technology-banner">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-6">
+                        <video id="video-touch" class="qp-btech" controls width="100%">
+                            <source type="video/webm" src="http://data.rf.gd/static/video/Touch.mp4.webm">
+                        </video>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-5 qp-text">
+                        En este video, podrá ver cómo funciona el proceso del sellado por inducción, y conocer los elementos principales que intervienen en una termoselladora por inducción. Podrá ver líneas reales en producción y muchos ejemplos de productos sellados.
+                        <a class="qp-technology" href="{% url 'quatropack2:technology' %}">leer mas</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+{#% include 'quatropack2/technology_banner2.html' %#}
+<br>
+<br>
+    {% include 'quatropack2/feedbacks2.html' %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% include 'quatropack2/products.html' %}
+    {#% include 'quatropack2/logotypes2.html' %#}
+    {% include 'quatropack2/img-zoom.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    -->
+    
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/img-zoom.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/touch.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+

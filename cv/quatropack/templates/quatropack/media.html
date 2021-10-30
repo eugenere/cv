@@ -1,95 +1,11 @@
-{% extends "quatropack2/base.html" %}
-
-{% load static i18n compress %}
-
-{% block styles %}{{ block.super }}
-    {% compress css %}
-        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/media.sass' %}" />
-    {% endcompress %}
-{% endblock styles %}
-
-{% block html_title %}{{ block.super }} {% trans 'En Los Medios' %} {% endblock %}
-
+{% extends "quatropack/base.html" %}
+{% load static %}
+{% block title %} {{ block.super }} media {% endblock %}
 {% block content %}
-    <div class="container">
-        <div class="qp-title">En los medios</div>
-        <div class="qp-subtitle">¿Qué dice la prensa de nosotros?</div>
-        
-        <div class="row justify-content-center _align-items-center">
-            <div class="qp-image col-sm-12 col-md-6 order-1">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}m1.png" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-2">
-                <div class="qp-title">
-                    Lorem
-                </div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet, aliquam, culpa, sit nisi fugit adipisci commodi veritatis autem ab ut enim ad numquam quos sapiente aut molestiae mollitia sequi?
-            </div>
-            <div class="qp-image  col-sm-12 col-md-6 order-sm-3 order-md-4">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}m2.png" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-sm-4 order-md-3">
-                <div class="qp-title">
-                    Lorem ipsum dolor sit amet
-                </div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet, aliquam, culpa, sit nisi fugit adipisci commodi veritatis autem ab ut enim ad numquam quos sapiente aut molestiae mollitia sequi?
-            </div>
-            <div class="qp-image col-sm-12 col-md-6 order-5">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}m3.png" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-6">
-                <div class="qp-title">
-                    Lorem ipsum dolor
-                </div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet, aliquam, culpa, sit nisi fugit adipisci commodi veritatis autem ab ut enim ad numquam quos sapiente aut molestiae mollitia sequi?
-            </div>
-            <div class="qp-image  col-sm-12 col-md-6 order-sm-7 order-md-8">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}m4.jpg" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-sm-8 order-md-7">
-                <div class="qp-title">
-                    Lorem ipsum
-                </div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet, aliquam, culpa, sit nisi fugit adipisci commodi veritatis autem ab ut enim ad numquam quos sapiente aut molestiae mollitia sequi?
-            </div>
-            <div class="qp-image col-sm-12 col-md-6 order-9">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}m5.jpg" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-10">
-                <div class="qp-title">
-                    Lorem ipsum dolor sit amet
-                </div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, eveniet, aliquam, culpa, sit nisi fugit adipisci commodi veritatis autem ab ut enim ad numquam quos sapiente aut molestiae mollitia sequi?
-            </div>
-            <div class="qp-image col-sm-12 col-md-6 order-sm-11 order-md-12">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}youtu.be-N0gn3jFJqCU.png" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-sm-12 order-md-11">
-                <div class="qp-title">
-                    Que es el termosellado de envases por induccion
-                </div>
-                Explicación del proceso de sellado de envases. Como funciona el sellado de tapones por induccion. El video incluye lineas de produccion reales en funcionamiento y muchos ejemplos de envases y botellas selladas por induccion. Quatropack tecnologías es el distribuidor exclusivo de enercon en España.
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="qp-image col-sm-12 col-md-6 order-1">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}youtu.be-IkOIlQp5eqI.png" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-2">
-                <div class="qp-title">
-                    Why Seal With Foil - The benefits of induction cap sealing
-                </div>
-                The use of induction cap sealing has many benefits, such as increasing product shelf life and maintaining freshness, but also providing protection against counterfeiting and tampering and leaks. Induction technology is suitable for a variety of products across many industries, from food to beverages, dairy, industrial, chemical and pharmaceutical industries.
-            </div>
-            <div class="qp-image  col-sm-12 col-md-6 order-sm-3 order-md-4">
-                <img width="100%" src="{% static 'quatropack2/images/medias/' %}youtu.be-1MLahzhT4h0.png" alt="">
-            </div>
-            <div class="qp-text col-sm-12 col-md-6 order-sm-4 order-md-3">
-                <div class="qp-title">
-                    Hand Held Induction Sealer - Super Seal Junior
-                </div>
-                Introducing Enercon Industries premium and portable hand held induction cap sealer. This CE certified induction heat sealer offers the benefits of high quality induction sealing to start-up operations, product validation and short production runs. It is renowned for its reliability.
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-xl-4 mb-3">
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/1MLahzhT4h0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
-{% endblock content %}
+{% endblock %}
+

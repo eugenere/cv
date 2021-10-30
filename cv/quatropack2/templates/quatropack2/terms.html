@@ -1,0 +1,22 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/machine3.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/touch.css' %}" />
+{% endblock styles %}
+
+
+{% block html_title %}{{ block.super }}/{% trans 'Legal Terms' %}{% endblock %}
+
+{% block content %}
+<div class="container qp-machine">
+    <div class="qp-title">Terms and Conditions</div>
+    <br>
+    <div class="qp-subtitle">TERMS OF WEBSITE USE</div>
+    <div class="qp-text">This page (together with the documents referred to on it) tells you the terms of use on which you may make use of our website, whether as a guest or a registered user. Please read these terms of use carefully before you start to use the site. By using our site, you indicate that you accept these terms of use and that you agree to abide by them. If you do not agree to these terms of use, please refrain from using our site.
+    </div>
+</div>
+    
+{% endblock content %}

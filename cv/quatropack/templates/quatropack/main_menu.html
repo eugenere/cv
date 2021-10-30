@@ -1,0 +1,76 @@
+﻿{% load static i18n %}
+<div class="qp-main-menu">
+    <nav class="qp-nav navbar _navbar-expand-md navbar-light _bg-light _navbar-dark _bg-dark fixed-top">
+        <div class="container">
+            <a class="qp-brand navbar-brand" 
+                    href="{% if '/' == request.path %} # {% else %} {% url 'quatropack:home' %} {% endif %}">
+                <b>quatro</b>pack 
+            </a>
+            {% include 'quatropack/menu-toggler.html' %}
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row mt-5 pt-5 justify-content-between">
+            <div class="col">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if products in request.path %} active {% endif %}" 
+                                href="{% if 'products' in request.path %} # {% else %} {% url 'quatropack:devices' %} {% endif %}">
+                            {% trans 'all machines' %}
+                        </a>
+                    </li>
+                    {% for item in devices %}
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if item.slug == url_end %} active {% endif %}" 
+                                href="{% if item.slug == url_end %} # {% else %} {% url 'quatropack:device' item.slug %} {% endif %}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'benefits' in request.path %} active {% endif %}"
+                                href="{% if 'benefits' in request.path %} # {% else %} {% url 'quatropack:benefits' %} {% endif %}">
+                            {% trans 'benefits' %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'clients' in request.path %} active {% endif %}"
+                                href="{% if 'clients' in request.path %} # {% else %} {% url 'quatropack:clients' %} {% endif %}">
+                            {% trans 'clients' %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'media' in request.path %} active {% endif %}"
+                                href="{% if 'media' in request.path %} # {% else %} {% url 'quatropack:media' %} {% endif %}">
+                            {% trans 'in the media' %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'contacts' in request.path %} active {% endif %}"
+                                href="{% if 'contacts' in request.path %} # {% else %} {% url 'quatropack:contacts' %} {% endif %}">
+                            {% trans 'contacts ' %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                {% include 'quatropack/langs.html' %}
+            </div>
+        </div>
+    </div>
+    <div class="qp-menu-footer fixed-bottom">
+        <div class="container">
+            <div style='float: left;'>
+                info@quatropack.com
+            </div>
+            <div style='float: right;'>
+                +34 968 345 219
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

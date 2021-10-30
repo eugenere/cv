@@ -26,5 +26,6 @@ urlpatterns = [
     path('', include('curriculum.urls')),
     path('ahorra_energia', include('ahorra_energia.urls')),
     path('quatropack', include('quatropack.urls')),
+    path('quatropack2', include('quatropack2.urls')),
     path('bauglobal', include('bauglobal.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

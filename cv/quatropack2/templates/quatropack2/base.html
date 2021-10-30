@@ -1,0 +1,70 @@
+<!doctype html>{% load static i18n %}
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="content-language" content="es,fr,en">
+    <meta name="copyright" content="2019 qutropack">
+    <meta name="keywords" content="qutropack, tps, enercon">
+    <meta name="description" content="Quatropack-Technologias represents Enercon and its induction heat sealing range in Spain." />
+    <meta name="description" content="Quatropack primera página." />
+
+    {% block styles %}
+        <!--
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/navbar-toggler.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/stiky-footer.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/square.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/base.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/header.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/subfooter.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/menu.css' %}" />
+    {% endblock styles %}
+    
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'quatropack2/images/qp-icon.ico' %}">
+    
+    <title>{% block html_title %}quatropack{% endblock %}</title>
+</head>
+<body class="qp-stiky-body">
+    {% include 'quatropack2/header.html' %}
+    
+    <main class="qp-content qp-stiky-content">
+        {% block content %}
+            <div class="d-flex justify-content-center">
+                <h2>BASE</h2>
+            </div>
+        {% endblock content %}
+    </main>
+
+    {% include 'quatropack2/footer.html' %}
+    
+    {% include 'quatropack2/menu.html' %}
+
+    {% block scripts %}
+        <!--
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+        -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script>
+            STATIC_URL = "{% static '' %}"
+        </script>
+        <script src="{% static 'owlcarousel/owl.carousel.my.js' %}"></script>
+        <script src="{% static 'quatropack/scripts/utils.js' %}"></script>
+        <script src="{% static 'quatropack2/scripts/base.js' %}"></script>
+        <script src="{% static 'quatropack2/scripts/subfooter.js' %}"></script>
+    {% endblock scripts %}
+</body>
+</html>

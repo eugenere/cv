@@ -1,71 +1,196 @@
-{% load static i18n %}
-<!doctype html>
+<!doctype html>{% load static i18n %}
 <html lang="en">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="content-language" content="es,fr,en">
-    <meta name="copyright" content="2019 qutropack">
-    <meta name="keywords" content="qutropack, tps, enercon">
-    <meta name="description" content="Quatropack-Technologias represents Enercon and its induction heat sealing range in Spain." />
-    <meta name="description" content="Quatropack primera página." />
 
     {% block styles %}
-        <!--
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        -->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        
-        <link rel="stylesheet" type="text/css" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
-        
-        <link rel="stylesheet" type="text/css" href="{% static 'quatropack/styles/navbar-toggler.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'quatropack/styles/stiky-footer.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'quatropack/styles/square.css' %}" />
-        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/base.sass' %}" />
-        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/header.sass' %}" />
-        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/footer.sass' %}" />
-        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/subfooter.sass' %}" />
-        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/menu.sass' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'quatropack/styles/navbar-toggler.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'owlcarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'quatropack/styles/lang.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'quatropack/styles/sticky-footer.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'quatropack/styles/index.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'ex/ex1.scss' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'ex/ex2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack/styles/index2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack/styles/main_menu.css' %}" />
     {% endblock styles %}
     
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'quatropack/images/qp-icon.ico' %}">
     
-    <title>{% block html_title %}quatropack{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{% static 'quatropack/images/qp.ico' %}">
+    
+    <title>{% block title %}quatropack{% endblock %}</title>
 </head>
-<body class="qp-stiky-body">
-    {% include 'quatropack/header.html' %}
-    
-    <main class="qp-content qp-stiky-content">
-        {% block content %}
-            <div class="d-flex justify-content-center">
-                <h2>BASE</h2>
+<body>
+    <!--
+    <img src="https://www.enerconind.co.uk/wp-content/uploads/2017/01/Introducing-Induction-Sealing-1.jpg" alt="" class="qp-body-back">
+    <img src="{% static 'quatropack/images/Enercon_S2_001_Full.png' %}" alt="" class="qp-body-back">
+    <img src="{% static 'quatropack/images/back.png' %}" alt="" class="qp-body-back d-none">
+    -->
+    <nav class="qp-nav navbar _navbar-expand-md navbar-light _bg-light _navbar-dark _bg-dark fixed-top">
+        <div class="container">
+            <!-- TODO: disable on home page -->
+            <a class="qp-brand navbar-brand" 
+                    href="{% if '/' == request.path %} # {% else %} {% url 'quatropack:home' %} {% endif %}">
+                <b>quatro</b>pack 
+            </a>
+            <!--
+            <span class="text-nowrap d-none d-md-block">© tecnologías S.L.</span>
+            -->
+            {% block nav_menu %}{% endblock %}
+            
+            <!--
+            -->
+            {% include 'quatropack/menu-toggler.html' %}
+            <!--
+            <div class="collapse navbar-collapse _w-100" id="navbarCollapsingMenu">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if products in request.path %} active {% endif %}" 
+                                href="{% if 'products' in request.path %} # {% else %} {% url 'quatropack:devices' %} {% endif %}">
+                            {% trans 'all machines' %}
+                        </a>
+                    </li>
+                    {% for item in devices %}
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if item.slug == url_end %} active {% endif %}" 
+                                href="{% if item.slug == url_end %} # {% else %} {% url 'quatropack:device' item.slug %} {% endif %}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'benefits' in request.path %} active {% endif %}"
+                                href="{% if 'benefits' in request.path %} # {% else %} {% url 'quatropack:benefits' %} {% endif %}">
+                            {% trans 'benefits' %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'clients' in request.path %} active {% endif %}"
+                                href="{% if 'clients' in request.path %} # {% else %} {% url 'quatropack:clients' %} {% endif %}">
+                            {% trans 'clients' %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="qp-link nav-link {% if 'media' in request.path %} active {% endif %}"
+                                href="{% if 'media' in request.path %} # {% else %} {% url 'quatropack:media' %} {% endif %}">
+                            {% trans 'in the media' %}
+                        </a>
+                    </li>
+                    <li class="qp-link nav-item">
+                        <a class="nav-link {% if 'contacts' in request.path %} active {% endif %}"
+                                href="{% if 'contacts' in request.path %} # {% else %} {% url 'quatropack:contacts' %} {% endif %}">
+                            {% trans 'contacts ' %}
+                        </a>
+                    </li>
+                </ul>
+                {% block nav_collasiable %}{% endblock %}
+                {% include 'quatropack/langs.html' %}
             </div>
-        {% endblock content %}
-    </main>
-
-    {% include 'quatropack/footer.html' %}
+            
+            -->
+        </div>
+    </nav>
     
-    {% include 'quatropack/menu.html' %}
+    <span id="content-top"></span>
+    
+    <div class="wrapper">
+        {% block content %}
+            BASE CONTENT
+        {% endblock content %}
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <!--
+    -->
+    <a class="qp-to-top qp-smooth-scroll" href="#content-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <div class="qp-sub-footer footer">
+        <div class="container pt-5">
+            <div class="row justify-content-between">
+                <div class="col">
+                    Camino de los garres 15
+                    <br>
+                    30012 Murcia
+                    <br>
+                    {% trans 'Spain' %}
+                </div>
+                <div class="col">
+                    <a href="{% url 'quatropack:legally' %}" 
+                            class="btn btn-dark w-100 {% if 'legal' in request.path %} disabled {% endif %}">
+                        {% trans 'legal terms' %}
+                    </a>
+                    <br>
+                    <a href="{% url 'quatropack:privacy' %}" 
+                            class="btn btn-dark w-100 {% if 'privacy' in request.path %} disabled {% endif %}">
+                        {% trans 'privacy policy' %}
+                    </a>
+                </div>
+                <div class="col">
+                    <b>quatro</b>pack tecnologías S.L.
+                    <br>
+                    {% trans 'copyright' %} © 2018
+                    <br>
+                    {% trans 'all rights reserved' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="qp-footer">
+        <div class="container">
+                <!--
+                -->
+                <div class="qp-info" style='float: left;'>
+                    <!--
+                    <i class="fas fa-at"></i>
+                    <span class='d-none d-lg-inline'>email:</span> 
+                    -->
+                    <a href="mailto:info@quatropack.com">
+                        info@<b>quatro</b>pack.com
+                    </a>
+                </div>
+                <div class="qp-info" style='float: right;'>
+                    <!--
+                    <div class="qp-info col-lg-2 col-md-3 col-sm-4 col-xs-5">
+                    <i class="fas fa-phone"></i>
+                    <span class='d-none d-md-inline'>{% trans "tel" %}:</span> 
+                    -->
+                    <a href="tel:+34968345219">
+                        +34 968 345 219
+                    </a>
+                </div>
+                <!--
+            <div class="row justify-content-between">
+            </div>
+            -->
+        </div>
+    </footer>
+    {% include 'quatropack/main_menu.html' %}
 
     {% block scripts %}
-        <!--
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
-        -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <script>
-            STATIC_URL = "{% static '' %}"
-        </script>
-        <script src="{% static 'owlcarousel/owl.carousel.my.js' %}"></script>
         <script src="{% static 'quatropack/scripts/utils.js' %}"></script>
-        <script src="{% static 'quatropack/scripts/base.js' %}"></script>
-        <script src="{% static 'quatropack/scripts/subfooter.js' %}"></script>
+        <script src="{% static 'owlcarousel/owl.carousel.my.js' %}"></script>
+        <script src="{% static 'quatropack/scripts/scroll_handlers.js' %}"></script>
+        <script src="{% static 'quatropack/scripts/index.js' %}"></script>
     {% endblock scripts %}
 </body>
 </html>

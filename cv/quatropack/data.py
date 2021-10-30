@@ -1,913 +1,565 @@
-﻿from django.utils.translation import gettext_lazy as _
+﻿from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.utils.translation import gettext as _
+from . import models
 
-
-MACHINE_NAMES = [
+EXAMPLES = [
     {
-        "name":"Super Seal Max",
-        "slug":"super_seal_max",
+        'image': '/static/quatropack/images/examples/1.png',
+        'name': 'example',
     },
     {
-        "name":"Super Seal Touch",
-        "slug":"super_seal_touch",
+        'image': '/static/quatropack/images/examples/10.png',
+        'name': 'example',
     },
     {
-        "name":"Super Seal 100",
-        "slug":"super_seal_100",
+        'image': '/static/quatropack/images/examples/11.png',
+        'name': 'example',
     },
     {
-        "name":"Super Seal 75",
-        "slug":"super_seal_75",
+        'image': '/static/quatropack/images/examples/12.png',
+        'name': 'example',
     },
     {
-        "name":"Super Seal 50",
-        "slug":"super_seal_50",
+        'image': '/static/quatropack/images/examples/13.png',
+        'name': 'example',
     },
     {
-        "name":"Super Seal Junior",
-        "slug":"super_seal_junior",
-    }, 
+        'image': '/static/quatropack/images/examples/14.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/15.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/16.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/17.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/18.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/19.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/2.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/20.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/21.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/22.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/23.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/24.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/3.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/4.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/5.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/6.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/7.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/8.png',
+        'name': 'example',
+    },
+    {
+        'image': '/static/quatropack/images/examples/9.png',
+        'name': 'example',
+    },
 ]
 
-MACHINES = [
+EXAMPLES_1 = [
     {
-        "name":"Super Seal Max",
-        "slug":"super_seal_max",
-        "image": "max.png",
-        "short": _("La selladora por inducción más rápida del mercado."),
-        "desc": _("Pensada para producciones muy altas. El resultado fiable que necesita especialmente adaptado a su proyecto."),
-        "speed": 1200,
-        "adapted_speed": 95,
-    },
-    { 
-        "name":"Super Seal Touch",
-        "slug":"super_seal_touch",
-        "image": "touch.png",
-        "short": _("La última tecnología de sellado para altas producciones."),
-        "desc": _("Pensada para producciones altas y con las últimas tecnologías. Un equipo puntero para sellar y controlar la producción."),
-        "speed": 300,
-        "adapted_speed": 70,
+        'image': '/static/quatropack/images/examples/1_200.png',
+        'name': 'automotive',
     },
     {
-        "name":"Super Seal 100",
-        "slug":"super_seal_100",
-        "image": "nn.png",
-        "short": _("La automática robusta ajustada a una gran producción."),
-        "desc": _("Pensada para producciones altas automáticas. Una inversión amortizada muy rápido y un sellado de garantía."),
-        "speed": 100,
-        "adapted_speed": 50,
-    },
-    { 
-        "name":"Super Seal 75",
-        "slug":"super_seal_75",
-        "image": "nn.png",
-        "short": _("La automática fiable adaptada a su linea de producción."),
-        "desc": _("Pensada para producciones medias automáticas. Una inversión rentable y un resultado asegurado en cada envase."),
-        "speed": 50,
-        "adapted_speed": 30,
+        'image': '/static/quatropack/images/examples/2_200.png',
+        'name': 'beverage',
     },
     {
-        "name":"Super Seal 50",
-        "slug":"super_seal_50",
-        "image": "nn.png",
-        "short": _("La automática pequeña."),
-        "desc": _("Pensada para automatizar pequeñas producciones. Permite arrancar un nuevo producto con una inversión controlada."),
-        "speed": 25,
-        "adapted_speed": 15,
+        'image': '/static/quatropack/images/examples/3_200.png',
+        'name': 'chemical',
     },
     {
-        "name":"Super Seal Junior",
-        "slug":"super_seal_junior",
-        "image": "junior.png",
-        "short": _("Móvil y ligera. Eficaz y fiable."),
-        "desc": _("Pensada para pequeñas producciones o laboratorio. Permite sellar con fiabilidad en cualquier sitio."),
-        "speed": 6,
-        "adapted_speed": 10,
+        'image': '/static/quatropack/images/examples/4_200.png',
+        'name': 'cosmetics',
+    },
+    {
+        'image': '/static/quatropack/images/examples/5_200.png',
+        'name': 'dairy',
+    },
+    {
+        'image': '/static/quatropack/images/examples/6_200.png',
+        'name': 'food',
+    },
+    {
+        'image': '/static/quatropack/images/examples/7_200.png',
+        'name': 'household',
+    },
+    {
+        'image': '/static/quatropack/images/examples/8_200.png',
+        'name': 'pharmaceutical',
+    },
+    {
+        'image': '/static/quatropack/images/examples/9_200.png',
+        'name': 'pharmaceutical',
+    },
+    {
+        'image': '/static/quatropack/images/examples/10_200.png',
+        'name': 'pharmaceutical',
     },
 ]
-
-MACHINES_BY_SLUG = {
-    "super_seal_junior": dict({
-        'details': {
-            'images': [
-                'junior/7.png',
-                'junior/4.png',
-                'junior/6.png',
-                'junior/1.png',
-            ],
-        },
-        'demensions': {
-            'images': [
-                'junior/2.png',
-                'junior/5.png',
-                'junior/4.png',
-                'junior/3.png',
-            ],
-        },
-    }, **MACHINES[5]),
-    "super_seal_50": MACHINES[4],
-    "super_seal_75": MACHINES[3],
-    "super_seal_100": MACHINES[2],
-    "super_seal_touch": MACHINES[1],
-    "super_seal_max": MACHINES[0],
-}
-
-PEELING_SHOTS = [
-    '0.png',
-    '1.png',
-    '2.png',
-    '3.png',
-    '4.png',
-    '5.png',
-]
-
-PRODUCTS_REV = [
-    "5.png",
-    "4.png",
-    "3.png",
-    "2.png",
-    "1.png",
-    "10.png",
-    "9.png",
-    "8.png",
-    "7.png",
-    "6.png",
-    "15.png",
-    "14.png",
-    "13.png",
-    "12.png",
-    "11.png",
-    "20.png",
-    "19.png",
-    "18.png",
-    "17.png",
-    "16.png",
-    "25.png",
-    "24.png",
-    "23.png",
-    "22.png",
-    "21.png",
-    "30.png",
-    "29.png",
-    "28.png",
-    "27.png",
-    "26.png"
-]
-
-PRODUCTS = [
-    # heinz
-    "16.png",
-    "17.png",
-    "18.png",
-    "19.png",
-    "20.png",
-    
-    # repsol
-    "1.png",
-    "2.png",
-    "3.png",
-    "4.png",
-    "5.png",
-    
-    # azucarera
-    "21.png",
-    "22.png",
-    "23.png",
-    "24.png",
-    "25.png",
-    
-    # apache
-    "6.png",
-    "7.png",
-    "8.png",
-    "9.png",
-    "10.png",
-    
-    # nutella
-    "26.png",
-    "27.png",
-    "28.png",
-    "29.png",
-    "30.png",
-    
-    # adama
-    "11.png",
-    "12.png",
-    "13.png",
-    "14.png",
-    "15.png",
-]
-
-LOGOTYPES = {
-    "top": [
-        {
-            "name": "eni",
-            "image": "5.eni.png"
-        },
-        {
-            "name": "british_petroleum",
-            "image": "4.british_petroleum.png"
-        },
-        {
-            "name": "repsol",
-            "image": "3.repsol.png"
-        },
-        {
-            "name": "shell",
-            "image": "2.shell.png"
-        },
-        {
-            "name": "cepsa",
-            "image": "1.cepsa.png"
-        },
-        {
-            "name": "procter_and_gamble",
-            "image": "15.procter_and_gamble.png"
-        },
-        {
-            "name": "nabisco",
-            "image": "14.nabisco.png"
-        },
-        {
-            "name": "calve",
-            "image": "13.calve.png"
-        },
-        {
-            "name": "heinz",
-            "image": "12.heinz.png"
-        },
-        {
-            "name": "hellmans",
-            "image": "11.hellmans.png"
-        },
-        {
-            "name": "bayer",
-            "image": "25.bayer.png"
-        },
-        {
-            "name": "adama",
-            "image": "24.adama.png"
-        },
-        {
-            "name": "o_basf",
-            "image": "23.o_basf.png"
-        },
-        {
-            "name": "brandt",
-            "image": "22.brandt.png"
-        },
-        {
-            "name": "probelte",
-            "image": "21.probelte.png"
-        },
-        {
-            "name": "dia",
-            "image": "35.dia.png"
-        },
-        {
-            "name": "el_corte_ingles",
-            "image": "34.el_corte_ingles.png"
-        },
-        {
-            "name": "lidl",
-            "image": "33.lidl.png"
-        },
-        {
-            "name": "carrefour",
-            "image": "32.carrefour.png"
-        },
-        {
-            "name": "hacendado",
-            "image": "31.hacendado.png"
-        },
-        {
-            "name": "kraft",
-            "image": "45.kraft.png"
-        },
-        {
-            "name": "danone",
-            "image": "44.danone.png"
-        },
-        {
-            "name": "cadbury",
-            "image": "43.cadbury.png"
-        },
-        {
-            "name": "unilever",
-            "image": "42.unilever.png"
-        },
-        {
-            "name": "nestle",
-            "image": "41.nestle.png"
-        },
-        {
-            "name": "soria_natural",
-            "image": "55.soria_natural.png"
-        },
-        {
-            "name": "weider",
-            "image": "54.weider.png"
-        },
-        {
-            "name": "robis",
-            "image": "53.robis.png"
-        },
-        {
-            "name": "best_protein",
-            "image": "52.best_protein.png"
-        },
-        {
-            "name": "nutrytec",
-            "image": "51.nutrytec.png"
-        },
-        {
-            "name": "cataliment",
-            "image": "65.cataliment.png"
-        },
-        {
-            "name": "copusan",
-            "image": "64.copusan.png"
-        },
-        {
-            "name": "fragata",
-            "image": "63.fragata.png"
-        },
-        {
-            "name": "aceitunas_guadalquivir",
-            "image": "62.aceitunas_guadalquivir.png"
-        },
-        {
-            "name": "agro_sevilla",
-            "image": "61.agro_sevilla.png"
-        },
-        {
-            "name": "bayer",
-            "image": "75.bayer.png"
-        },
-        {
-            "name": "abbott",
-            "image": "74.abbott.png"
-        },
-        {
-            "name": "novatis",
-            "image": "73.novatis.png"
-        },
-        {
-            "name": "gsk",
-            "image": "72.gsk.png"
-        },
-        {
-            "name": "pfizer",
-            "image": "71.pfizer.png"
-        }
-    ],
-    "bottom": [
-        {
-            "name": "chemo",
-            "image": "10.chemo.png"
-        },
-        {
-            "name": "total",
-            "image": "9.total.png"
-        },
-        {
-            "name": "quimiberica",
-            "image": "8.quimiberica.png"
-        },
-        {
-            "name": "chevron",
-            "image": "7.chevron.png"
-        },
-        {
-            "name": "esso",
-            "image": "6.esso.png"
-        },
-        {
-            "name": "grupo_siro",
-            "image": "20.siro.png"
-        },
-        {
-            "name": "cidacos",
-            "image": "19.cidacos.png"
-        },
-        {
-            "name": "chovi",
-            "image": "18.chovi.png"
-        },
-        {
-            "name": "prima",
-            "image": "17.prima.png"
-        },
-        {
-            "name": "ybarra",
-            "image": "16.ybarra.png"
-        },
-        {
-            "name": "johnson_and_johnson",
-            "image": "30.johnson_and_johnson.png"
-        },
-        {
-            "name": "sara_lee",
-            "image": "29.sara_lee.png"
-        },
-        {
-            "name": "fujifilm",
-            "image": "28.fujifilm.png"
-        },
-        {
-            "name": "kodak",
-            "image": "27.kodak.png"
-        },
-        {
-            "name": "palc",
-            "image": "26.palc.png"
-        },
-        {
-            "name": "milka",
-            "image": "40.milka.png"
-        },
-        {
-            "name": "hero",
-            "image": "39.hero.png"
-        },
-        {
-            "name": "mondelez",
-            "image": "38.mondelez.png"
-        },
-        {
-            "name": "martin_braun",
-            "image": "37.martin_braun.png"
-        },
-        {
-            "name": "carte_dor",
-            "image": "36.carte_dor.png"
-        },
-        {
-            "name": "prosol",
-            "image": "50.prosol.png"
-        },
-        {
-            "name": "pepsi",
-            "image": "49.pepsi.png"
-        },
-        {
-            "name": "coca_cola",
-            "image": "48.coca_cola.png"
-        },
-        {
-            "name": "nutrexpa",
-            "image": "47.nutrexpa.png"
-        },
-        {
-            "name": "lanjaron",
-            "image": "46.lanjaron.png"
-        },
-        {
-            "name": "la_constancia",
-            "image": "60.la_constancia.png"
-        },
-        {
-            "name": "dani",
-            "image": "59.dani.png"
-        },
-        {
-            "name": "mccormick",
-            "image": "58.mccormick.png"
-        },
-        {
-            "name": "ducros",
-            "image": "57.ducros.png"
-        },
-        {
-            "name": "mari_paz",
-            "image": "56.mari_paz.png"
-        },
-        {
-            "name": "purina",
-            "image": "70.purina.png"
-        },
-        {
-            "name": "labiana",
-            "image": "69.labiana.png"
-        },
-        {
-            "name": "campbells",
-            "image": "68.campbells.png"
-        },
-        {
-            "name": "gatorade",
-            "image": "67.gatorade.png"
-        },
-        {
-            "name": "herbalife",
-            "image": "66.herbalife.png"
-        },
-        {
-            "name": "revlon",
-            "image": "80.revlon.png"
-        },
-        {
-            "name": "loreal",
-            "image": "79.loreal.png"
-        },
-        {
-            "name": "rnb",
-            "image": "78.rnb.png"
-        },
-        {
-            "name": "rubio",
-            "image": "77.rubio.png"
-        },
-        {
-            "name": "esteve",
-            "image": "76.esteve.png"
-        }
-    ]
-}
-
-"""
-LOGOTYPES_TOGETHER = [
-    {
-        "name": "cepsa",
-        "image": "1.cepsa.png"
-    },
-    {
-        "name": "shell",
-        "image": "2.shell.png"
-    },
-    {
-        "name": "repsol",
-        "image": "3.repsol.png"
-    },
-    {
-        "name": "british_petroleum",
-        "image": "4.british_petroleum.png"
-    },
-    {
-        "name": "eni",
-        "image": "5.eni.png"
-    },
-    {
-        "name": "esso",
-        "image": "6.esso.png"
-    },
-    {
-        "name": "chevron",
-        "image": "7.chevron.png"
-    },
-    {
-        "name": "quimiberica",
-        "image": "8.quimiberica.png"
-    },
-    {
-        "name": "total",
-        "image": "9.total.png"
-    },
-    {
-        "name": "chemo",
-        "image": "10.chemo.png"
-    },
-    {
-        "name": "hellmans",
-        "image": "11.hellmans.png"
-    },
-    {
-        "name": "heinz",
-        "image": "12.heinz.png"
-    },
-    {
-        "name": "calve",
-        "image": "13.calve.png"
-    },
-    {
-        "name": "nabisco",
-        "image": "14.nabisco.png"
-    },
-    {
-        "name": "pg",
-        "image": "15.pg.png"
-    },
-    {
-        "name": "ybarra",
-        "image": "16.ybarra.png"
-    },
-    {
-        "name": "prima",
-        "image": "17.prima.png"
-    },
-    {
-        "name": "chovi",
-        "image": "18.chovi.png"
-    },
-    {
-        "name": "cidacos",
-        "image": "19.cidacos.png"
-    },
-    {
-        "name": "grupo_siro",
-        "image": "20.siro.png"
-    },
-    {
-        "name": "probelte",
-        "image": "21.probelte.png"
-    },
-    {
-        "name": "brandt",
-        "image": "22.brandt.png"
-    },
-    {
-        "name": "o_basf",
-        "image": "23.o_basf.png"
-    },
-    {
-        "name": "adama",
-        "image": "24.adama.png"
-    },
-    {
-        "name": "bayer",
-        "image": "25.bayer.png"
-    },
-    {
-        "name": "palc",
-        "image": "26.palc.png"
-    },
-    {
-        "name": "kodak",
-        "image": "27.kodak.png"
-    },
-    {
-        "name": "fujifilm",
-        "image": "28.fujifilm.png"
-    },
-    {
-        "name": "sara_lee",
-        "image": "29.sara_lee.png"
-    },
-    {
-        "name": "johnson_and_johnson",
-        "image": "30.johnson_and_johnson.png"
-    },
-    {
-        "name": "hacendado",
-        "image": "31.hacendado.png"
-    },
-    {
-        "name": "carrefour",
-        "image": "32.carrefour.png"
-    },
-    {
-        "name": "lidl",
-        "image": "33.lidl.png"
-    },
-    {
-        "name": "el_corte_ingles",
-        "image": "34.el_corte_ingles.png"
-    },
-    {
-        "name": "dia",
-        "image": "35.dia.png"
-    },
-    {
-        "name": "carte_dor",
-        "image": "36.carte_dor.png"
-    },
-    {
-        "name": "braun",
-        "image": "37.braun.png"
-    },
-    {
-        "name": "mondelez",
-        "image": "38.mondelez.png"
-    },
-    {
-        "name": "hero",
-        "image": "39.hero.png"
-    },
-    {
-        "name": "milka",
-        "image": "40.milka.png"
-    },
-    {
-        "name": "nestle",
-        "image": "41.nestle.png"
-    },
-    {
-        "name": "unilever",
-        "image": "42.unilever.png"
-    },
-    {
-        "name": "cadbury",
-        "image": "43.cadbury.png"
-    },
-    {
-        "name": "danone",
-        "image": "44.danone.png"
-    },
-    {
-        "name": "kraft",
-        "image": "45.kraft.png"
-    },
-    {
-        "name": "lanjaron",
-        "image": "46.lanjaron.png"
-    },
-    {
-        "name": "nutrexpa",
-        "image": "47.nutrexpa.png"
-    },
-    {
-        "name": "coca_cola",
-        "image": "48.coca_cola.png"
-    },
-    {
-        "name": "pepsi",
-        "image": "49.pepsi.png"
-    },
-    {
-        "name": "prosol",
-        "image": "50.prosol.png"
-    },
-    {
-        "name": "nutrytec",
-        "image": "51.nutrytec.png"
-    },
-    {
-        "name": "best_protein",
-        "image": "52.best_protein.png"
-    },
-    {
-        "name": "robis",
-        "image": "53.robis.png"
-    },
-    {
-        "name": "weider",
-        "image": "54.weider.png"
-    },
-    {
-        "name": "soria_natural",
-        "image": "55.soria_natural.png"
-    },
-    {
-        "name": "mari_paz",
-        "image": "56.mari_paz.png"
-    },
-    {
-        "name": "ducros",
-        "image": "57.ducros.png"
-    },
-    {
-        "name": "mc_cormick",
-        "image": "58.mc_cormick.png"
-    },
-    {
-        "name": "dani",
-        "image": "59.dani.png"
-    },
-    {
-        "name": "la_constancia",
-        "image": "60.la_constancia.png"
-    },
-    {
-        "name": "agro_sevilla",
-        "image": "61.agro_sevilla.png"
-    },
-    {
-        "name": "aceitunas_guadalquivir",
-        "image": "62.aceitunas_guadalquivir.png"
-    },
-    {
-        "name": "fragata",
-        "image": "63.fragata.png"
-    },
-    {
-        "name": "copusan",
-        "image": "64.copusan.png"
-    },
-    {
-        "name": "gataliment",
-        "image": "65.gataliment.png"
-    },
-    {
-        "name": "herbalife",
-        "image": "66.herbalife.png"
-    },
-    {
-        "name": "gatorade",
-        "image": "67.gatorade.png"
-    },
-    {
-        "name": "campbells",
-        "image": "68.campbells.png"
-    },
-    {
-        "name": "labiana",
-        "image": "69.labiana.png"
-    },
-    {
-        "name": "purina",
-        "image": "70.purina.png"
-    },
-    {
-        "name": "pfizer",
-        "image": "71.pfizer.png"
-    },
-    {
-        "name": "gsk",
-        "image": "72.gsk.png"
-    },
-    {
-        "name": "novatis",
-        "image": "73.novatis.png"
-    },
-    {
-        "name": "abbott",
-        "image": "74.abbott.png"
-    },
-    {
-        "name": "bayer",
-        "image": "75.bayer.png"
-    },
-    {
-        "name": "esteve",
-        "image": "76.esteve.png"
-    },
-    {
-        "name": "rubio",
-        "image": "77.rubio.png"
-    },
-    {
-        "name": "rnb",
-        "image": "78.rnb.png"
-    },
-    {
-        "name": "loreal",
-        "image": "79.loreal.png"
-    },
-    {
-        "name": "revlon",
-        "image": "80.revlon.png"
-    },
-]
-"""
 
 BENEFITS = [
     {
-        "title": _("Prevenir fugas"),
-        "image": "1.png",
-        "text": _("El  sellado  por  inducción  garantiza  un  envase  estanco  que puede soportar una considerable presión. Esto asegura que su  producto  no  sufrirá  fugas  durante  su  almacenamiento, durante  el  transporte  o  antes  de  su  uso  por  el  consumidor. Muchos  de  nuestros  clientes  empezaron  a  termosellar  sus envases  por  inducción  para  prevenir  escapes  y  mermas, terminando  con  los  envases  mal  cerrados,     las  pegatinas adhesivas o el sellado con cola que no son estancos.  Casi  todos  los  supermercados  y  también  los  comercios online (incluido Amazon) exigen alguna forma de protección contra fugas, como un sellado por inducción."),
+        'name': _('secure transport'),
+        'image': "https://www.enerconind.co.uk/wp-content/uploads/2017/01/SECURE_TRANSPORT_Tick-1.png",
     },
     {
-        "title": _("Alargar caducidad"),
-        "image": "2.png",
-        "text": _("Protegido   en   un   ambiente   hermético,   el   producto   se conserva  dentro  del  envase  en  unas  condiciones  óptimas durante   más   tiempo.   Problemas   como   la   oxidación acelerada,  la  degradación  del  producto  por  humedad,  o  la aparición   de   hongos   o   gérmenes   en   la   superficie   son comunes en envases no estancos.  En  algunos  casos,  nuestros  clientes  han  logrado  extender  la vida útil de sus productos hasta 12 semanas.")
+        'name': _('extended shelf life'),
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/05/EXTENDED_SHELF_LIFE_Tick.png',
     },
     {
-        "title": _("Mantener frescura"),
-        "image": "3.png",
-        "text": _("Todas  las  propiedades  del  producto  se  mantienen  durante más tiempo. En un ambiente donde nada entra y nada sale, se  guardan  cuidadosamente  los  aromas  intensos  y  perdura el color en toda su viveza. Un envase perfectamente cerrado por inducción preserva las texturas únicas y el sabor especial que distinguen un producto de los demás.")
+        'name': _('higher production speeds'),
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/02/HIGHER_PRODUCTION_SPEEDS_Tick-1.png',
     },
     {
-        "title": _("Evidenciar manipulación"),
-        "image": "4.png",
-        "text": _("El  sellado  por  inducción  proporciona  clara  evidencia  de manipulación  a  sus  clientes,  ya  que  el  disco  de  aluminio debe   ser   retirado   para   acceder   al   producto.   Esto   es especialmente importante para la seguridad y la tranquilidad de  los  consumidores,  que  necesitan  saber  con  certeza  que son los primeros en abrir ese envase. Un disco sellado intacto consigue clientes satisfechos.")
+        'name': _('tamper evidence'),
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/01/TAMPER_EVIDENCE_1A.png',
     },
     {
-        "title": _("Reducir coste unitario"),
-        "image": "5.png",
-        "text": _("Ahorrar   dinero   es   otra   de   las   razones   por   las   que   los fabricantes  se  pasan  al  sellado  de  tapones  por  inducción. Cómo pueden ahorrar dinero es algo que puede conseguirse de muchas formas. 1.Ahorros en energía  2.Aumento de la velocidad de producción de la línea 3.Reducción de las devoluciones por fugas 4.Caducidades más largas y mejor gestión del stock 5.Reducción del mantenimiento 6.Reducción de los tiempos de paradas de linea 7.Reducción del peso del envase y del tapón")
+        'name': _('stronger seals'),
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/05/Stronger_seals_Tick.png',
+    },
+]
+
+LOGOTYPES = [
+    {
+        'image': '/static/quatropack/images/logotypes/1.png',
+        'name': 'logo',
     },
     {
-        "title": _("Evitar falsificaciones"),
-        "image": "6.png",
-        "text": _("El   sellado   por   inducción   proporciona   a   sus   usuarios protección  contra  falsificaciones,  ya  que  un  sello  intacto puede  demostrar  a  los  clientes  que  el  producto  no  ha  sido modificado.   Nuevos   sellos   con   holograma   o   logotipo personalizado   hacen   que   copiar   su   producto   sea extremadamente   complicado.   La   protección   contra falsificaciones  es  popular  en  especial  para  productos  de  un elevado  valor,  o  para  productos  fácilmente  imitables.  Nuevo discos  termosellables  más  avanzados,  con  opciones  como láminas  de  aluminio  con  grabados,  tintas  que  cambian  de color,  microimpresiones,  códigos  impresos  o  electrónicos (RFID), colores personalizados y tintas con ADN añadido son lo último en  prevención contra falsificaciones.")
+        'image': '/static/quatropack/images/logotypes/10.png',
+        'name': 'logo',
     },
     {
-        "title": _("Respeta medio ambiente"),
-        "image": "7.png",
-        "text": _("Pasándose  al  sellado  por  inducción,  muchos  fabricantes pueden también reducir el grosor del aluminio y la cantidad de plástico usado en el tapón y la botella, convirtiéndolo en una  opción  de  envasado  más  respetuosa  con  el  medio ambiente  y  reducir  su  huella  de  carbono.  En  comparación con  otros  sistemas  de  sellado  utiliza  menos  energía,  lo  que hace del sellado por inducción una solución más respetuosa con el medio ambiente.")
+        'image': '/static/quatropack/images/logotypes/11.png',
+        'name': 'logo',
     },
     {
-        "title": _("Exportar más lejos"),
-        "image": "8.png",
-        "text": _("Un envase que protege mejor nos ha permitido llevar el producto más lejos y abrir nuevos mercados en óptimas condiciones. ¡Largas semanas en contenedores expuestos al sol, a la humedad o al frío se soportan mucho mejor dentro de un envase bien sellado!")
+        'image': '/static/quatropack/images/logotypes/12.png',
+        'name': 'logo',
     },
     {
-        "title": _("Aumentar facturación"),
-        "image": "9.png",
-        "text": _("Los  envases  si  están  sellados  atraen  a  más  clientes  y  aumenta  el volumen   de   negocio.   Ya   sean   nuevos   productos   a   clientes existentes  o  el  acceso  a  clientes  que  no  quieren  nada  sin  sellar, integrar  una  selladora  por  inducción  en  su  producción  puede permitirle vender más. ")
+        'image': '/static/quatropack/images/logotypes/13.png',
+        'name': 'logo',
     },
     {
-        "title": _("Imagen de marca"),
-        "image": "10.png",
-        "text": _("Ni manipulado, ni falsificado, ni abierto. La garantía que se ofrece al cliente  es  total  y  refuerza  la  imagen  de  nuestra  marca.  Un  sistema adoptado por la mayoría de grandes fabricantes a nivel mundial y todas las primeras marcas.")
+        'image': '/static/quatropack/images/logotypes/14.png',
+        'name': 'logo',
     },
     {
-        "title": _("Mantenimiento cero"),
-        "image": "11.png",
-        "text": _("Cero,  o  casi  cero.  La  más  reciente  gama  de  selladoras  por inducción  están  todas  refrigeradas  por  aire  y  no  necesitan prácticamente  ningún  mantenimiento  o  consumibles  para seguir funcionando de manera efectiva y eficiente. De hecho, algunos  de  nuestros  clientes  describen  sus  máquinas  con más  de  20  años  de  antigüedad  con  la  expresión  ‘como nueva’. Los  mínimos  costes  de  mantenimiento  y  la  reducción  de  los tiempos de parada de la línea de producción son dos de las razones   por   las   que   nuestra   gama   de   selladoras   por inducción  Enercon  es  la  elección  número  uno  en  todo  el mundo. Pocos repuestos y una larga vida útil la convierten en una inversión muy rentable.")
+        'image': '/static/quatropack/images/logotypes/15.png',
+        'name': 'logo',
     },
     {
-        "title": _("Mayor productividad"),
-        "image": "12.png",
-        "text": _("La  tecnología  de  sellado  por  inducción  recibe  frecuentes alabanzas  por  parte  de  los  jefes  de  fábrica  por  aumentar  la productividad en comparación con otros sistemas de sellado. Son  capaces  de  trabajar  a  alta  velocidad  y  eliminan  la necesidad  de  tocar  o  manipular  el  envase.  Pueden  ponerse en  marcha  y  comenzar  a  sellar  instantáneamente.  Es  muy sencillo  integrar  una  máquina  termoselladora  por  inducción en  una  línea  de  producción  ya  existente.  Simplemente  se necesita  un  metro  lineal  de  cinta  transportadora  libre.  Y como las máquinas ya vienen probadas y ajustadas, la puesta en marcha y formación se hace en apenas un par de horas.  Es  un  método  de  sellado  muy  flexible  ya  que  se  pueden sellar  muchos  diámetros  diferentes  con  la  misma  máquina, sin gastar un euro más. ¡Nadie sabe qué envases tendrá que sellar en el futuro!")
+        'image': '/static/quatropack/images/logotypes/16.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/17.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/18.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/19.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/2.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/20.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/21.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/22.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/23.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/24.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/25.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/26.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/27.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/28.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/29.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/3.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/30.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/31.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/32.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/33.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/34.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/35.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/36.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/37.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/38.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/39.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/4.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/40.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/41.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/42.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/43.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/44.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/45.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/46.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/47.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/48.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/49.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/5.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/50.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/51.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/52.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/53.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/54.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/55.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/56.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/57.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/58.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/59.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/6.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/60.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/61.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/62.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/63.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/64.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/65.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/66.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/7.png',
+        'name': 'logo',
+    },
+    {
+        'image': '/static/quatropack/images/logotypes/8.png',
+        'name': 'logo',
+    },
+]
+
+LOGOTYPES_1 = [
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/01/Arla_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/03/Shaws_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/02/Orchard_Valley_Foods_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/05/Mendez_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/05/Chemfix_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/01/Beanies_logo-1-1.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/05/Zipz_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/01/GSK_logo-1.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/02/Wyepak_logo_241x88.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/01/Millers_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/02/Opet_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/06/Clarks_logo.png',
+        'name': 'logo',
+    },
+    {
+        'image': 'https://www.enerconind.co.uk/wp-content/uploads/2017/06/Floratine_logo.png',
+        'name': 'logo',
+    },
+]
+
+DEVICES = [
+    {
+        "description":"Movilidad y ligereza.\r\nEficacia y fiabilidad.\r\nPensada para pequeñas producciones o laboratorio. Permite sellar con fiabilidad en cualquier sitio.",
+        "image":"http://quatropack.com/Quatropack/supersealjunior_files/SupersealJr.png",
+        "name":"Super Seal Junior",
+        "slug": "super-seal-junior",
+    }, 
+    {
+        "description":"Rendimiento y fiabilidad adaptado a su\r\n\r\nproducción.\r\n\r\n\r\n\r\nProducción elevada y sellado perfecto en cada envase casi sin mantenimiento.",
+        "image":"http://quatropack.com/Quatropack/superseal100_files/shapeimage_3.png",
+        "name":"Super Seal",
+        "slug": "super-seal",
+        "subtypes": [ {
+                "name": "50",
+            }, {
+                "name": "75",
+            }, {
+                "name": "100",
+            },
+        ]
+    }, 
+    {
+        "description":"Potencia bajo total control.\r\nTodos los datos bajo control para las altas producciones. La mayor potencia en el menor espacio posible. Y un sellado perfecto.",
+        "image":"http://quatropack.com/Quatropack/supersealdeluxe_files/shapeimage_3.png",
+        "name":"Super Seal Touch",
+        "slug": "super-seal-touch",
+    }, 
+    {
+        "description":"La más rápida del mercado.\r\nLas producciones más elevadas garantizando un sellado perfecto de todos los envases gracias a su exclusivo sistema de bobina doble.",
+        "image":"http://quatropack.com/Quatropack/supersealmax_files/shapeimage_9.png",
+        "name":"Super Seal Max Touch",
+        "slug": "super-seal-max-touch",
+    },
+]
+
+DEVICES_BY_SLUG = {
+    "super-seal-junior": DEVICES[0],
+    "super-seal": DEVICES[1],
+    "super-seal-touch": DEVICES[2],
+    "super-seal-max-touch": DEVICES[3],
+}
+
+REVIEWS = [
+    {
+        'person': 'Mark Leverington, Supply Chain Manager at Clarks',
+        'phrase': "We chose Enercon’s induction sealing equipment for its reputation within the industry for reliability… We have not had any issues with any of Enercon’s induction sealers since installation – not a single breakdown in over eight years. I wish other machinery would run this well.",
+        'images': [
+            "https://www.enerconind.co.uk/wp-content/uploads/2017/01/Clarks_syrups.png",
+            "https://www.enerconind.co.uk/wp-content/uploads/2017/06/Clarks_logo.png",
+            #"https://www.enerconind.co.uk/wp-content/uploads/2017/01/TAMPER_EVIDENCE_1A.png", #404
+        ],
+    },
+    {
+        'person': 'Darryl King, Director of Operations for Floratine',
+        'phrase': "You can’t put a price tag on dependability. Customer complaints are nearly eliminated and 99% of our problems were solved with the induction sealer – it was a godsend.",
+        'images': [
+            "https://www.enerconind.co.uk/wp-content/uploads/2017/01/Floratine_product.png",
+            "https://www.enerconind.co.uk/wp-content/uploads/2017/06/Floratine_logo.png",
+        ],
+    },
+    {
+        'person': 'Paul Banks, Purchasing and Supply Director at Chemfix',
+        'phrase': "I would recommend Enercon Industries to other manufacturers, both for product performance and the benefits gained from the use of its sealing equipment.",
+        'images': [
+            'https://www.enerconind.co.uk/wp-content/uploads/2017/01/Chemfix_product.png',
+            'https://www.enerconind.co.uk/wp-content/uploads/2017/05/Chemfix_logo.png',
+        ],
+    },
+    {
+        'person': 'Peter Lauritzen, CEO of Arla Foods UK',
+        'phrase': "The size and scale of our new dairy reinforces Arla’s leadership within the UK dairy industry and we have drawn a line in the sand when it comes to next generation fresh milk processing.",
+        'images': [
+            "https://www.enerconind.co.uk/wp-content/uploads/2017/01/Arla_product.png",
+            "https://www.enerconind.co.uk/wp-content/uploads/2017/01/Arla_logo.png",
+            #"https://www.enerconind.co.uk/wp-content/uploads/2017/05/TAMPER_EVIDENCE.png",
+        ],
     },
 ]

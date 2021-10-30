@@ -1,111 +1,66 @@
-{% extends "quatropack/base.html" %}
-
+﻿{% extends "quatropack/base.html" %}
 {% load static i18n %}
 
-{% block styles %}{{ block.super }}
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/loading-arc.sass' %}" />
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/index.sass' %}" />
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/products.sass' %}" />
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack/styles/logotypes2.sass' %}" />
-{% endblock styles %}
-
-{% block html_title %}{{ block.super }}/{% trans 'home' %}{% endblock %}
+{% block styles %}
+    {{ block.super }}
+        <link rel="stylesheet" type='text/css'
+            href="{% static 'quatropack/styles/qp-loading.css' %}">
+{% endblock %}
 
 {% block content %}
-    {# products peeled #}
-    <div class="qp-sector-body-uno">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-lg-3">
-                    <div class="ml-auto d-none d-md-block qp-products-peeled">
-                        <div class="qp-image"></div> 
-                    </div>
-                    <div class="m-auto d-block d-md-none qp-products-peeled">
-                        <div class="qp-image"></div> 
-                    </div>
-                    <br>
-                </div>
-                <div class="col-sm-12 col-md-8 col-lg-9 d-flex">
-                    <div class="d-md-block text-left align-self-center">
-                        <h3 class="qp-title qp-title-1"><b>{% trans 'Sellamos cada envase.' %}</b></h3>
-                        <div class="qp-title qp-title-2 text-justify">
-                            <span class="qp-quatropack"><b>quatro</b>pack</span>, {% trans 'especialista en sellado por inducción de envases para la industria. Distribuidor oficial Enercon para España y Portugal.' %}
-                            <a class='_qp-button' href="{% url 'quatropack:machines' %}">{% trans 'Ver nuestras selladoras.' %}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    {% include 'quatropack/products.html' %}
-    
-    <br>
-    
-    {% include 'quatropack/logotypes2.html' %}
+<div class="qp-loading">
+    <div class="qp-indicator"></div>
+</div>
 
-    <br>
-    <br>
-    <div class="container">
-        <hr class="w-50">
-    </div>    
+<div class="qp-main-container container">
+    <h1 class='qp-title'>
+        Los especialistas en sellado
+    </h1>
+    <h2>
+        quatropack es el líder en soluciones de sellado para la industria alimentaria, química y agroquímica, de automoción, cosmética y farmaceútica.
+    </h2>
     
-    {# short benefits #}
-    <div class="qp-sector-body-dos">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col">
-                    <img src="{% static '/quatropack/images/benefits/1.png' %}" 
-                            alt="{% trans 'Prevenir las fugas' %}">
-                    <h4 class="qp-title">
-                        {% trans 'Prevenir las fugas' %}
-                    </h4>
-                    <div class="qp-text">
-                        {% trans 'El sellado por inducción garantiza un envase estanco que puede soportar una considerable presión. Y seguirá herméticamente cerrado durante su almacenamiento, durante el transporte o antes de su uso por el consumidor.' %}
-                        <span> {% trans 'Más información' %} <a href="{% url 'quatropack:benefits' %}#benefit-1">{% trans 'aquí' %}</a>.</span>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="{% static '/quatropack/images/benefits/2.png' %}" 
-                            alt="{% trans 'Alargar la caducidad' %}">
-                    <h4 class="qp-title">
-                        {% trans 'Alargar la caducidad' %}
-                    </h4>
-                    <div class="qp-text">
-                        {% trans 'Protegido en un ambiente hermético, el contenido se conserva dentro del envase en unas condiciones óptimas durante más tiempo. En algunos casos hasta 12 semanas.' %}
-                        <span> {% trans 'Más información' %} <a href="{% url 'quatropack:benefits' %}#benefit-2">{% trans 'aquí' %}</a>.</span>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="{% static '/quatropack/images/benefits/3.png' %}" 
-                            alt="{% trans 'Mantener la frescura' %}">
-                    <h4 class="qp-title">
-                        {% trans 'Mantener la frescura' %}
-                    </h4>
-                    <div class="qp-text">
-                        {% trans 'Todas las propiedades se mantienen intactas en un ambiente donde nada entra y nada sale, preservando aquello que distingue su producto de los demás.' %}
-                        <span> {% trans 'Más información' %} <a href="{% url 'quatropack:benefits' %}#benefit-3">{% trans 'aquí' %}</a>.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <br>
+    <br>
+    <br>
+    <!--<h4>examples</h4>-->
+    <div class="qp-carousel-examples owl-carousel owl-theme _row">
+        {% for item in examples %}
+            <a class='' href="{% url 'quatropack:devices' %}?is_examples=true">
+                <div class="item">
+                    <img class="" alt="{{ item.name }}"
+                            src="{{ item.image }}">
+                </div> 
+            </a>
+        {% endfor %}
     </div>
+    <br>
+    <br>
     <!--
+    <h4>benefits</h4>    
+    <hr>
     -->
-    <div class="qp-loading">
-        <div class="qp-indicator mx-auto"></div>
-        <div class="qp-text text-center"><span class="qp-quatropack"><b>quatro</b>pack</span</div>
-    </div>
+    <a class='' href="{% url 'quatropack:benefits' %}">
+        <div class="qp-carousel-benefits owl-carousel owl-theme _row">
+            {% for item in benefits %}
+                <div class='item'>
+                    <img class="" alt="{{ item.name }}"
+                            src="{{ item.image }}">
+                </div>
+            {% endfor %}
+        </div>
+    </a>
+    <br>
+    <br>
+    <a class='' href="{% url 'quatropack:clients' %}">
+        <div class="qp-carousel-logotypes owl-carousel owl-theme _row">
+            {% for item in logotypes %}
+                <div class='item'>
+                    <img class="" alt="{{ item.name }}"
+                            src="{{ item.image }}">
+                </div>
+            {% endfor %}
+        </div>
+    </a>
+</div>
 {% endblock content %}
-
-{% block scripts %}{{ block.super }}
-    <script src="{% static 'quatropack/scripts/loading-arc.js' %}"></script>
-    <script src="{% static 'quatropack/scripts/index.js' %}"></script>
-    <script src="{% static 'quatropack/scripts/products.js' %}"></script>
-    <script src="{% static 'quatropack/scripts/logotypes.js' %}"></script>
-{% endblock scripts %}

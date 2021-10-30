@@ -1,0 +1,133 @@
+﻿[
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"Sellado perfecto para envases con tapones a rosca. Las termoselladoras por inducción de Enercon proporcionan ventajas importantes para el consumidor, el fabricante y el producto. Quatropack es el distribuidor exclusivo de Enercon en España. Enercon es el líder del sector del sellado por inducción.",
+        "id":1,
+        "image_path":"http://quatropack.com/Quatropack/index_files/sellado%20por%20induccion.png",
+        "is_disabled":false,
+        "name":"Termosellado por inducción",
+        "parent_id":null,
+        "type":0
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"... Soluciones de llenado y termosellado para diferentes envases de plástico y aluminio destinados a alimentación, alimentos para mascotas y productos farmacéuticos. Quatropack es el distribuidor exclusivo de Rychiger en España. Rychiger es el líder mundial en esta tecnología.",
+        "id":2,
+        "image_path":"http://quatropack.com/Quatropack/index_files/bandeja%20aluminio%20sellada%20por%20conduccion.jpg",
+        "is_disabled":false,
+        "name":"TPS Top pressure seal",
+        "parent_id":null,
+        "type":0
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"esperais 2019",
+        "id":3,
+        "image_path":"http://juancarloscasco.emprendedorex.com/wp-content/uploads/2015/11/innovacion.jpg",
+        "is_disabled":true,
+        "name":"innovaciones",
+        "parent_id":null,
+        "type":0
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"Rendimiento y fiabilidad adaptado a su\r\n\r\nproducción.\r\n\r\n\r\n\r\nProducción elevada y sellado perfecto en cada envase casi sin mantenimiento.",
+        "id":4,
+        "image_path":"http://quatropack.com/Quatropack/superseal100_files/shapeimage_3.png",
+        "is_disabled":false,
+        "name":"Super Seal 100",
+        "parent_id":1,
+        "type":1
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"Automatice su producción. \r\nLa automática para pequeñas producciones y sellado perfecto en cada envase casi sin mantenimiento.",
+        "id":5,
+        "image_path":"http://quatropack.com/Quatropack/superseal50_files/shapeimage_3.png",
+        "is_disabled":false,
+        "name":"Super Seal 50",
+        "parent_id":1,
+        "type":1
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"123123",
+        "id":6,
+        "image_path":"http://quatropack.com/Quatropack/Termoselladoporinduccion_files/shapeimage_16.png",
+        "is_disabled":false,
+        "name":"1",
+        "parent_id":2,
+        "type":3
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"Rendimiento y fiabilidad adaptado a su producción.\r\nProducciones medio-altas y la garantía de sellado perfecto en cada envase casi sin mantenimiento.",
+        "id":7,
+        "image_path":"http://quatropack.com/Quatropack/superseal75_files/shapeimage_3.png",
+        "is_disabled":false,
+        "name":"Super Seal 75",
+        "parent_id":1,
+        "type":1
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"Movilidad y ligereza.\r\nEficacia y fiabilidad.\r\nPensada para pequeñas producciones o laboratorio. Permite sellar con fiabilidad en cualquier sitio.",
+        "id":8,
+        "image_path":"http://quatropack.com/Quatropack/supersealjunior_files/SupersealJr.png",
+        "is_disabled":false,
+        "name":"Super Seal Junior",
+        "parent_id":1,
+        "type":1
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"Potencia bajo total control.\r\nTodos los datos bajo control para las altas producciones. La mayor potencia en el menor espacio posible. Y un sellado perfecto.",
+        "id":9,
+        "image_path":"http://quatropack.com/Quatropack/supersealdeluxe_files/shapeimage_3.png",
+        "is_disabled":false,
+        "name":"Super Seal Touch",
+        "parent_id":1,
+        "type":1
+    },
+    {
+        "_state":{
+            "adding":false,
+            "db":"default"
+        },
+        "description":"La más rápida del mercado.\r\nLas producciones más elevadas garantizando un sellado perfecto de todos los envases gracias a su exclusivo sistema de bobina doble.",
+        "id":10,
+        "image_path":"http://quatropack.com/Quatropack/supersealmax_files/shapeimage_9.png",
+        "is_disabled":false,
+        "name":"Super Seal Max Touch",
+        "parent_id":1,
+        "type":1
+    }
+]
+

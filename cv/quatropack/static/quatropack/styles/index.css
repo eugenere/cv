@@ -1,1 +1,481 @@
-.qp-header-dark{box-shadow:rgba(0,0,0,0.5) 0 2px 3px}.qp-sector-body-uno{background-color:#e6e6e6;margin-top:-3.5em;padding-top:2em;padding-bottom:2em}.qp-sector-body-uno .qp-title-1{margin-bottom:.5em;font-size:48px;font-weight:900}.qp-sector-body-uno .qp-title-2{margin-bottom:1.7em;font-size:25px;font-weight:400;color:#4a4a4a}.qp-sector-body-uno .qp-products-peeled{box-shadow:0px 0px 0.01em rgba(0,0,0,0.5);height:15.96em;width:10.64em;background-color:white}.qp-sector-body-uno .qp-products-peeled .qp-image{background-image:url("../../quatropack/images/products-peeled/0.png");background-size:100%;height:15.96em;width:10.64em}.qp-sector-body-dos{margin-top:3em}.qp-sector-body-dos .qp-title{color:#71a5d4;font-size:26px;font-weight:700;padding-top:1em;padding-bottom:1em}.qp-sector-body-dos .qp-text{font-size:17px;font-weight:300;color:#656565;text-align:justify}.qp-sector-body-dos img{width:8em}
+body {
+    margin-top: 6em;
+    /*
+    margin-bottom: 3em;
+    background-color: lightgray;
+    background-image: url(https://www.enerconind.co.uk/wp-content/uploads/2017/01/Introducing-Induction-Sealing-1.jpg);
+    min-width: 410px;
+        margin-bottom: 7em;
+    */
+}
+
+@media (max-width: 576px) {
+    body {
+        margin-top: 8em;
+    }
+}
+
+* {
+    /*
+    border-radius: 0!Important;
+    */
+    border-radius: 3px!Important;
+}
+
+/*
+a {
+    color: #222;
+}
+
+a:hover {
+    color: gray;
+}
+*/
+
+.qp-right {
+    text-align: right;
+    /* display: inline; */
+    position: absolute;
+    right: 2rem;
+    bottom: 50%;    
+}
+/*
+.qp-main-container {
+    
+}
+
+.qp-nav, .qp-container, .qp-main-container {
+    /*
+    min-width: 300px;
+    * /
+}
+*/
+.qp-row {
+    box-shadow: 0 0 1em black;
+    background-color: white;
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .qp-nav {
+        /*zoom: 150%;*/
+    }
+}
+
+@media (max-width: 768px) {
+    .qp-nav {
+        /*zoom: 120%;*/
+    }
+}
+
+.qp-nav {
+    box-shadow: rgba(0,0,0,.117647) 0 1px 3px;
+    padding: 1em 0;
+}
+
+.qp-nav .nav-link, .qp-nav-menu .nav-link {
+    text-transform: capitalize;
+}
+
+.qp-nav, .qp-nav-menu {
+    background-color: rgba(255,255,255,1);
+    z-index: 200!Important; 
+   /*
+    border-bottom: 1px solid black;
+    box-shadow: 0 0 1em black;
+    background-color: rgba(255,255,255,0.7);
+    zoom: 150%;
+    box-shadow: none, none, 0 0 1em black;
+    zoom: 1.1;
+    */
+}
+
+.qp-brand, .qp-brand>b {
+    font-family: arial!important;
+}
+
+.qp-brand:hover {
+    /*
+    text-shadow: 1px 1px 0.5em black;
+    text-shadow: 0 0 2em black;
+    text-decoration: underline;
+    */
+}
+
+.qp-link {
+    color: #222;
+    text-transform: capitalize;
+}
+
+.qp-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.qp-card {
+    border: none;
+}
+/*
+.qp-card p {
+    
+}
+*/
+.qp-card a.btn {
+    right: 1em;
+    bottom: 0em;
+    position: absolute;
+}
+/*
+.qp-col:nth-child(even) {
+    background-color: black;
+    color: white;
+}
+*/
+.qp-col {
+    background-color: white;
+    color: black;
+}
+
+/*
+.qp-col:nth-child(even) .qp-card {
+    background-color: black;
+}
+*/
+
+.qp-col .qp-link:hover {
+    text-decoration: none;
+}
+
+/*
+.qp-col:nth-child(even) .qp-link {
+    color: lightgray;
+}
+
+.qp-col:nth-child(even) .qp-link:hover {
+    color: white;
+}
+
+.qp-col:nth-child(odd) .qp-link {
+    color: #222;
+}
+
+.qp-col:nth-child(odd) .qp-link:hover {
+    color: black;
+}
+*/
+
+.qp-tabs>.nav {
+    margin-right: 1rem;
+}
+
+.qp-tabs .nav-item {
+    margin-left: 0.3rem;
+}
+
+.qp-tabs .nav-link {
+    border-top: 3px solid #ccc;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    
+    padding-top: 0.3em;
+    z-index: 0;
+    /*
+    vertical-align: 5px;
+    box-shadow: inset 0 -10px 10px -10px #888;
+    */
+    box-shadow: inset 0 -10px 10px -10px #888, 0 0 0.5em black;
+    background-color: #ccc;
+    color: #555;
+}
+
+.qp-tabs .nav-link.active {
+    box-shadow: 0 -0.1rem 1rem black;
+    color: black;
+    border-top: 3px solid white;
+}
+
+.qp-tabs .nav-link:hover {
+    border-top: 3px solid white;
+    /*
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    */
+}
+
+.qp-tabs {
+    margin-left: -0.9rem;
+    margin-right: -0.9rem;
+    /*
+    padding-top: 1em;
+    padding-top: 1em;
+    */
+}
+
+.qp-industry-short {
+    background-color: white!important;
+    /*
+    */
+    color: black;
+}
+
+.qp-industry-short img {
+    /*
+    background: radial-gradient(#000, #fff);
+    */
+    background-color: black;
+}
+
+.qp-industry-short * {
+    color: black;
+}
+/*
+.qp-customer-short {
+
+}
+*/
+.qp-person {
+    float: right;
+}
+
+.qp-industry {
+    font-size: 150%;
+}
+
+
+@media (min-width: 768px) {
+    /*
+    .qp-lang-dd {
+        
+    }
+    .qp-footer {
+        height: 24px;
+    }
+    */
+}
+/*
+@media (max-width: 768px) {
+    .qp-lang-dd {
+        /*
+        right: auto;
+        left: 0.6em;
+        * /
+    }
+}
+*/
+@media (max-width: 576px) {
+    /*
+    .qp-footer {
+        height: 48px;
+    }
+    */
+}
+
+.qp-footer {
+    /*
+    */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 0.01em solid gray;
+    /*
+    height: 24px;
+    line-height: 60px;
+    background-color: rgba(255,255,255,0.7);
+    font-style: bold;
+    background-color: rgba(0,0,0,0.7);
+    background-color: #282a2b;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    */
+    z-index: 50;
+    background-color: #101418;
+    color: #bfbfbf;
+    border-radius: 0!important;
+}
+
+.qp-ex-col {
+    background-color: black;
+}
+
+.qp-bg-color {
+    background-color: black;
+
+}
+
+.qt-tech-btn {
+    font-variant: small-caps;
+}
+
+.qt-tech-btn:hover {
+    background-color: white;
+    color: black;
+    text-shadow: 0 0 2em black;
+}
+
+.qp-to-top:hover {
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.qp-to-top {
+    background-color: rgba(255,255,255,0.3);
+    display: none;
+    
+    z-index: 100;
+    
+    zoom: 200%;
+    position: fixed;
+    bottom: 1em;
+    right: 0.5em;
+    
+    padding-left: 0.4em;
+    padding-top: 0.1em;
+    
+    color: white;
+    text-shadow: 1px 1px 0.5em black;
+    
+    display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%!important;
+    border: 1px solid black;
+}
+
+#content-top {
+    position: absolute;
+    top: 0;
+}
+
+.qp-tech-name {
+    font-variant: small-caps;
+    text-decoration: underline;
+}
+
+body>img.qp-body-back {
+    position: fixed;
+    z-index: -100;
+    bottom: -1em;
+    height: 200%;
+    /*
+    top: -20em;
+    background-repeat: repeat-y;
+    background-image: url("/static/quatropack/images/Enercon_S2_001_Full.png");
+    width:200px;
+    */
+}
+
+.qp-links a{
+    color: black;
+}
+
+.qp-links a:hover {
+    color: darkgray;
+}
+/*
+.qp-info {
+    /*
+    box-shadow: 0 0 1em black;
+    margin-right: -15px;
+    margin-left: -15px;
+    * /
+}
+*/
+
+/*
+.qp-carousel-examples img {
+    /*
+    width: 200px;
+    * /
+}
+*/
+
+/*
+.qp-carousel-examples {
+    /*
+    width: 840px;
+    background-color: red;
+    * /
+}
+*/
+
+/*
+.qp-carousel-benefits .active:nth-child(1) img, 
+.qp-carousel-benefits .active:nth-child(3) img {
+    filter: grayscale(0.5) blur(10px);    
+}
+
+.qp-carousel-benefits .active:nth-child(2) img {
+    zoom: 120%;
+}
+*/
+
+/*
+.qp-carousel-logotypes .owl-item.pos_1 img, .qp-carousel-logotypes .owl-item.pos_5 img {
+    filter: grayscale(75%) opacity(50%)!important;
+}
+.qp-carousel-logotypes .owl-item.pos_1, .qp-carousel-logotypes .owl-item.pos_5 {
+    zoom: 50%;
+    margin: 7em;
+}
+*/
+
+/*
+@media (min-width: 1000px) {
+    .qp-carousel-logotypes .owl-item {
+        padding: 5em;
+    }
+    .qp-carousel-logotypes .owl-item.pos_2,
+    .qp-carousel-logotypes .owl-item.pos_4 {
+        padding: 3em;
+    }
+    .qp-carousel-logotypes .owl-item.center {
+        padding: 0;
+    }
+}
+
+.qp-carousel-logotypes .owl-item img {
+    filter: grayscale(75%) opacity(50%);
+}
+*/
+/*
+.qp-carousel-logotypes .owl-item {
+    /*
+    zoom: 50%;
+    margin: 7em;
+    padding: 5em;
+    * /
+}
+*/
+
+.qp-carousel-logotypes .owl-item.pos_2 img, .qp-carousel-logotypes .owl-item.pos_4 img {
+    filter: grayscale(25%) opacity(75%)!important;
+}
+
+/*
+.qp-carousel-logotypes .owl-item.pos_2, .qp-carousel-logotypes .owl-item.pos_4 {
+    /*
+    zoom: 75%;
+    margin: 2.6em;
+    padding: 3em;
+    * /
+}
+*/
+
+.qp-carousel-logotypes .owl-item.center img {
+    filter: grayscale(0) opacity(100%)!important;
+}
+
+/*
+.qp-carousel-logotypes .owl-item.center {
+    /*
+    zoom: 100%;
+    margin: 0;
+    padding: 0;
+    * /
+}
+*/
+
+.qp-carousel-logotypes>.owl-stage-outer {
+    overflow: hidden;
+}

@@ -1,0 +1,63 @@
+@import variables
+
+.qp-footer
+    color: #848484
+    
+    a
+        color: #b7b7b7
+        &:hover
+            //color: #dadada
+            color: $light-color
+            text-decoration: none
+            
+    .qp-footer-top
+        background-color: $footer-top-color
+        font-size: 70%
+        padding:
+            top: 3em
+            bottom: 3em
+        .mail-link
+            margin-right: -.2em
+            
+        .qp-footer-center
+            //font-size: 120%
+
+            .qp-logo-dark
+                width: 100px
+                height: 16px
+                background:
+                    image: url("../../quatropack2/images/quatropack_logo_dark.png")
+                    size: 100%
+                &:after
+                    content: url("../../quatropack2/images/quatropack_logo_dark_hover.png") 
+                    display: none
+                &:hover
+                    //margin-top: -.1015em
+                    //margin-left: -.04em
+                    background-image: url("../../quatropack2/images/quatropack_logo_dark_hover.png") 
+
+            img
+                height: 15px
+                margin-top: -0.3em
+
+        
+    .qp-footer-bottom
+        background-color: $footer-bottom-color
+        border-top: 0.01em solid #505050
+        font-size: 60%
+        padding:
+            top: 2.5em
+            bottom: 2.5em
+
+        a:first-letter
+            text-transform: capitalize
+
+        .qp-privacy-links
+            padding-top: .7em
+        .qp-media-links
+            font-size: 170%
+            //margin-top: -0.2em
+            a
+                margin-left: .7em
+
+                

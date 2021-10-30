@@ -1,0 +1,85 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/products.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/logotypes2.sass' %}" />
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'quatropack2/styles/machine.sass' %}" />
+    {% endcompress %}
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="qp-machine">
+            <div class="qp-controls text-right">
+                <ul class="nav nav-tabs justify-content-end">
+                    <li class="nav-item mr-1">
+                        <a class="nav-link active" href="#details" 
+                                id="details-tab" aria-controls="details"
+                                data-toggle="tab" role="tab" aria-selected="true">
+                            {% trans "Características" %}
+                        </a>
+                    </li>
+                    <li class="nav-item mr-1">
+                        <a class="nav-link" href="#dimesions" id="dimesions-tab" role="tab"
+                                data-toggle="tab" aria-controls="dimesions" aria-selected="true">
+                            {% trans "Dimensiones" %}</a>
+                    </li>
+                    <li class="qp-catalog">
+                        <a href="#"><i class="far fa-file-pdf"></i></a>{% trans 'Catálogo' %}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="qp-tab-panes tab-content">
+                <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+                    <div class="qp-details">
+                        <div class="row">
+                        {% for image in machine.details.images %}
+                            <div class="col-xs-12 col-sm-6 text-center">
+                                <img src="{% static 'quatropack2/images/machines/super_seal/' %}{{ image }}"
+                                        width="300" height="150" alt="{{ machine.name }}"/>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        <div class="qp-info">
+                            {{ machine.short }}
+                        </div>
+                        <div class="qp-description">
+                            {{ machine.desc }}
+                        </div>
+                        {{ machine.desc }}
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="dimesions" role="tabpanel" aria-labelledby="dimesions-tab">
+                    <div class="qp-dimesions">
+                        <br>
+                        <div class="row">
+                        {% for image in machine.demensions.images %}
+                            <div class="col-xs-12 col-sm-6 text-center">
+                                <img src="{% static 'quatropack2/images/machines/super_seal/' %}{{ image }}"
+                                        width="300" height="150" alt="{{ machine.name }}"/>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'quatropack2/products.html' %}
+    {% include 'quatropack2/logotypes2.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+{% endblock scripts %}
+

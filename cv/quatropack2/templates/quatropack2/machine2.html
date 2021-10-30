@@ -1,0 +1,126 @@
+{% extends "quatropack2/base.html" %}
+
+{% load static i18n %}
+
+{% block styles %}{{ block.super }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/products.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/logotypes2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'quatropack2/styles/machine2.css' %}" />
+{% endblock styles %}
+
+{% block html_title %} {{ block.super }} {{ machine.name }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="qp-machine">
+            <div class="text-center qp-titles">
+                <div class="qp-title">
+                    Super Seal™ Max induction cap sealer
+                </div>
+                <div class="qp-subtitle pr-4">
+                    A touch of excellence
+                </div>
+            </div>
+            <div class="qp-machine-content clearfix">
+                <div class="qp-media">
+                    <div class="fotorama p-3"
+                            data-transition="dissolve"
+                            data-nav="thumbs"
+                            data-autoplay="true"
+                            data-loop="true"
+                            data-allowfullscreen="true">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}enercon 67982_b.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}2.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}ssm_draft.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}shapeimage_9.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}enercon 68008_b.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}Max-cutout.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}Max-Side.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}Max-Touch-Side.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}Max-touch2.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}SSMaxleft.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}Super Seal Max.png">
+                        <img src="{% static 'quatropack2/images/machines/super_seal/max/' %}Super Seal Max High Res.png">
+                    </div>
+                </div>
+                <div class="qp-text">
+                    The Super Seal™ Max is the latest development in the Super Seal™ Touch range of equipment.
+
+                    This dual coil induction cap sealer offers increased power and a multi-language touch screen for a simpler operation.
+
+                    As one of the fastest in-line sealers on the market, the Super Seal™ Max is designed for high speed applications in the packaging industry.
+
+                    This advanced induction cap sealer delivers reliable sealing with a diverse operating window that compensates for cap, liner and container tolerance variations.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qp-subtext">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 mt-3">
+                    <h3 class="qp-subtitle">System functionality</h3>
+                    <ul>
+                        <li>Multiple language selection</li>
+                        <li>Easy to use touch screen design</li>
+                        <li>Supervisory password protection with operator lockout</li>
+                        <li>Recipe management</li>
+                        <li>Internal monitoring of all critical operating data</li>
+                        <li>Container, cap and foil counters available</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 mt-3">
+                    <h3 class="qp-subtitle">Control &amp; integration options</h3>
+                    <ul>
+                        <li>Local and remote start/stop controls</li>
+                        <li>Local and remote power controls</li>
+                        <li>Remote network control and monitoring via RS485 or Ethernet</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 mt-3">
+                    <h3 class="qp-subtitle">Plus</h3>
+                    <ul>
+                        <li>Air-cooled</li>
+                        <li>Robust stainless steel fully adjustable stand for different container heights</li>
+                        <li>Seals a variety of caps ranging from 20mm – 140mm</li>
+                        <li>Fully compliant with all CE regulations</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 mt-3">
+                    <h3 class="qp-subtitle">Specifications</h3>
+                    <ul>
+                        <li>Dimensions 812 x 880 x 1600-1970 mm (WxDxH)</li>
+                        <li>Power Supply: single phase, 230V, 50Hz</li>
+                    </ul>
+                    <p>
+                        <a href="https://enerconind.co.uk/wp-content/uploads/2017/04/Super-Seal-Max-Layout-Drawing.pdf" 
+                                target="_blank" rel="noopener noreferrer">
+                            Download Layout Drawing
+                        </a>
+                    </p>                
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'quatropack2/products.html' %}
+    {% include 'quatropack2/logotypes2.html' %}
+{% endblock content %}
+
+{% block scripts %}{{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    <script src="{% static 'quatropack2/scripts/products.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/logotypes.js' %}"></script>
+    <script src="{% static 'quatropack2/scripts/machine.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+
