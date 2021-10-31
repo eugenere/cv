@@ -4,10 +4,10 @@
 }
 
 body {
-    font-family: "Montserrat";
     background: url('../images/fondo3.jpg');
     min-width: 340px;
     min-height: 340px;
+    font-family: "Montserrat";
     /*
     overflow-x: hidden;
     z-index: 1;

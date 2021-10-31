@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../ahorra_energia/fonts/Montserrat/Montserrat-Light.ttf");
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -6,9 +11,11 @@ body{
     font: sans-serif;
     font: arial;
     font: caption;
-    */
-    position: relative;
+    font-family: 'Clarkson',Helvetica,sans-serif;
     background: url(/static/curriculum/ppl5.jpg);
+    */
+    font-family: 'Clarkson',Helvetica,sans-serif !important;
+    position: relative;
     background-attachment: fixed;
 }
 main {
@@ -25,6 +32,10 @@ main>div{
 }
 #personales img {
     width: 80%;
+}
+#personales .row>.col:nth-of-type(1){
+    font-family: "Montserrat";
+    font-weight: 900;
 }
 #up{
     position: fixed;

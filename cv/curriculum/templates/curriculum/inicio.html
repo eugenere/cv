@@ -22,7 +22,6 @@
     <link rel="icon" type="image/png" href="{% static 'curriculum/images/cv.ico' %}">
         
     <style>
-        
     </style>
 </head>
 <body>
@@ -75,7 +74,7 @@
             <div id="personales" class="row">
                 <div class="col-4">
                     <h2>Datos personales</h2>
-                    <img src="/static/curriculum/soyyo.jpg"/>                    
+                    <img src="{% static 'curriculum/soyyo.jpg' %}"/>                    
                 </div>
                 <div class="col-8">
                     
@@ -345,9 +344,11 @@
                         <li>
                             <a href="{% static 'otros/hex/i.html' %}">Otro/Animación</a>
                         </li>
+                        <!--
                         <li>
                             <a href="{% static 'otros/ventanas/index.html' %}">Ventanas</a>
                         </li>
+                        -->
                     </ul>
                 </div>
             </div>
@@ -387,9 +388,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="/static/comun/js/TextPlugin.min.js"></script>
     <script src="/static/comun/js/SplitText3.min.js"></script>
-    -->
     <script src="/static/comun/gsap/gsap.min.js"></script>
     <script src="/static/comun/js/TextPlugin.min.js"></script>
+    -->
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
