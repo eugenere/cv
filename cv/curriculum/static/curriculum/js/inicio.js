@@ -46,7 +46,9 @@ document.body.onload=()=>{
     let y = now.getFullYear()-was.getFullYear();y=was.getMonth()<now.getMonth()?y:y-1
     let m = now.getMonth()-was.getMonth();m=m<0?12+m:m
     let d = now.getDate()-was.getDate();
-    $("#edad").text(y+" años "+m+" meses "+d+" dias")            
+    let MONTHES_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    d = d>0?d:MONTHES_DAYS[now.getMonth()]+d
+    $("#edad").text(y+" años "+m+" meses "+d+" dias")
     
     let navs = $("#navbarCollapse a")
     navs.click((e)=>{

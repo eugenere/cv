@@ -141,6 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #STATIC_URL = 'https://eugenere.000webhostapp.com/static/'
+#STATIC_URL = 'http://eugenere.atwebpages.com/static/'
 
 STATIC_ROOT = BASE_DIR / 'static'
 
